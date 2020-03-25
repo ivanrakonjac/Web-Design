@@ -1,0 +1,28 @@
+.zaglavlje{
+	background-color: #252525;
+	color: #ffc305;
+	font-weight: bold;
+	padding: 2%;
+}
+
+.kontejner{
+	margin: 5%;
+}
+
+.kontForma{
+	background-color: #252525;
+	border-radius: .25rem;
+}
+
+.labela{
+	color:#ffc305;
+}
+
+.registrujMeDugme{
+	margin-top: 15px;
+	padding: 3%;
+	background-color:#ffc305;
+	color:  #252525;
+	border-radius: .25rem;
+	border-color: #252525;
+}
