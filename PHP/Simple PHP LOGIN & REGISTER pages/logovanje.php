@@ -4,10 +4,10 @@
 	//connect to the server and select database
 	$db=mysqli_connect("localhost","root","","login");
 
-	$username = mysqli_real_escape_string($db,$_POST['username']);
+	$username = mysqli_real_escape_string($db,$_SESSION['username']);
 	echo "$username<br>";
 
-	$password = mysqli_real_escape_string($db,$_POST['password']);
+	$password = mysqli_real_escape_string($db,$_SESSION['password']);
 	echo "$password<br>";
 
 	$query="SELECT * FROM users WHERE username='$username' AND password='$password'";
