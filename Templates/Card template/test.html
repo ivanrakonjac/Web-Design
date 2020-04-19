@@ -4,6 +4,8 @@
 	<title>PROBA</title>
 
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -11,12 +13,6 @@
   	<script src="mojScript.js"></script>
 
 	<style>
-		@media screen and (min-width:800px) {
-			.kontejner{
-	          background-color: red;
-	          padding: 20px;
-	          color:white;
-	        }
 	        .red{
 	          background-color: white;
 	          padding: 0px;
@@ -29,97 +25,104 @@
 	        }
 	        .prikaziViseManjeDugme{
 	          background-color: #ffc100;
+	          padding: 15px;
+	          font-weight: bold;
+	          font-size: 15px;
+	          margin: 0 5px 0 5px;
 	        }
 	        .centered {
 			  position: absolute;
-			  top: 40%;
+			  top: 50%;
 			  left: 50%;
 			  transform: translate(-50%, -50%);
 			}
 			.kratkiText{
 				color:white;
-				font-size: 18px;
+				font-size: 15px;
 			}
-		}
-
-		@media screen and (max-width:600px) {
-			.kratkiText{
-				color:white;
-				font-size: 35px;
+			.facebookIkonica{
+				display: none;
+				width: 50px;
+				height: 50px;
 			}
-		}
+			.grbKluba{
+				width: 100px;
+				height: 100px;
+			}
 	</style>
 
 </head>
 <body>
 
-	
-		
+	<div class="container-fluid">
 		<div class="row red">
 		  		<div class="col-12"><h2>PROBA NASLOV</h2></div>
 
-		   		<div class="col-md-3 col-sm-12 kolona">
-		   			<img src="grb.png" onmouseover="povecajOpacity('prvi')" onmouseout="smanjiOpacity('prvi')" id="prviGrb">
-		   			<div class="centered">
-		   					<a href="https://www.facebook.com" target="_blank">
-		   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" width="100px;" height="100px;" style="display: none;" id="prviFacebookIkonica">
-		   					</a>
+		   		<div class="col-md-3 col-sm-6 kolona">
+		   			<div class="col-12" style="position: relative;">
+		   				<img src="grb.png" id="prvi_Grb" class="grbKluba">
+				   			<div class="centered">
+				   					<a href="https://www.facebook.com" target="_blank">
+				   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" id="prviFacebookIkonica" class="facebookIkonica">
+				   					</a>
+				   			</div>	
 		   			</div>
 		   			
-		   			<h3>MK PANON PANCEVO</h3>
+		   			<h3 style="color: white;">MK PANON PANCEVO</h3>
 		   			<p style="display: none;" id="prviKratkiText" class="kratkiText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px;" onclick="prikazi('prvi')" id="prviPrikaziVise">PRIKAZI VISE</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px; display: none;" onclick="sakrij('prvi')" id="prviPrikaziManje">SAKRIJ TEKST</p>
+		   			<p class="prikaziViseManjeDugme" id="prvi_PrikaziVise">PRIKAZI VISE</p>
+		   			<p class="prikaziViseManjeDugme" style="display: none;" id="prvi_PrikaziManje">SAKRIJ TEKST</p>
 		   		</div>
 
-		   		<div class="col-md-3 col-sm-12 kolona">
-		   			<img src="grb.png" onmouseover="povecajOpacity('drugi')" onmouseout="smanjiOpacity('drugi')" id="drugiGrb">
-		   			<div class="centered">
-		   					<a href="https://www.facebook.com" target="_blank">
-		   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" width="50px;" height="50px;" style="display: none;" id="drugiFacebookIkonica">
-		   					</a>
+		   		<div class="col-md-3 col-sm-6 kolona">
+		   			<div class="col-12" style="position: relative;">
+		   				<img src="grb.png" id="drugi_Grb" class="grbKluba">
+				   			<div class="centered">
+				   					<a href="https://www.facebook.com" target="_blank">
+				   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" id="drugiFacebookIkonica" class="facebookIkonica">
+				   					</a>
+				   			</div>	
 		   			</div>
 		   			
-		   			<h3>MK PANON PANCEVO</h3>
+		   			<h3 style="color: white;">MK PANON PANCEVO</h3>
 		   			<p style="display: none;" id="drugiKratkiText" class="kratkiText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px;" onclick="prikazi('drugi')" id="drugiPrikaziVise">PRIKAZI VISE</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px; display: none;" onclick="sakrij('drugi')" id="drugiPrikaziManje">SAKRIJ TEKST</p>
+		   			<p class="prikaziViseManjeDugme" id="drugi_PrikaziVise">PRIKAZI VISE</p>
+		   			<p class="prikaziViseManjeDugme" style="display: none;" id="drugi_PrikaziManje">SAKRIJ TEKST</p>
 		   		</div>
 
-		   		<div class="col-md-3 col-sm-12 kolona">
-		   			<img src="grb.png" onmouseover="povecajOpacity('treci')" onmouseout="smanjiOpacity('treci')" id="treciGrb">
-		   			<div class="centered">
-		   					<a href="https://www.facebook.com" target="_blank">
-		   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" width="50px;" height="50px;" style="display: none;" id="treciFacebookIkonica">
-		   					</a>
+		   		<div class="col-md-3 col-sm-6 kolona">
+		   			<div class="col-12" style="position: relative;">
+		   				<img src="grb.png" id="treci_Grb" class="grbKluba">
+				   			<div class="centered">
+				   					<a href="https://www.facebook.com" target="_blank">
+				   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" id="treciFacebookIkonica" class="facebookIkonica">
+				   					</a>
+				   			</div>	
 		   			</div>
 		   			
-		   			<h3>MK PANON PANCEVO</h3>
+		   			<h3 style="color: white;">MK PANON PANCEVO</h3>
 		   			<p style="display: none;" id="treciKratkiText" class="kratkiText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px;" onclick="prikazi('treci')" id="treciPrikaziVise">PRIKAZI VISE</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px; display: none;" onclick="sakrij('treci')" id="treciPrikaziManje">SAKRIJ TEKST</p>
+		   			<p class="prikaziViseManjeDugme" id="treci_PrikaziVise">PRIKAZI VISE</p>
+		   			<p class="prikaziViseManjeDugme" style="display: none;" id="treci_PrikaziManje">SAKRIJ TEKST</p>
 		   		</div>
 
-		   		<div class="col-md-3 col-sm-12 kolona">
-		   			<img src="grb.png" onmouseover="povecajOpacity('cetvrti')" onmouseout="smanjiOpacity('cetvrti')" id="cetvrtiGrb">
-		   			<div class="centered">
-		   					<a href="https://www.facebook.com" target="_blank">
-		   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" width="50px;" height="50px;" style="display: none;" id="cetvrtiFacebookIkonica">
-		   					</a>
+		   		<div class="col-md-3 col-sm-6 kolona">
+		   			<div class="col-12" style="position: relative;">
+		   				<img src="grb.png" id="cetvrti_Grb" class="grbKluba">
+				   			<div class="centered">
+				   					<a href="https://www.facebook.com" target="_blank">
+				   							<img src="https://webstockreview.net/images/facebook-clipart-icom-10.png" id="cetvrtiFacebookIkonica" class="facebookIkonica">
+				   					</a>
+				   			</div>	
 		   			</div>
 		   			
-		   			<h3>MK PANON PANCEVO</h3>
+		   			<h3 style="color: white;">MK PANON PANCEVO</h3>
 		   			<p style="display: none;" id="cetvrtiKratkiText" class="kratkiText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px;" onclick="prikazi('cetvrti')" id="cetvrtiPrikaziVise">PRIKAZI VISE</p>
-		   			<p class="prikaziViseManjeDugme" style="padding: 10px; display: none;" onclick="sakrij('cetvrti')" id="cetvrtiPrikaziManje">SAKRIJ TEKST</p>
+		   			<p class="prikaziViseManjeDugme" id="cetvrti_PrikaziVise">PRIKAZI VISE</p>
+		   			<p class="prikaziViseManjeDugme" style="display: none;" id="cetvrti_PrikaziManje">SAKRIJ TEKST</p>
 		   		</div>
-
 	 	</div>
-
-
-
-
-
+	</div>
 
 </body>
 </html>

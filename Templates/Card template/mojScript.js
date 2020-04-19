@@ -1,21 +1,44 @@
-function prikazi(redniBroj){
-	document.getElementById(redniBroj+"KratkiText").style.display = "block"; 
-	document.getElementById(redniBroj+"PrikaziManje").style.display = "block"; 
-	document.getElementById(redniBroj+"PrikaziVise").style.display = "none"; 
-}
+$(document).ready(function(){
+  
+  /*
+  *funkcija za dugmad za spustanje i smanjenje teksta o klubovima
+  */
+  $(".prikaziViseManjeDugme").click(function(){
+  	//parametar dugmeta: redniBroj_PrikazVise/redniBroj_PrikazManje
+  	//parametar texta: redniBrojKratakText
 
-function sakrij(redniBroj){
-	document.getElementById(redniBroj+"KratkiText").style.display = "none"; 
-	document.getElementById(redniBroj+"PrikaziManje").style.display = "none"; 
-	document.getElementById(redniBroj+"PrikaziVise").style.display = "block"; 
-}
+  	id=this.id;
+  	redniBroj = id.split("_")[0];
+    
+    $("#"+redniBroj+"KratkiText").slideToggle("slow");
+    $("#"+redniBroj+"_PrikaziVise").toggle();
+    $("#"+redniBroj+"_PrikaziManje").toggle();
+  
+  });
 
-function povecajOpacity(redniBroj){
-	document.getElementById(redniBroj+"Grb").style.opacity=0.3;
-	document.getElementById(redniBroj+"FacebookIkonica").style.display = "inline"; 
-}
 
-function smanjiOpacity(redniBroj){
-	document.getElementById(redniBroj+"Grb").style.opacity=1.0; 
-	document.getElementById(redniBroj+"FacebookIkonica").style.display = "none"; 
-}
+
+  $(".grbKluba").mouseenter(
+  		function(){
+		  	id=this.id;
+		  	redniBroj = id.split("_")[0];
+		    $("#"+redniBroj+"FacebookIkonica").fadeIn("fast");
+  		}
+  );
+
+
+   $(".facebookIkonica").mouseenter(
+  		function(){
+		    $(this).animate({opacity: '1.0',height:'+=10px', width:'+=15px'},"fast");
+	  	}
+	);
+
+    $(".facebookIkonica").mouseleave(
+  		function(){
+		    $(this).animate({opacity: '0.0'},"slow");
+		    $(this).width(50);		    
+		    $(this).height(50);
+	  	}
+	);
+
+});
