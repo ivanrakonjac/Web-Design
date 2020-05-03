@@ -20,7 +20,8 @@ namespace Maketari.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            DateTime today = DateTime.Now;
+            return View(today);
         }
 
         public IActionResult Privacy()
