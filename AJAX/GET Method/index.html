@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<title>AJAX</title>
+
+	<script>
+		$(document).ready(function() {
+		
+			$("#btn").click(function() {
+				$.get("data.txt", function(data, status){
+					$("#test").html(data);
+					alert(status);
+				})
+			});
+		});
+	</script>
+
+</head>
+<body>
+
+	<button id="btn">Click to change</button>
+	<p id="test"></p>
+	
+</body>
+</html>
