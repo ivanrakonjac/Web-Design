@@ -5,21 +5,49 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
+	class Igrac {
+		constructor(ime) {
+		    this.ime = ime;
+		    this.matrica = new Array(10);
+		    this.inicijalizujMatricu();
+		    this.potezi = [];
+
+		    this.brodCetiri=1;
+		    this.brodTri=2;
+		    this.brodDva=3;
+		    this.brodJedan=4;
+		}
+		getName() {
+		  	console.log(this.ime);
+		    return this.name;
+		}
+		inicijalizujMatricu(){
+		  	for (var i = 0; i < this.matrica.length; i++) {
+			  	this.matrica[i] = new Array(10);
+			  	for (var j = 0; j < this.matrica.length; j++) {
+			  		this.matrica[i][j] = 0;
+				}
+			}
+		}
+		ponistiPolja(brojPolja){
+		  	for (var i = 0; i < brojPolja; i++) {
+			  	var potez = this.potezi.pop();
+				this.matrica[potez.iDeo][potez.jDeo]=0;
+				$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
+				console.log("Ponisten potez: x=" + potez.jDeo + " y=" + potez.iDeo);
+			}
+		}
+
+	}
+
 var misPritisnut = 0;
 
-var potezi = [];
 var brojacPolja=0;
 
-var matrica = new Array(10);
+var igrac1 = new Igrac("Ivan");
+console.log(igrac1.matrica);
 
-for (var i = 0; i < matrica.length; i++) {
-  	matrica[i] = new Array(10);
-  	for (var j = 0; j < matrica.length; j++) {
-  		matrica[i][j] = 0;
-	}
-}
-console.log(matrica);
-
+var trenutniIgrac = igrac1;
 
 $(document).ready(function(){
 
@@ -33,6 +61,10 @@ $(document).ready(function(){
 	$("*").mouseup(function(event) {
 		misPritisnut = 0;
 		console.log("IZABRANO POLJA: " + brojacPolja);
+		if(brojacPolja>4){
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			event.stopPropagation();
+		} 
 	});
 
 
@@ -43,9 +75,9 @@ $(document).ready(function(){
 			var i=parseInt($(this).attr('id')[0]);
 			var j=parseInt($(this).attr('id')[1]);
 			console.log("i=" + i + " j=" + j);
-			if(matrica[i][j]==1) return;
-			matrica[i][j]=1;
-			potezi.push({iDeo: i, jDeo:j});
+			if(trenutniIgrac.matrica[i][j]==1) return;
+			trenutniIgrac.matrica[i][j]=1;
+			trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
 			brojacPolja++;
 
 		}
@@ -58,17 +90,17 @@ $(document).ready(function(){
 		var i=parseInt($(this).attr('id')[0]);
 		var j=parseInt($(this).attr('id')[1]);
 		console.log("i=" + i + " j=" + j);
-		if(matrica[i][j]==1) return;
-		matrica[i][j]=1;
-		potezi.push({iDeo: i, jDeo:j});
+		if(trenutniIgrac.matrica[i][j]==1) return;
+		trenutniIgrac.matrica[i][j]=1;
+		trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
 		brojacPolja++;
 		event.stopPropagation();
 
 	});
 
 	$("#ispisMatrica").click(function() {
-		for (var i = 0; i < matrica.length; i++) {
-	  		console.log(matrica[i]);
+		for (var i = 0; i < trenutniIgrac.matrica.length; i++) {
+	  		console.log(trenutniIgrac.matrica[i]);
 		}
 	});
 
@@ -77,13 +109,13 @@ $(document).ready(function(){
 	});
 
 	$("#ispisPoteza").click(function() {
-		console.log(potezi);
+		console.log(trenutniIgrac.potezi);
 	});
 
 	$("#vratiPotez").click(function() {
-		if(potezi.length!=0){
-			var potez = potezi.pop();
-			matrica[potez.iDeo][potez.jDeo]=0;
+		if(trenutniIgrac.potezi.length!=0){
+			var potez = trenutniIgrac.potezi.pop();
+			trenutniIgrac.matrica[potez.iDeo][potez.jDeo]=0;
 			$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
 			console.log(potez);
 		}
