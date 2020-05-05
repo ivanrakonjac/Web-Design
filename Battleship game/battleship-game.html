@@ -32,11 +32,219 @@
 		ponistiPolja(brojPolja){
 		  	for (var i = 0; i < brojPolja; i++) {
 			  	var potez = this.potezi.pop();
-				this.matrica[potez.iDeo][potez.jDeo]=0;
-				$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
-				console.log("Ponisten potez: x=" + potez.jDeo + " y=" + potez.iDeo);
+			  	this.matrica[potez.iDeo][potez.jDeo]--;
+			  	if(this.matrica[potez.iDeo][potez.jDeo]==0){
+			  		this.matrica[potez.iDeo][potez.jDeo]=0;
+					$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
+					console.log("Ponisten potez: x=" + potez.jDeo + " y=" + potez.iDeo);
+			  	}
 			}
 		}
+
+		getBrojBrodCetiri(){
+			return this.brodCetiri;
+		}
+		getBrojBrodTri(){
+			return this.brodTri;
+		}
+		getBrojBrodDva(){
+			return this.brodDva;
+		}
+		getBrojBrodJedan(){
+			return this.brodJedan;
+		}
+
+		imaLiSlobodnogBroda(brPolja){
+			switch(brPolja) {
+			  case 4:
+			    if(this.brodCetiri>0) return 1;
+			    else return 0;
+			    break;
+			  case 3:
+			    if(this.brodTri>0) return 1;
+			    else return 0;
+			    break;
+			  case 2:
+			    if(this.brodDva>0) return 1;
+			    else return 0;
+			    break;
+			  case 1:
+			    if(this.brodJedan>0) return 1;
+			    else return 0;
+			    break;
+			  default:
+			    return 0;
+			} 
+		}
+		//da li su SVA polja selektovana po x-osi
+		jeriY(brPolja){
+			var array = [];
+			for (var i = 1; i <=brPolja; i++) {
+				array.push(this.potezi[this.potezi.length - i]);
+			}
+			var razlicitElement = null;
+			razlicitElement = array.find(element => element.jDeo != array[0].jDeo);
+
+			if(razlicitElement==undefined) return 1;
+			else return 0;
+		}
+		//da li su SVA polja selektovana po y-osi
+		jeriX(brPolja){
+			var array = [];
+			for (var i = 1; i <=brPolja; i++) {
+				array.push(this.potezi[this.potezi.length - i]);
+			}
+			var razlicitElement = null;
+			razlicitElement = array.find(element => element.iDeo != array[0].iDeo);
+
+			if(razlicitElement==undefined) return 1;
+			else return 0;
+		}
+		jeriPreklapanje(brPolja){
+			var array = [];
+			for (var i = 1; i <=brPolja; i++) {
+				array.push(this.potezi[this.potezi.length - i]);
+			}
+			for (var i = 0; i < array.length; i++) {
+				if(this.matrica[array[i].iDeo][array[i].jDeo]==2) return 1;
+			}
+			return 0;
+		}
+		jeriDodir(brPolja,jeriX){
+			var array = [];
+			for (var i = 1; i <=brPolja; i++) {
+				array.push(this.potezi[this.potezi.length - i]);
+			}
+			if(array.length==1){
+				console.log("Provera prvo polje");
+				return this.proveraJednoPolje(array);
+			}
+
+			if(jeriX){
+
+				if(array[0].jDeo>array[array.length-1].jDeo){
+					if((this.proveraPrvoX(array[array.length-1]) || this.proveraPoslednjeX(array[0]))) return 1;
+				}else{
+					if((this.proveraPrvoX(array[0]) || this.proveraPoslednjeX(array[array.length-1]))) return 1;
+				}
+
+				for (var i = 1; i <brPolja-1; i++) {
+					var dodir = this.proveraObicnoPoljeX(array[i]);
+					if(dodir) return 1;
+				}
+				return 0;
+			}else{
+
+				if(array[0].iDeo>array[array.length-1].iDeo){
+					if((this.proveraPrvoY(array[array.length-1]) || this.proveraPoslednjeY(array[0]))) return 1;
+				}else{
+					if((this.proveraPrvoY(array[0]) || this.proveraPoslednjeY(array[array.length-1]))) return 1;
+				}
+
+				for (var i = 1; i <brPolja-1; i++) {
+					var dodir = this.proveraObicnoPoljeY(array[i]);
+					if(dodir) return 1;
+				}
+				return 0;
+			}
+			
+		}
+		
+		proveraJednoPolje(niz){
+			var polje = niz[0];
+			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
+		}
+
+		proveraPrvoX(polje){
+			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo);
+		}
+		proveraPoslednjeX(polje){
+			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo) 
+			|| this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
+		}
+		proveraObicnoPoljeX(polje){
+			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo);
+		}
+
+		proveraPrvoY(polje){
+			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo);
+		}
+		proveraPoslednjeY(polje){
+			return this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
+			|| this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
+		}
+		proveraObicnoPoljeY(polje){
+			return this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo);
+		}
+
+		proveraIznadZauzeto(i,j){
+			if(i==0) return 0;
+			else{
+				if(this.matrica[i-1][j]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraIspodZauzeto(i,j){
+			if(i==9) return 0;
+			else{
+				if(this.matrica[i+1][j]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraLevoZauzeto(i,j){
+			if(j==0) return 0;
+			else{
+				if(this.matrica[i][j-1]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraDesnoZauzeto(i,j){
+			if(j==9) return 0;
+			else{
+				if(this.matrica[i][j+1]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraGoreLevoZauzeto(i,j){
+			if(i==0 || j==0) return 0;
+			else{
+				if(this.matrica[i-1][j-1]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraGoreDesnoZauzeto(i,j){
+			if(i==0 || j==9) return 0;
+			else{
+				if(this.matrica[i-1][j+1]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraDoleLevoZauzeto(i,j){
+			if(i==9 || j==0) return 0;
+			else{
+				if(this.matrica[i+1][j-1]==1) return 1;
+				else return 0;
+			} 
+		}
+		proveraDoleDesnoZauzeto(i,j){
+			if(i==9 || j==9) return 0;
+			else{
+				if(this.matrica[i+1][j+1]==1) return 1;
+				else return 0;
+			} 
+		}
+
+
+
 
 	}
 
@@ -49,34 +257,59 @@ console.log(igrac1.matrica);
 
 var trenutniIgrac = igrac1;
 
+
 $(document).ready(function(){
 
-	$("*").mousedown(function(event) {
-		console.log("Usao *");
-		misPritisnut=1;
-		brojacPolja=0;
-		//console.log("mouse down " + misPritisnut);
-	});
 
 	$("*").mouseup(function(event) {
+
+		if(brojacPolja==0) return;
+
 		misPritisnut = 0;
-		console.log("IZABRANO POLJA: " + brojacPolja);
+
+		event.stopPropagation();
+
+		//ako je selektovano vise od 4 polja => svakako greska
 		if(brojacPolja>4){
 			trenutniIgrac.ponistiPolja(brojacPolja);
-			event.stopPropagation();
-		} 
+			return;
+		}
+
+		//ima li uopste dovoljno brodova
+		if(trenutniIgrac.imaLiSlobodnogBroda(brojacPolja)==0){
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			return;
+		}
+
+		var jeriX=trenutniIgrac.jeriX(brojacPolja);
+		var jeriY=trenutniIgrac.jeriY(brojacPolja);
+		if(!(jeriY || jeriX)){
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			return;
+		}
+
+		if(trenutniIgrac.jeriPreklapanje(brojacPolja)){
+			console.log("Preklapanje: " + trenutniIgrac.jeriPreklapanje(brojacPolja));
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			return;
+		}
+
+		if(trenutniIgrac.jeriDodir(brojacPolja,jeriX)){
+			console.log("Dodir: " + trenutniIgrac.jeriPreklapanje(brojacPolja));
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			return;
+		}
+
 	});
 
-
-	$("td").mouseenter(function(){
+	$("td").mouseenter(function(event){
 		if(misPritisnut==1){
 			$(this).css("background-color", "yellow");
 
 			var i=parseInt($(this).attr('id')[0]);
 			var j=parseInt($(this).attr('id')[1]);
 			console.log("i=" + i + " j=" + j);
-			if(trenutniIgrac.matrica[i][j]==1) return;
-			trenutniIgrac.matrica[i][j]=1;
+			trenutniIgrac.matrica[i][j]++;
 			trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
 			brojacPolja++;
 
@@ -84,14 +317,24 @@ $(document).ready(function(){
 	});
 
 	$("td").mousedown(function(event){
-		console.log("Usao td");
+
+		if(misPritisnut==1){
+			misPritisnut=0;
+			console.log(brojacPolja);
+			trenutniIgrac.ponistiPolja(brojacPolja);
+			brojacPolja=0;
+			return;
+		}
+
+		misPritisnut=1;
+		brojacPolja=0;
+
 	  	$(this).css("background-color", "yellow");
 
 		var i=parseInt($(this).attr('id')[0]);
 		var j=parseInt($(this).attr('id')[1]);
 		console.log("i=" + i + " j=" + j);
-		if(trenutniIgrac.matrica[i][j]==1) return;
-		trenutniIgrac.matrica[i][j]=1;
+		trenutniIgrac.matrica[i][j]++;
 		trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
 		brojacPolja++;
 		event.stopPropagation();
@@ -112,13 +355,15 @@ $(document).ready(function(){
 		console.log(trenutniIgrac.potezi);
 	});
 
-	$("#vratiPotez").click(function() {
+	$("#vratiPotez").click(function(event) {
 		if(trenutniIgrac.potezi.length!=0){
+			console.log(trenutniIgrac.potezi.length);
 			var potez = trenutniIgrac.potezi.pop();
 			trenutniIgrac.matrica[potez.iDeo][potez.jDeo]=0;
 			$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
 			console.log(potez);
 		}
+		event.stopPropagation();
 	});
 
 
