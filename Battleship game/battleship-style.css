@@ -1,0 +1,38 @@
+.zaglavlje{
+	background-color: ;
+	color: #ffc305;
+	font-weight: bold;
+	font-size: 100px;
+	padding: 2%;
+}
+
+.kontejnerWelcome{
+	margin: 5%;
+}
+
+.imenaForma{
+	background-color: rgba(25, 25, 25, 0.7);
+	border-radius: .25rem;
+}
+
+.labela{
+	color:#ffc305;
+}
+
+.zapocniIgruDugme{
+	margin-top: 15px;
+	padding: 3%;
+	background-color:#ffc305;
+	color:  #252525;
+	border-radius: .25rem;
+	border-color: #252525;
+}
+
+#welcomeBody{
+	background-image: url("battleship-assets/pozadinaWelcome.jpg");
+}
+
+#porukaImeForma{
+	color: white;
+	font-weight: bold;
+}
