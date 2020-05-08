@@ -6,6 +6,8 @@
 	padding: 2%;
 }
 
+/*battleship-welcome.html*/
+
 .kontejnerWelcome{
 	margin: 5%;
 }
@@ -30,9 +32,110 @@
 
 #welcomeBody{
 	background-image: url("battleship-assets/pozadinaWelcome.jpg");
+	background-size: cover;
 }
 
 #porukaImeForma{
 	color: white;
 	font-weight: bold;
+}
+
+
+/*battleship-setup.html*/
+
+:root{
+	--bojaTabela:rgba(25, 25, 25, 0.7);
+}
+
+#setupBody{
+	background-image: url("battleship-assets/pozadinaSetup.jpg");
+	background-size: cover;
+}
+
+#setupTabela{
+	width:100%;
+	height: 70vh;
+	background-color: var(--bojaTabela);
+}
+
+#slovaTabela{
+  	width:100%;
+  	margin-bottom: 40px;
+  	background-color: var(--bojaTabela);
+  	color: white;
+  	font-style: bold;
+}
+
+#brojeviTabela{
+	float: right;
+	background-color: var(--bojaTabela);
+  	color: white;
+  	font-style: bold;
+}
+
+.slovo{
+	user-select: none
+}
+
+#divIgrac{
+	background-color: var(--bojaTabela);
+	color: #ffc305;
+	font-weight: bold;
+	font-size: 20px;
+	user-select: none
+}
+
+.redPreostaliBrodovi{
+	background-color: var(--bojaTabela);
+	color: #ffc305;
+	font-weight: bold;
+	font-size: 20px;
+	display: inline;
+	padding-right: 5px;
+	user-select: none
+}
+
+.brPresotalihBrodova{
+	display: inline;
+	user-select: none
+}
+
+#vratiPotezDugme{
+	padding: 3%;
+	background-color:#ffc305;
+	color:  #252525;
+	border-radius: .25rem;
+	border-color: #252525;
+}
+
+/*battleship-game.html*/
+
+#gameBody{
+	background-image: url("battleship-assets/pozadinaGame.jpg");
+	background-size: cover;
+}
+
+#mojaTabela{
+	width:100%;
+	background-color: var(--bojaTabela);
+}
+
+#crnoPolje{
+	width:80%;
+	background-color: black;
+}
+
+#zutoPolje{
+	width:80%;
+	background-color: #ffc305;
+}
+
+#crvenoPolje{
+	width:80%;
+	background-color: #ff0000;
+}
+
+.opisnoPolje{
+	color: white;
+	font-weight: : bold;
 }

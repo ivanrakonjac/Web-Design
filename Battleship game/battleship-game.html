@@ -1,508 +1,358 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>IGRA</title>
+
 	<meta charset="utf-8"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-	class Igrac {
-		constructor(ime) {
-		    this.ime = ime;
-		    this.matrica = new Array(10);
-		    this.inicijalizujMatricu();
-		    this.potezi = [];
+	<link rel="stylesheet" type="text/css" href="battleship-style.css">
 
-		    this.brodCetiri=1;
-		    this.brodTri=2;
-		    this.brodDva=3;
-		    this.brodJedan=4;
-		}
-		getName() {
-		  	console.log(this.ime);
-		    return this.name;
-		}
-		inicijalizujMatricu(){
-		  	for (var i = 0; i < this.matrica.length; i++) {
-			  	this.matrica[i] = new Array(10);
-			  	for (var j = 0; j < this.matrica.length; j++) {
-			  		this.matrica[i][j] = 0;
-				}
-			}
-		}
-		ponistiPolja(brojPolja){
-		  	for (var i = 0; i < brojPolja; i++) {
-			  	var potez = this.potezi.pop();
-			  	this.matrica[potez.iDeo][potez.jDeo]--;
-			  	if(this.matrica[potez.iDeo][potez.jDeo]==0){
-			  		this.matrica[potez.iDeo][potez.jDeo]=0;
-					$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
-					console.log("Ponisten potez: x=" + potez.jDeo + " y=" + potez.iDeo);
-			  	}
-			}
-		}
+	<script src="battleship-script.js"></script> 
 
-		getBrojBrodCetiri(){
-			return this.brodCetiri;
-		}
-		getBrojBrodTri(){
-			return this.brodTri;
-		}
-		getBrojBrodDva(){
-			return this.brodDva;
-		}
-		getBrojBrodJedan(){
-			return this.brodJedan;
-		}
-
-		imaLiSlobodnogBroda(brPolja){
-			switch(brPolja) {
-			  case 4:
-			    if(this.brodCetiri>0) return 1;
-			    else return 0;
-			    break;
-			  case 3:
-			    if(this.brodTri>0) return 1;
-			    else return 0;
-			    break;
-			  case 2:
-			    if(this.brodDva>0) return 1;
-			    else return 0;
-			    break;
-			  case 1:
-			    if(this.brodJedan>0) return 1;
-			    else return 0;
-			    break;
-			  default:
-			    return 0;
-			} 
-		}
-		//da li su SVA polja selektovana po x-osi
-		jeriY(brPolja){
-			var array = [];
-			for (var i = 1; i <=brPolja; i++) {
-				array.push(this.potezi[this.potezi.length - i]);
-			}
-			var razlicitElement = null;
-			razlicitElement = array.find(element => element.jDeo != array[0].jDeo);
-
-			if(razlicitElement==undefined) return 1;
-			else return 0;
-		}
-		//da li su SVA polja selektovana po y-osi
-		jeriX(brPolja){
-			var array = [];
-			for (var i = 1; i <=brPolja; i++) {
-				array.push(this.potezi[this.potezi.length - i]);
-			}
-			var razlicitElement = null;
-			razlicitElement = array.find(element => element.iDeo != array[0].iDeo);
-
-			if(razlicitElement==undefined) return 1;
-			else return 0;
-		}
-		jeriPreklapanje(brPolja){
-			var array = [];
-			for (var i = 1; i <=brPolja; i++) {
-				array.push(this.potezi[this.potezi.length - i]);
-			}
-			for (var i = 0; i < array.length; i++) {
-				if(this.matrica[array[i].iDeo][array[i].jDeo]==2) return 1;
-			}
-			return 0;
-		}
-		jeriDodir(brPolja,jeriX){
-			var array = [];
-			for (var i = 1; i <=brPolja; i++) {
-				array.push(this.potezi[this.potezi.length - i]);
-			}
-			if(array.length==1){
-				console.log("Provera prvo polje");
-				return this.proveraJednoPolje(array);
-			}
-
-			if(jeriX){
-
-				if(array[0].jDeo>array[array.length-1].jDeo){
-					if((this.proveraPrvoX(array[array.length-1]) || this.proveraPoslednjeX(array[0]))) return 1;
-				}else{
-					if((this.proveraPrvoX(array[0]) || this.proveraPoslednjeX(array[array.length-1]))) return 1;
-				}
-
-				for (var i = 1; i <brPolja-1; i++) {
-					var dodir = this.proveraObicnoPoljeX(array[i]);
-					if(dodir) return 1;
-				}
-				return 0;
-			}else{
-
-				if(array[0].iDeo>array[array.length-1].iDeo){
-					if((this.proveraPrvoY(array[array.length-1]) || this.proveraPoslednjeY(array[0]))) return 1;
-				}else{
-					if((this.proveraPrvoY(array[0]) || this.proveraPoslednjeY(array[array.length-1]))) return 1;
-				}
-
-				for (var i = 1; i <brPolja-1; i++) {
-					var dodir = this.proveraObicnoPoljeY(array[i]);
-					if(dodir) return 1;
-				}
-				return 0;
-			}
-			
-		}
-		
-		proveraJednoPolje(niz){
-			var polje = niz[0];
-			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
-		}
-
-		proveraPrvoX(polje){
-			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo);
-		}
-		proveraPoslednjeX(polje){
-			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo) 
-			|| this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
-		}
-		proveraObicnoPoljeX(polje){
-			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo) || this.proveraIspodZauzeto(polje.iDeo,polje.jDeo);
-		}
-
-		proveraPrvoY(polje){
-			return this.proveraIznadZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraGoreLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraGoreDesnoZauzeto(polje.iDeo,polje.jDeo);
-		}
-		proveraPoslednjeY(polje){
-			return this.proveraIspodZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo)
-			|| this.proveraDoleLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDoleDesnoZauzeto(polje.iDeo,polje.jDeo);
-		}
-		proveraObicnoPoljeY(polje){
-			return this.proveraLevoZauzeto(polje.iDeo,polje.jDeo) || this.proveraDesnoZauzeto(polje.iDeo,polje.jDeo);
-		}
-
-		proveraIznadZauzeto(i,j){
-			if(i==0) return 0;
-			else{
-				if(this.matrica[i-1][j]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraIspodZauzeto(i,j){
-			if(i==9) return 0;
-			else{
-				if(this.matrica[i+1][j]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraLevoZauzeto(i,j){
-			if(j==0) return 0;
-			else{
-				if(this.matrica[i][j-1]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraDesnoZauzeto(i,j){
-			if(j==9) return 0;
-			else{
-				if(this.matrica[i][j+1]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraGoreLevoZauzeto(i,j){
-			if(i==0 || j==0) return 0;
-			else{
-				if(this.matrica[i-1][j-1]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraGoreDesnoZauzeto(i,j){
-			if(i==0 || j==9) return 0;
-			else{
-				if(this.matrica[i-1][j+1]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraDoleLevoZauzeto(i,j){
-			if(i==9 || j==0) return 0;
-			else{
-				if(this.matrica[i+1][j-1]==1) return 1;
-				else return 0;
-			} 
-		}
-		proveraDoleDesnoZauzeto(i,j){
-			if(i==9 || j==9) return 0;
-			else{
-				if(this.matrica[i+1][j+1]==1) return 1;
-				else return 0;
-			} 
-		}
-
-
-
-
-	}
-
-var misPritisnut = 0;
-
-var brojacPolja=0;
-
-var igrac1 = new Igrac("Ivan");
-console.log(igrac1.matrica);
-
-var trenutniIgrac = igrac1;
-
-
-$(document).ready(function(){
-
-
-	$("*").mouseup(function(event) {
-
-		if(brojacPolja==0) return;
-
-		misPritisnut = 0;
-
-		event.stopPropagation();
-
-		//ako je selektovano vise od 4 polja => svakako greska
-		if(brojacPolja>4){
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			return;
-		}
-
-		//ima li uopste dovoljno brodova
-		if(trenutniIgrac.imaLiSlobodnogBroda(brojacPolja)==0){
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			return;
-		}
-
-		var jeriX=trenutniIgrac.jeriX(brojacPolja);
-		var jeriY=trenutniIgrac.jeriY(brojacPolja);
-		if(!(jeriY || jeriX)){
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			return;
-		}
-
-		if(trenutniIgrac.jeriPreklapanje(brojacPolja)){
-			console.log("Preklapanje: " + trenutniIgrac.jeriPreklapanje(brojacPolja));
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			return;
-		}
-
-		if(trenutniIgrac.jeriDodir(brojacPolja,jeriX)){
-			console.log("Dodir: " + trenutniIgrac.jeriPreklapanje(brojacPolja));
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			return;
-		}
-
-	});
-
-	$("td").mouseenter(function(event){
-		if(misPritisnut==1){
-			$(this).css("background-color", "yellow");
-
-			var i=parseInt($(this).attr('id')[0]);
-			var j=parseInt($(this).attr('id')[1]);
-			console.log("i=" + i + " j=" + j);
-			trenutniIgrac.matrica[i][j]++;
-			trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
-			brojacPolja++;
-
-		}
-	});
-
-	$("td").mousedown(function(event){
-
-		if(misPritisnut==1){
-			misPritisnut=0;
-			console.log(brojacPolja);
-			trenutniIgrac.ponistiPolja(brojacPolja);
-			brojacPolja=0;
-			return;
-		}
-
-		misPritisnut=1;
-		brojacPolja=0;
-
-	  	$(this).css("background-color", "yellow");
-
-		var i=parseInt($(this).attr('id')[0]);
-		var j=parseInt($(this).attr('id')[1]);
-		console.log("i=" + i + " j=" + j);
-		trenutniIgrac.matrica[i][j]++;
-		trenutniIgrac.potezi.push({iDeo: i, jDeo:j});
-		brojacPolja++;
-		event.stopPropagation();
-
-	});
-
-	$("#ispisMatrica").click(function() {
-		for (var i = 0; i < trenutniIgrac.matrica.length; i++) {
-	  		console.log(trenutniIgrac.matrica[i]);
-		}
-	});
-
-	$("#clearConsole").click(function() {
-		console.clear();
-	});
-
-	$("#ispisPoteza").click(function() {
-		console.log(trenutniIgrac.potezi);
-	});
-
-	$("#vratiPotez").click(function(event) {
-		if(trenutniIgrac.potezi.length!=0){
-			console.log(trenutniIgrac.potezi.length);
-			var potez = trenutniIgrac.potezi.pop();
-			trenutniIgrac.matrica[potez.iDeo][potez.jDeo]=0;
-			$("#"+potez.iDeo+potez.jDeo).css("background-color", "white");
-			console.log(potez);
-		}
-		event.stopPropagation();
-	});
-
-
-});
-
-</script>
 </head>
-<body>
+<body id="gameBody" onload="setovanjeVrednostiGame()">
+	<div class="container-fluid mt-5">
 
-<button id="ispisMatrica">ISPISI MATRICU</button>
-<button id="clearConsole">OCISTI CONSOLU</button>
-<button id="ispisPoteza">ISPISI POTEZE</button>
-<button id="vratiPotez">VRATI POTEZ</button>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<table border="1px;" id="slovaTabela">
+					<tr>
+						<th class="slovo">A</th>
+						<th class="slovo">B</th>
+						<th class="slovo">C</th>
+						<th class="slovo">D</th>
+						<th class="slovo">E</th>
+						<th class="slovo">F</th>
+						<th class="slovo">G</th>
+						<th class="slovo">H</th>
+						<th class="slovo">I</th>
+						<th class="slovo">J</th>
+					</tr>			
+				</table>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
 
-<p>This is a paragraph with little content.</p>
-<p>This is another small paragraph.</p>
+		<div class="row">
+			<div class="col-sm-3 float-right">
+				<table border="1px;" id="brojeviTabela">
+					<tr>
+						<th class="slovo">0</th>
+					</tr>
+					<tr>
+						<th class="slovo">1</th>
+					</tr>
+					<tr>
+						<th class="slovo">2</th>
+					</tr>
+					<tr>
+						<th class="slovo">3</th>
+					</tr>
+					<tr>
+						<th class="slovo">4</th>
+					</tr>
+					<tr>
+						<th class="slovo">5</th>
+					</tr>
+					<tr>
+						<th class="slovo">6</th>
+					</tr>
+					<tr>
+						<th class="slovo">7</th>
+					</tr>
+					<tr>
+						<th class="slovo">8</th>
+					</tr>
+					<tr>
+						<th class="slovo">9</th>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-6">
+				<table border="1px;" id="setupTabela">
+					<tr>
+						<td id="200"></td>
+						<td id="201"></td>
+						<td id="202"></td>
+						<td id="203"></td>
+						<td id="204"></td>
+						<td id="205"></td>
+						<td id="206"></td>
+						<td id="207"></td>
+						<td id="208"></td>
+						<td id="209"></td>
+					</tr>
+					<tr>
+						<td id="210"></td>
+						<td id="211"></td>
+						<td id="212"></td>
+						<td id="213"></td>
+						<td id="214"></td>
+						<td id="215"></td>
+						<td id="216"></td>
+						<td id="217"></td>
+						<td id="218"></td>
+						<td id="219"></td>
+					</tr>
+					<tr>
+						<td id="220"></td>
+						<td id="221"></td>
+						<td id="222"></td>
+						<td id="223"></td>
+						<td id="224"></td>
+						<td id="225"></td>
+						<td id="226"></td>
+						<td id="227"></td>
+						<td id="228"></td>
+						<td id="229"></td>
+					</tr>
+					<tr>
+						<td id="230"></td>
+						<td id="231"></td>
+						<td id="232"></td>
+						<td id="233"></td>
+						<td id="234"></td>
+						<td id="235"></td>
+						<td id="236"></td>
+						<td id="237"></td>
+						<td id="238"></td>
+						<td id="239"></td>
+					</tr>
+					<tr>
+						<td id="240"></td>
+						<td id="241"></td>
+						<td id="242"></td>
+						<td id="243"></td>
+						<td id="244"></td>
+						<td id="245"></td>
+						<td id="246"></td>
+						<td id="247"></td>
+						<td id="248"></td>
+						<td id="249"></td>
+					</tr>
+					<tr>
+						<td id="250"></td>
+						<td id="251"></td>
+						<td id="252"></td>
+						<td id="253"></td>
+						<td id="254"></td>
+						<td id="255"></td>
+						<td id="256"></td>
+						<td id="257"></td>
+						<td id="258"></td>
+						<td id="259"></td>
+					</tr>
+					<tr>
+						<td id="260"></td>
+						<td id="261"></td>
+						<td id="262"></td>
+						<td id="263"></td>
+						<td id="264"></td>
+						<td id="265"></td>
+						<td id="266"></td>
+						<td id="267"></td>
+						<td id="268"></td>
+						<td id="269"></td>
+					</tr>
+					<tr>
+						<td id="270"></td>
+						<td id="271"></td>
+						<td id="272"></td>
+						<td id="273"></td>
+						<td id="274"></td>
+						<td id="275"></td>
+						<td id="276"></td>
+						<td id="277"></td>
+						<td id="278"></td>
+						<td id="279"></td>
+					</tr>
+					<tr>
+						<td id="280"></td>
+						<td id="281"></td>
+						<td id="282"></td>
+						<td id="283"></td>
+						<td id="284"></td>
+						<td id="285"></td>
+						<td id="286"></td>
+						<td id="287"></td>
+						<td id="288"></td>
+						<td id="289"></td>
+					</tr>
+					<tr>
+						<td id="290"></td>
+						<td id="291"></td>
+						<td id="292"></td>
+						<td id="293"></td>
+						<td id="294"></td>
+						<td id="295"></td>
+						<td id="296"></td>
+						<td id="297"></td>
+						<td id="298"></td>
+						<td id="299"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-3">
 
-<table border="1px;"style="width:100%; height: 80vh;">
-	<tr>
-		<td id="00"></td>
-		<td id="01"></td>
-		<td id="02"></td>
-		<td id="03"></td>
-		<td id="04"></td>
-		<td id="05"></td>
-		<td id="06"></td>
-		<td id="07"></td>
-		<td id="08"></td>
-		<td id="09"></td>
-	</tr>
-	<tr>
-		<td id="10"></td>
-		<td id="11"></td>
-		<td id="12"></td>
-		<td id="13"></td>
-		<td id="14"></td>
-		<td id="15"></td>
-		<td id="16"></td>
-		<td id="17"></td>
-		<td id="18"></td>
-		<td id="19"></td>
-	</tr>
-	<tr>
-		<td id="20"></td>
-		<td id="21"></td>
-		<td id="22"></td>
-		<td id="23"></td>
-		<td id="24"></td>
-		<td id="25"></td>
-		<td id="26"></td>
-		<td id="27"></td>
-		<td id="28"></td>
-		<td id="29"></td>
-	</tr>
-	<tr>
-		<td id="30"></td>
-		<td id="31"></td>
-		<td id="32"></td>
-		<td id="33"></td>
-		<td id="34"></td>
-		<td id="35"></td>
-		<td id="36"></td>
-		<td id="37"></td>
-		<td id="38"></td>
-		<td id="39"></td>
-	</tr>
-	<tr>
-		<td id="40"></td>
-		<td id="41"></td>
-		<td id="42"></td>
-		<td id="43"></td>
-		<td id="44"></td>
-		<td id="45"></td>
-		<td id="46"></td>
-		<td id="47"></td>
-		<td id="48"></td>
-		<td id="49"></td>
-	</tr>
-	<tr>
-		<td id="50"></td>
-		<td id="51"></td>
-		<td id="52"></td>
-		<td id="53"></td>
-		<td id="54"></td>
-		<td id="55"></td>
-		<td id="56"></td>
-		<td id="57"></td>
-		<td id="58"></td>
-		<td id="59"></td>
-	</tr>
-	<tr>
-		<td id="60"></td>
-		<td id="61"></td>
-		<td id="62"></td>
-		<td id="63"></td>
-		<td id="64"></td>
-		<td id="65"></td>
-		<td id="66"></td>
-		<td id="67"></td>
-		<td id="68"></td>
-		<td id="69"></td>
-	</tr>
-	<tr>
-		<td id="70"></td>
-		<td id="71"></td>
-		<td id="72"></td>
-		<td id="73"></td>
-		<td id="74"></td>
-		<td id="75"></td>
-		<td id="76"></td>
-		<td id="77"></td>
-		<td id="78"></td>
-		<td id="79"></td>
-	</tr>
-	<tr>
-		<td id="80"></td>
-		<td id="81"></td>
-		<td id="82"></td>
-		<td id="83"></td>
-		<td id="84"></td>
-		<td id="85"></td>
-		<td id="86"></td>
-		<td id="87"></td>
-		<td id="88"></td>
-		<td id="89"></td>
-	</tr>
-	<tr>
-		<td id="90"></td>
-		<td id="91"></td>
-		<td id="92"></td>
-		<td id="93"></td>
-		<td id="94"></td>
-		<td id="95"></td>
-		<td id="96"></td>
-		<td id="97"></td>
-		<td id="98"></td>
-		<td id="99"></td>
-	</tr>
-</table>
+				<div class="row pr-1">
+					<div class="col-sm-12 mb-2 text-center" id="divIgrac">
+						<img src="battleship-assets/redStar.jpg" class="ikonicaIgrac" width=40px; height=40px;>
+						IGRAC NA POTEZU
+						<img src="battleship-assets/redStar.jpg" class="ikonicaIgrac" width=40px; height=40px;>
+						<div class="col-sm-12"><p id="trenutniIgrac"> </p></div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 ">
+						<table border="1px;" id="mojaTabela">
+							<tr>
+								<td id="100"></td>
+								<td id="101"></td>
+								<td id="102"></td>
+								<td id="103"></td>
+								<td id="104"></td>
+								<td id="105"></td>
+								<td id="106"></td>
+								<td id="107"></td>
+								<td id="108"></td>
+								<td id="109"></td>
+							</tr>
+							<tr>
+								<td id="110"></td>
+								<td id="111"></td>
+								<td id="112"></td>
+								<td id="113"></td>
+								<td id="114"></td>
+								<td id="115"></td>
+								<td id="116"></td>
+								<td id="117"></td>
+								<td id="118"></td>
+								<td id="119"></td>
+							</tr>
+							<tr>
+								<td id="120"></td>
+								<td id="121"></td>
+								<td id="122"></td>
+								<td id="123"></td>
+								<td id="124"></td>
+								<td id="125"></td>
+								<td id="126"></td>
+								<td id="127"></td>
+								<td id="128"></td>
+								<td id="129"></td>
+							</tr>
+							<tr>
+								<td id="130"></td>
+								<td id="131"></td>
+								<td id="132"></td>
+								<td id="133"></td>
+								<td id="134"></td>
+								<td id="135"></td>
+								<td id="136"></td>
+								<td id="137"></td>
+								<td id="138"></td>
+								<td id="139"></td>
+							</tr>
+							<tr>
+								<td id="140"></td>
+								<td id="141"></td>
+								<td id="142"></td>
+								<td id="143"></td>
+								<td id="144"></td>
+								<td id="145"></td>
+								<td id="146"></td>
+								<td id="147"></td>
+								<td id="148"></td>
+								<td id="149"></td>
+							</tr>
+							<tr>
+								<td id="150"></td>
+								<td id="151"></td>
+								<td id="152"></td>
+								<td id="153"></td>
+								<td id="154"></td>
+								<td id="155"></td>
+								<td id="156"></td>
+								<td id="157"></td>
+								<td id="158"></td>
+								<td id="159"></td>
+							</tr>
+							<tr>
+								<td id="160"></td>
+								<td id="161"></td>
+								<td id="162"></td>
+								<td id="163"></td>
+								<td id="164"></td>
+								<td id="165"></td>
+								<td id="166"></td>
+								<td id="167"></td>
+								<td id="168"></td>
+								<td id="169"></td>
+							</tr>
+							<tr>
+								<td id="170"></td>
+								<td id="171"></td>
+								<td id="172"></td>
+								<td id="173"></td>
+								<td id="174"></td>
+								<td id="175"></td>
+								<td id="176"></td>
+								<td id="177"></td>
+								<td id="178"></td>
+								<td id="179"></td>
+							</tr>
+							<tr>
+								<td id="180"></td>
+								<td id="181"></td>
+								<td id="182"></td>
+								<td id="183"></td>
+								<td id="184"></td>
+								<td id="185"></td>
+								<td id="186"></td>
+								<td id="187"></td>
+								<td id="188"></td>
+								<td id="189"></td>
+							</tr>
+							<tr>
+								<td id="190"></td>
+								<td id="191"></td>
+								<td id="192"></td>
+								<td id="193"></td>
+								<td id="194"></td>
+								<td id="195"></td>
+								<td id="196"></td>
+								<td id="197"></td>
+								<td id="198"></td>
+								<td id="199"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="row mt-2">
+					<div class="col-sm-12 ">
+						<table border="1px;" id="mojaTabela">
+							<tr>
+								<td id="crnoPolje"> </td>
+								<td class="opisnoPolje"> POGODAK</td>
+							</tr>
+							<tr>
+								<td id="zutoPolje"> </td>
+								<td class="opisnoPolje"> PROMASAJ</td>
+							</tr>
+							<tr>
+								<td id="crvenoPolje"> </td>
+								<td class="opisnoPolje"> BROD</td>
+							</tr>
+						</table>
+				</div>	
+			</div>
+		</div>	
+	</div>
 
 </body>
 </html>

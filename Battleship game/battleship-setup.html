@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8"/>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="battleship-style.css">
+	<script src="battleship-script.js"></script> 
+
+</head>
+
+
+<body id="setupBody" onload="inicSetupPage()">
+
+<div class="container-fluid mt-5">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<table border="1px;" id="slovaTabela">
+				<tr>
+					<th class="slovo">A</th>
+					<th class="slovo">B</th>
+					<th class="slovo">C</th>
+					<th class="slovo">D</th>
+					<th class="slovo">E</th>
+					<th class="slovo">F</th>
+					<th class="slovo">G</th>
+					<th class="slovo">H</th>
+					<th class="slovo">I</th>
+					<th class="slovo">J</th>
+				</tr>			
+			</table>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3 float-right">
+			<table border="1px;" id="brojeviTabela">
+				<tr>
+					<th class="slovo">0</th>
+				</tr>
+				<tr>
+					<th class="slovo">1</th>
+				</tr>
+				<tr>
+					<th class="slovo">2</th>
+				</tr>
+				<tr>
+					<th class="slovo">3</th>
+				</tr>
+				<tr>
+					<th class="slovo">4</th>
+				</tr>
+				<tr>
+					<th class="slovo">5</th>
+				</tr>
+				<tr>
+					<th class="slovo">6</th>
+				</tr>
+				<tr>
+					<th class="slovo">7</th>
+				</tr>
+				<tr>
+					<th class="slovo">8</th>
+				</tr>
+				<tr>
+					<th class="slovo">9</th>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-6 mb-5">
+			<table border="1px;" id="setupTabela">
+				<tr>
+					<td id="00" class="setUpPolje"></td>
+					<td id="01" class="setUpPolje"></td>
+					<td id="02" class="setUpPolje"></td>
+					<td id="03" class="setUpPolje"></td>
+					<td id="04" class="setUpPolje"></td>
+					<td id="05" class="setUpPolje"></td>
+					<td id="06" class="setUpPolje"></td>
+					<td id="07" class="setUpPolje"></td>
+					<td id="08" class="setUpPolje"></td>
+					<td id="09" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="10" class="setUpPolje"></td>
+					<td id="11" class="setUpPolje"></td>
+					<td id="12" class="setUpPolje"></td>
+					<td id="13" class="setUpPolje"></td>
+					<td id="14" class="setUpPolje"></td>
+					<td id="15" class="setUpPolje"></td>
+					<td id="16" class="setUpPolje"></td>
+					<td id="17" class="setUpPolje"></td>
+					<td id="18" class="setUpPolje"></td>
+					<td id="19" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="20" class="setUpPolje"></td>
+					<td id="21" class="setUpPolje"></td>
+					<td id="22" class="setUpPolje"></td>
+					<td id="23" class="setUpPolje"></td>
+					<td id="24" class="setUpPolje"></td>
+					<td id="25" class="setUpPolje"></td>
+					<td id="26" class="setUpPolje"></td>
+					<td id="27" class="setUpPolje"></td>
+					<td id="28" class="setUpPolje"></td>
+					<td id="29" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="30" class="setUpPolje"></td>
+					<td id="31" class="setUpPolje"></td>
+					<td id="32" class="setUpPolje"></td>
+					<td id="33" class="setUpPolje"></td>
+					<td id="34" class="setUpPolje"></td>
+					<td id="35" class="setUpPolje"></td>
+					<td id="36" class="setUpPolje"></td>
+					<td id="37" class="setUpPolje"></td>
+					<td id="38" class="setUpPolje"></td>
+					<td id="39" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="40" class="setUpPolje"></td>
+					<td id="41" class="setUpPolje"></td>
+					<td id="42" class="setUpPolje"></td>
+					<td id="43" class="setUpPolje"></td>
+					<td id="44" class="setUpPolje"></td>
+					<td id="45" class="setUpPolje"></td>
+					<td id="46" class="setUpPolje"></td>
+					<td id="47" class="setUpPolje"></td>
+					<td id="48" class="setUpPolje"></td>
+					<td id="49" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="50" class="setUpPolje"></td>
+					<td id="51" class="setUpPolje"></td>
+					<td id="52" class="setUpPolje"></td>
+					<td id="53" class="setUpPolje"></td>
+					<td id="54" class="setUpPolje"></td>
+					<td id="55" class="setUpPolje"></td>
+					<td id="56" class="setUpPolje"></td>
+					<td id="57" class="setUpPolje"></td>
+					<td id="58" class="setUpPolje"></td>
+					<td id="59" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="60" class="setUpPolje"></td>
+					<td id="61" class="setUpPolje"></td>
+					<td id="62" class="setUpPolje"></td>
+					<td id="63" class="setUpPolje"></td>
+					<td id="64" class="setUpPolje"></td>
+					<td id="65" class="setUpPolje"></td>
+					<td id="66" class="setUpPolje"></td>
+					<td id="67" class="setUpPolje"></td>
+					<td id="68" class="setUpPolje"></td>
+					<td id="69" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="70" class="setUpPolje"></td>
+					<td id="71" class="setUpPolje"></td>
+					<td id="72" class="setUpPolje"></td>
+					<td id="73" class="setUpPolje"></td>
+					<td id="74" class="setUpPolje"></td>
+					<td id="75" class="setUpPolje"></td>
+					<td id="76" class="setUpPolje"></td>
+					<td id="77" class="setUpPolje"></td>
+					<td id="78" class="setUpPolje"></td>
+					<td id="79" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="80" class="setUpPolje"></td>
+					<td id="81" class="setUpPolje"></td>
+					<td id="82" class="setUpPolje"></td>
+					<td id="83" class="setUpPolje"></td>
+					<td id="84" class="setUpPolje"></td>
+					<td id="85" class="setUpPolje"></td>
+					<td id="86" class="setUpPolje"></td>
+					<td id="87" class="setUpPolje"></td>
+					<td id="88" class="setUpPolje"></td>
+					<td id="89" class="setUpPolje"></td>
+				</tr>
+				<tr>
+					<td id="90" class="setUpPolje"></td>
+					<td id="91" class="setUpPolje"></td>
+					<td id="92" class="setUpPolje"></td>
+					<td id="93" class="setUpPolje"></td>
+					<td id="94" class="setUpPolje"></td>
+					<td id="95" class="setUpPolje"></td>
+					<td id="96" class="setUpPolje"></td>
+					<td id="97" class="setUpPolje"></td>
+					<td id="98" class="setUpPolje"></td>
+					<td id="99" class="setUpPolje"></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="col-sm-3">
+
+			<div class="col-sm-12 mb-5 text-center" id="divIgrac">
+				<img src="battleship-assets/redStar.jpg" class="ikonicaIgrac" width=40px; height=40px;>
+				TRENUTNI IGRAC
+				<img src="battleship-assets/redStar.jpg" class="ikonicaIgrac" width=40px; height=40px;>
+				<div class="col-sm-12"><p id="trenutniIgrac"> </p></div>
+			</div>
+
+			<div class="col-sm-12">
+			
+				<div class="row mb-4">
+					<div class="col-sm-12 text-center redPreostaliBrodovi">
+						BRODOVI 1 POLJE: <p id="brBrodJedan" class="brPresotalihBrodova">4</p>
+					</div>
+				</div>
+				<!--<div class="row mb-2">
+					<table>
+						<tr>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+						</tr>
+					</table>
+				</div>-->
+				<div class="row mb-4">
+					<div class="col-sm-12 text-center redPreostaliBrodovi">
+						BRODOVI 2 POLJA: <p id="brBrodDva" class="brPresotalihBrodova">3</p>
+					</div>
+				</div>
+				<!--<div class="row mb-2">
+					<table>
+						<tr>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+						</tr>
+					</table>
+				</div>-->
+				<div class="row mb-4">
+					<div class="col-sm-12 text-center redPreostaliBrodovi">
+						BRODOVI 3 POLJA: <p id="brBrodTri" class="brPresotalihBrodova">2</p>
+					</div>
+				</div>
+				<!--<div class="row mb-2">
+					<table>
+						<tr>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+						</tr>
+					</table>
+				</div>-->
+				<div class="row mb-4">
+					<div class="col-sm-12 text-center redPreostaliBrodovi">
+						BRODOVI 4 POLJA: <p id="brBrodCetiri" class="brPresotalihBrodova">1</p>
+					</div>
+				</div>
+				<!--<div class="row mb-2">
+					<table>
+						<tr>
+							<th class="slovo"><img src="battleship-assets/oneFieldShip.jpg" width=50px; height=50px;></th>
+						</tr>
+					</table>
+				</div>-->
+				<div class="row mb-2">
+					<div class="col-sm-12 text-center"><button type="button" id="vratiPotezDugme"><b>VRATI POTEZ</b></button></div>
+				</div>
+			</div>
+		
+		</div>
+
+	</div><!--row2 end-->
+
+</div>
+
+
+
+</body>
+</html>
