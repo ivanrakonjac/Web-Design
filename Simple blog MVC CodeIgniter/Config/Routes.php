@@ -35,12 +35,16 @@ gde je index metoda kontrolera Posts
 */
 $routes->add('posts', 'Posts::index');
 
+//dodajem rutu koja me prebacuje na view za kreiranje posta
+$routes->add('posts/create', 'Posts::create');
+
 /*
 kad se ukuca http://localhost:8080/posts/bilo sta
 prebacice me na http://localhost:8080/posts/view/prvi parametar
 gde je prvi parametar slug posta tj. redni broj posta
 */
 $routes->add('posts/(:any)', 'Posts::view/$1');
+
 
 
 // We get a performance increase by specifying the default

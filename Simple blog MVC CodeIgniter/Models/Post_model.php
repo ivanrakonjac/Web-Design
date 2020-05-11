@@ -9,13 +9,16 @@ class Post_model extends Model
 
         protected $returnType = 'object';
 
+        protected $allowedFields = ['title', 'slug', 'body'];
+
         public function get_post($slug = FALSE){
             if($slug === FALSE){
-                //$query = $this->db->get('posts');
-                //return $query->result_array();
+                echo "$slug === FALSE";
             }
 
             return $this->where('slug',$slug)->findAll();
         }
+
+
 
 }

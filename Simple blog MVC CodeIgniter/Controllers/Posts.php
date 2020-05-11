@@ -10,7 +10,7 @@ class Posts extends BaseController{
 
         $postModel = new Post_model();
 
-        $data['posts'] = $postModel->findAll();
+        $data['posts'] = $postModel->orderBy('id', 'desc')->findAll();
 
         echo view('templates/header');
         echo view('posts/index', $data);
@@ -19,6 +19,8 @@ class Posts extends BaseController{
     }
 
     public function view($slug=NULL){
+
+        echo $slug;
      
         $postModel = new Post_model();
 
@@ -36,5 +38,35 @@ class Posts extends BaseController{
         }
 
         
+    }
+
+    public function create(){
+        $data['title'] = "Create POST";
+
+        $postModel = new Post_model();
+
+        //ukljucujem form helper 
+        helper('form','url');
+
+        //ukljucujem biblioteku za validaciju
+        $validation=\Config\Services::validation();
+
+        if (!$this->validate(['title'=>'required','body'=>'required'])){
+            //echo "Greskaa";
+            echo view('templates/header');
+            echo view('posts/create', $data);
+            echo view('templates/footer');  
+            return;          
+        }
+
+        $postModel->save([
+            'slug' => "post-".str_replace(" ","",$this->request->getVar('title')),
+            'title'=>$this->request->getVar('title'),
+            'body'=>$this->request->getVar('body')
+        ]);
+
+        return redirect()->to(site_url("posts"));
+
+
     }
 }
