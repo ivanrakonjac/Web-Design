@@ -19,8 +19,6 @@ class Posts extends BaseController{
     }
 
     public function view($slug=NULL){
-
-        echo $slug;
      
         $postModel = new Post_model();
 
@@ -68,5 +66,15 @@ class Posts extends BaseController{
         return redirect()->to(site_url("posts"));
 
 
+    }
+
+    public function delete($id){
+        echo $id;
+
+        $postModel = new Post_model();
+
+        $postModel->delete($id);
+
+        return redirect()->to(site_url("posts"));
     }
 }
