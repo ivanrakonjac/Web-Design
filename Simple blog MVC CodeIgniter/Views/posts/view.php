@@ -11,3 +11,5 @@
 <?php echo form_open('/posts/delete/'.$post[0]->id);?>
     <input type="submit" class="btn btn-danger" value="delete">
 </form>
+
+<a class="btn btn-warning" href="<?php echo base_url(); ?>/posts/edit/<?php echo $post[0]->id ?>">Edit</a>

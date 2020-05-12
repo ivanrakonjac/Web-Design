@@ -41,6 +41,13 @@ $routes->add('posts/create', 'Posts::create');
 //dodajem rutu koja me prebacuje na view za brisanje posta
 $routes->add('posts/delete/(:num)', 'Posts::delete/$1');
 
+//dodajem rutu koja me prebacuje na view za editovanje posta
+//Posts::edit/$1, gde je edit metoda kontrolera Posts
+$routes->add('posts/edit/(:num)', 'Posts::edit/$1');
+
+//dodajem rutu koja me prebacuje na view za update posta
+$routes->add('posts/update/(:num)', 'Posts::update/$1');
+
 /*
 kad se ukuca http://localhost:8080/posts/bilo sta
 prebacice me na http://localhost:8080/posts/view/prvi parametar

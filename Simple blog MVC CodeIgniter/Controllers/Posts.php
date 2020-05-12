@@ -19,6 +19,7 @@ class Posts extends BaseController{
     }
 
     public function view($slug=NULL){
+        //echo $slug;
      
         $postModel = new Post_model();
 
@@ -69,12 +70,40 @@ class Posts extends BaseController{
     }
 
     public function delete($id){
-        echo $id;
+        //echo $id;
 
         $postModel = new Post_model();
 
         $postModel->delete($id);
 
         return redirect()->to(site_url("posts"));
+    }
+
+    public function edit($id){
+        $data['title'] = "Edit POST";
+
+        $postModel = new Post_model();
+        $data['post']=$postModel->find($id);
+
+        echo view('templates/header');
+        echo view('posts/edit', $data);
+        echo view('templates/footer');  
+
+        return;
+    }
+
+    public function update($id){
+
+        $postModel = new Post_model();
+
+        $postModel->save([
+            'id' => $id,
+            'slug' => "post-".str_replace(" ","",$this->request->getVar('title')),
+            'title'=>$this->request->getVar('title'),
+            'body'=>$this->request->getVar('body')
+        ]);
+
+        return redirect()->to(site_url("posts"));
+        
     }
 }
