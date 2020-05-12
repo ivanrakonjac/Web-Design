@@ -13,7 +13,12 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Body</label>
-    <textarea  class="form-control" placeholder="Add body" name="body"><?php if(!$validation->getError('body')) echo $_POST['body']; ?></textarea>
+
+    <textarea class="form-control"  name="body" id="editorBody" placeholder="Add body" rows="10" cols="80">
+      <?php if(!$validation->getError('body')) echo $_POST['body']; ?>
+    </textarea>
+
+
     <?php echo $errorBody ?>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>

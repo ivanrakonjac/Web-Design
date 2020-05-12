@@ -7,7 +7,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Body</label>
-    <textarea  class="form-control" placeholder="Add body" name="body"><?php echo $post->body; ?></textarea>
+    <textarea  class="form-control" placeholder="Add body" name="body" id="editorBody"><?php echo $post->body; ?></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

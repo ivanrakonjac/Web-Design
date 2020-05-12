@@ -6,6 +6,9 @@
         <!-- svemu sto je u public folderu moze se pristupati direktno, pa je tu zgodno staviti css-->
         <link rel="stylesheet" href="/assets/css/style.css">
 
+        <!--editor texta-->
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
     </head>
     <body>
 
