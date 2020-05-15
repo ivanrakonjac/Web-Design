@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\Post_model;
+use App\Models\Category_model;
 
 class Posts extends BaseController{
 
@@ -10,7 +11,7 @@ class Posts extends BaseController{
 
         $postModel = new Post_model();
 
-        $data['posts'] = $postModel->orderBy('id', 'desc')->findAll();
+        $data['posts'] = $postModel->get_post_joined_with_category();
 
         echo view('templates/header');
         echo view('posts/index', $data);
@@ -20,10 +21,13 @@ class Posts extends BaseController{
 
     public function view($slug=NULL){
         //echo $slug;
+
+        //dojvatanje kategorije
+        $categoryModel = new Category_model();
+        $data['categories']=$categoryModel->findAll();
      
         $postModel = new Post_model();
-
-        $data['post'] = $postModel->get_post($slug);
+        $data['post'] = $postModel->get_one_post_joined_with_category_bySlug($slug);
 
         if(empty($data['post'])){
             echo "Problem";
@@ -42,6 +46,10 @@ class Posts extends BaseController{
     public function create(){
         $data['title'] = "Create POST";
 
+        //dojvatanje kategorije
+        $categoryModel = new Category_model();
+        $data['categories']=$categoryModel->findAll();
+
         $postModel = new Post_model();
 
         //ukljucujem form helper 
@@ -58,15 +66,17 @@ class Posts extends BaseController{
             return;          
         }
 
+        $config['upload_path'] = "./assets/images/posts";
+        $config['allowed_types'] = "gif|png|jpg";
+
         $postModel->save([
             'slug' => "post-".str_replace(" ","",$this->request->getVar('title')),
             'title'=>$this->request->getVar('title'),
-            'body'=>$this->request->getVar('body')
+            'body'=>$this->request->getVar('body'),
+            'category_id'=>$this->request->getVar('category_id')
         ]);
 
         return redirect()->to(site_url("posts"));
-
-
     }
 
     public function delete($id){
@@ -83,7 +93,11 @@ class Posts extends BaseController{
         $data['title'] = "Edit POST";
 
         $postModel = new Post_model();
-        $data['post']=$postModel->find($id);
+        $data['post']=$postModel->get_one_post_joined_with_category_byID($id);
+
+        //dojvatanje kategorije
+        $categoryModel = new Category_model();
+        $data['categories']=$categoryModel->findAll();
 
         echo view('templates/header');
         echo view('posts/edit', $data);
@@ -100,7 +114,8 @@ class Posts extends BaseController{
             'id' => $id,
             'slug' => "post-".str_replace(" ","",$this->request->getVar('title')),
             'title'=>$this->request->getVar('title'),
-            'body'=>$this->request->getVar('body')
+            'body'=>$this->request->getVar('body'),
+            'category_id'=>$this->request->getVar('category_id')
         ]);
 
         return redirect()->to(site_url("posts"));

@@ -17,9 +17,16 @@
     <textarea class="form-control"  name="body" id="editorBody" placeholder="Add body" rows="10" cols="80">
       <?php if(!$validation->getError('body')) echo $_POST['body']; ?>
     </textarea>
-
-
     <?php echo $errorBody ?>
   </div>
+
+  <div class="form-group">
+   <select name="category_id" class="form-control">
+      <?php foreach($categories as $category): ?>
+        <option value="<?php echo $category->id;?>"><?php echo $category->name;?></option>
+      <?php endforeach;?>
+   </select> 
+  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
