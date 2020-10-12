@@ -26,6 +26,13 @@ namespace Authors.Controllers
             return View(n);
         }
 
+        public IActionResult HelloWorld()
+        {
+            Random random = new Random();
+            int n = random.Next() % 20;
+            return View(n);
+        }
+
         public IActionResult Privacy()
         {
             return View();
