@@ -6,24 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Authors.Models;
+using Authors.Models.Database;
 
 namespace Authors.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private AuthorsContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, AuthorsContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
             Random random = new Random();
             int n = random.Next();
-
             return View(n);
+        }
+
+        public IActionResult Authors ( ) {
+            return View(this.context.authors.ToList());
         }
 
         public IActionResult HelloWorld()

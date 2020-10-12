@@ -1,0 +1,10 @@
+@model System.Collections.Generic.IList<Authors.Models.Database.Author>
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+@foreach (Authors.Models.Database.Author item in Model)
+{
+   <p>@item.firstName @item.lastName</p> 
+}

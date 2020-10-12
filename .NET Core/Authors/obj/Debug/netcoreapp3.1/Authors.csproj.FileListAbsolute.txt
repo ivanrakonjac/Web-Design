@@ -1,36 +1,138 @@
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.exe
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.deps.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.dev.json
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.dll
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.pdb
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.Views.dll
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\bin\Debug\netcoreapp3.1\Authors.Views.pdb
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.csprojAssemblyReference.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.Manifest.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.xml
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfoInputs.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfo.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.input.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.output.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.RazorCoreGenerate.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cache
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cs
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.Views.pdb
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.dll
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.pdb
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Authors.csproj.CopyComplete
-C:\Users\Ika\Documents\Programiranje\IEP\Authors\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\HelloWorld.cshtml.g.cs
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\appsettings.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.exe
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.deps.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.dev.json
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.pdb
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.Views.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Authors.Views.pdb
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.csprojAssemblyReference.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.csproj.CoreCompileInputs.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.MvcApplicationPartsAssemblyInfo.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfoInputs.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfo.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.input.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.output.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.RazorCoreGenerate.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cs
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.Views.pdb
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.Manifest.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.xml
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.dll
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.pdb
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.genruntimeconfig.cache
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Authors.csproj.CopyComplete
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\HelloWorld.cshtml.g.cs
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\IEP\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Authors.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.exe
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.deps.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.runtimeconfig.dev.json
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.pdb
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.Views.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Authors.Views.pdb
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.csprojAssemblyReference.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.Manifest.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\staticwebassets\Authors.StaticWebAssets.xml
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.RazorAssemblyInfo.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfoInputs.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.AssemblyInfo.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.input.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.TagHelpers.output.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.RazorCoreGenerate.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Authors.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\HelloWorld.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cache
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.RazorTargetAssemblyInfo.cs
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.Views.pdb
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.csproj.CopyComplete
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.dll
+C:\Users\Ika\Downloads\IEP vezbe Djukic\cas2\Authors\obj\Debug\netcoreapp3.1\Authors.pdb
