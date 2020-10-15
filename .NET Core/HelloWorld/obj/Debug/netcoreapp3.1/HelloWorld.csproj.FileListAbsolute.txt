@@ -33,3 +33,5 @@ C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\Hell
 C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.dll
 C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.pdb
 C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\HelloWorld.csproj.CopyComplete
+C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\Razor\Views\HelloWorld\Index.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\HelloWorld\obj\Debug\netcoreapp3.1\Razor\Views\HelloWorld\Welcome.cshtml.g.cs

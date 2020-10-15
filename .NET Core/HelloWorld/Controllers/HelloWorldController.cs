@@ -8,18 +8,19 @@ namespace MvcMovie.Controllers
         // 
         // GET: /HelloWorld/
 
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
         
-        // GET: /HelloWorld/Welcome/ 
-        // Requires using System.Text.Encodings.Web; => 
-        // https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4
-        public string Welcome(string name, int numTimes = 1)
+        // https://localhost:{PORT}/HelloWorld/Welcome?name=Stevan&numtimes=4
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
 
         // https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick
