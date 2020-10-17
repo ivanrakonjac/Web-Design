@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ika\\Downloads\\IEP vezbe Djukic\\cas2\\Authors\\Authors.csproj": {}
+    "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ika\\Downloads\\IEP vezbe Djukic\\cas2\\Authors\\Authors.csproj": {
+    "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ika\\Downloads\\IEP vezbe Djukic\\cas2\\Authors\\Authors.csproj",
+        "projectUniqueName": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj",
         "projectName": "Authors",
-        "projectPath": "C:\\Users\\Ika\\Downloads\\IEP vezbe Djukic\\cas2\\Authors\\Authors.csproj",
+        "projectPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj",
         "packagesPath": "C:\\Users\\Ika\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ika\\Downloads\\IEP vezbe Djukic\\cas2\\Authors\\obj\\",
+        "outputPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ika\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             }
           },
           "imports": [
