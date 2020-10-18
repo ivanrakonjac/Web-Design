@@ -25,8 +25,9 @@ namespace Authors.Controllers
         }
 
         // GET: Author/Details/5
+        // int? znaci da je id nullable vrednost
         public async Task<IActionResult> Details(int? id)
-        {
+        { 
             if (id == null)
             {
                 return NotFound();
@@ -42,10 +43,19 @@ namespace Authors.Controllers
             return View(author);
         }
 
+        //provera da li postoji autor sa zadatim imenom i prezimenom
+        private bool DoesExist(string firstName, string lastName){
+            return this._context.authors.Where(
+                author => author.firstName == firstName && author.lastName == lastName
+            ).Any();
+        }
+
         // GET: Author/Create
         public IActionResult Create()
         {
-            return View();
+            //da mi pri iscrtavanju Create viewa ne bi pukao program na null pristupu modelu
+            Author author = new Author();
+            return View(author);
         }
 
         // POST: Author/Create
@@ -57,9 +67,13 @@ namespace Authors.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(author);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if(!this.DoesExist(author.firstName, author.lastName)){
+                    _context.Add(author);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }else{
+                    ModelState.AddModelError("", "Author already exists!");
+                }
             }
             return View(author);
         }
@@ -94,23 +108,34 @@ namespace Authors.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(author);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AuthorExists(author.id))
+                //proveravam da li je menjano ime ili country
+                bool isOld = this._context.authors.Where(
+                    dauthor => dauthor.id == author.id && dauthor.firstName == author.firstName && dauthor.lastName==author.lastName
+                ).Any();
+
+                if(isOld || !this.DoesExist(author.firstName, author.lastName)){
+                     //try catch blok zbog utrkivanja
+                    try
                     {
-                        return NotFound();
+                        _context.Update(author);
+                        await _context.SaveChangesAsync();
                     }
-                    else
+                    catch (DbUpdateConcurrencyException)
                     {
-                        throw;
+                        if (!AuthorExists(author.id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
+                    return RedirectToAction(nameof(Index));
+                }else{
+                    ModelState.AddModelError("", "Author already exists");
                 }
-                return RedirectToAction(nameof(Index));
+
             }
             return View(author);
         }
