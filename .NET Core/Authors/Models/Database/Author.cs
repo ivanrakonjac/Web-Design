@@ -18,6 +18,8 @@ namespace Authors.Models.Database {
         [Display(Name = "Country")]
         public string country { get; set; }
 
+         public ICollection<AuthorBook> authorBookList {get;set;}
+
 
         public IList<SelectListItem> GetCoutries () {
             bool isUsa = country==null || country=="USA";

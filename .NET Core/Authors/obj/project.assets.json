@@ -8196,11 +8196,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj",
+      "projectUniqueName": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Authors.csproj",
       "projectName": "Authors",
-      "projectPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj",
+      "projectPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Authors.csproj",
       "packagesPath": "C:\\Users\\Ika\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\obj\\",
+      "outputPath": "C:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ika\\AppData\\Roaming\\NuGet\\NuGet.Config",

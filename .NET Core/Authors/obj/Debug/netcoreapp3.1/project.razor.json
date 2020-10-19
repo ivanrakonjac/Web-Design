@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Authors.csproj",
+  "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Authors.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,73 +14392,73 @@
   "RootNamespace": "Authors",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Home\\Authors.cshtml",
-      "TargetPath": "Views\\Home\\Authors.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Author\\Create.cshtml",
-      "TargetPath": "Views\\Author\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Home\\HelloWorld.cshtml",
-      "TargetPath": "Views\\Home\\HelloWorld.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Author\\Delete.cshtml",
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Delete.cshtml",
       "TargetPath": "Views\\Author\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Author\\Details.cshtml",
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Details.cshtml",
       "TargetPath": "Views\\Author\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Author\\Edit.cshtml",
-      "TargetPath": "Views\\Author\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors2\\Views\\Author\\Index.cshtml",
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Index.cshtml",
       "TargetPath": "Views\\Author\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Create.cshtml",
+      "TargetPath": "Views\\Author\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\Authors.cshtml",
+      "TargetPath": "Views\\Home\\Authors.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\HelloWorld.cshtml",
+      "TargetPath": "Views\\Home\\HelloWorld.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Edit.cshtml",
+      "TargetPath": "Views\\Author\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],
