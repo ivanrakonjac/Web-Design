@@ -17,8 +17,10 @@ namespace Authors.Models.Database {
         [Required]
         [Display(Name = "Country")]
         public string country { get; set; }
+        [Display(Name="Books")]
+        public ICollection<AuthorBook> authorBookList {get;set;}
 
-         public ICollection<AuthorBook> authorBookList {get;set;}
+        public string fullName => this.firstName + " " + this.lastName;
 
 
         public IList<SelectListItem> GetCoutries () {

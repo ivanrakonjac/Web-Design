@@ -8,10 +8,14 @@ namespace Authors.Models.Database {
        [Key]
        public int id { get; set; }
        [Required]
+       [Display(Name = "Title")]
        public string name { get; set; }
        [Required]
+       [Display(Name = "Genre")]
        public int genreId { get; set; }
+       [Display(Name = "Genre")]
        public Genre genre { get; set; }
+       [Display(Name = "Authors")]
        public ICollection<AuthorBook> authorBookList {get;set;}
     }
 

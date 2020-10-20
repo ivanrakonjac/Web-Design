@@ -34,6 +34,8 @@ namespace Authors.Controllers
             }
 
             var author = await _context.authors
+                .Include ( author => author.authorBookList )
+                    .ThenInclude (authorBook => authorBook.book)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (author == null)
             {
@@ -149,6 +151,8 @@ namespace Authors.Controllers
             }
 
             var author = await _context.authors
+                .Include ( author => author.authorBookList )
+                    .ThenInclude ( authorBook => authorBook.book)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (author == null)
             {
