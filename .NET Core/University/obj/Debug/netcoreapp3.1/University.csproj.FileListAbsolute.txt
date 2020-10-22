@@ -137,3 +137,8 @@ C:\Users\Ika\Documents\Programiranje\IEP\University\bin\Debug\netcoreapp3.1\runt
 C:\Users\Ika\Documents\Programiranje\IEP\University\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Ika\Documents\Programiranje\IEP\University\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Ika\Documents\Programiranje\IEP\University\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Ika\Documents\Programiranje\IEP\University\obj\Debug\netcoreapp3.1\Razor\Views\Students\Create.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\University\obj\Debug\netcoreapp3.1\Razor\Views\Students\Delete.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\University\obj\Debug\netcoreapp3.1\Razor\Views\Students\Details.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\University\obj\Debug\netcoreapp3.1\Razor\Views\Students\Edit.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\University\obj\Debug\netcoreapp3.1\Razor\Views\Students\Index.cshtml.g.cs

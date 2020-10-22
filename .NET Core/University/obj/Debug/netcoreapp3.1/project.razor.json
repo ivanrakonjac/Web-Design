@@ -14397,8 +14397,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Students\\Details.cshtml",
+      "TargetPath": "Views\\Students\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Students\\Edit.cshtml",
+      "TargetPath": "Views\\Students\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Students\\Index.cshtml",
+      "TargetPath": "Views\\Students\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14412,8 +14427,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Students\\Create.cshtml",
+      "TargetPath": "Views\\Students\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\University\\Views\\Students\\Delete.cshtml",
+      "TargetPath": "Views\\Students\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
