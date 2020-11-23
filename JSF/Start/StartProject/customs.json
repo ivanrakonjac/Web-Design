@@ -1,0 +1,8 @@
+{
+    "elements": {
+        "h:commandButton": {},
+        "h:form": {},
+        "h:inputText": {}
+    },
+    "attributes": {}
+}
