@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Sabiranje brojeva</h1>
+        <form method="post" action="SabiranjeBrojeva">
+            X: <input type="text" name="prvi"></br>
+            Y: <input type="text" name="drugi"></br>
+            <input type="submit" value="Saberi">
+        </form>
+        
+        <h1>Prosledjivanje zahteva</h1>
+        <form method="post" action="ProsledjivanjeZahteva">
+            Param: <input type="text" name="param">
+            <input type="submit" value="Saberi">
+        </form>
+        
+        
+        <h1>Dodaj u korpu</h1>
+        <form method="get" action="SesijaServlet">
+            Proizvod <input type="text" name="proizvod">
+            <input type="submit" value="Saberi">
+        </form>
+        
+        
+    </body>
+</html>
