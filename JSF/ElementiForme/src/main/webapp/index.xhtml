@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2>Unesite podatke</h2>
+        
+        <h:form>
+            <h:panelGrid>
+                Ime:
+                <h:inputText value="#{managedBean1.ime}"></h:inputText>
+                
+                Prezime:
+                <h:inputText value="#{managedBean1.prezime}"></h:inputText>
+                
+                Slazem se:
+                <h:selectBooleanCheckbox value="#{managedBean1.slazemSe}"></h:selectBooleanCheckbox>
+                
+                Pol:
+                <h:selectOneRadio value="#{managedBean1.pol}">
+                    <f:selectItem itemLabel="Muski" itemValue="Muski"></f:selectItem>
+                    <f:selectItem itemLabel="Zenski" itemValue="Zenski"></f:selectItem>
+                </h:selectOneRadio>
+                
+                Zanimanje:
+                <h:selectOneMenu value="#{managedBean1.zanimanje}">
+                    <f:selectItem itemValue="Programer"></f:selectItem>
+                    <f:selectItem itemValue="Muzicar"></f:selectItem>
+                    <f:selectItem itemValue="Student"></f:selectItem>
+                </h:selectOneMenu>
+                
+                Stavke:
+                <h:selectOneMenu value="#{managedBean1.stavka}">
+                    <f:selectItems value="#{managedBean1.stavke}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                Proizvodi:
+                <h:selectOneRadio value="#{managedBean1.proizvod}">
+                    <f:selectItems value="#{managedBean1.proizvodi}"></f:selectItems>
+                </h:selectOneRadio>
+                
+                Korisnici:
+                <h:selectOneMenu value="#{usersManagedBean.prezime}">
+                    <f:selectItems value="#{usersManagedBean.korisnici}" var="user"
+                                   itemLabel="#{user.ime}" itemValue="#{user.prezime}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                Predavaci:
+                <h:selectOneMenu value="#{usersManagedBean.predavac}">
+                    <f:selectItems value="#{usersManagedBean.predavaci}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                Ucenici:
+                <h:selectManyListbox value="#{usersManagedBean.ucenici}">
+                    <f:selectItems value="#{usersManagedBean.korisnici}" var="korisnik"
+                                   itemLabel="#{korisnik.ime}" itemValue="#{korisnik.prezime}"></f:selectItems>
+                </h:selectManyListbox>
+                
+                 Osoblje:
+                <h:selectManyListbox value="#{usersManagedBean.osoblje}">
+                    <f:selectItems value="#{usersManagedBean.korisnici}" var="korisnik"
+                                   itemLabel="#{korisnik.ime}" itemValue="#{korisnik.prezime}"></f:selectItems>
+                </h:selectManyListbox>
+                
+                 <h:commandButton value="Submit" action="data"></h:commandButton>
+                 
+            </h:panelGrid>
+        </h:form>
+        
+    </h:body>
+</html>
+

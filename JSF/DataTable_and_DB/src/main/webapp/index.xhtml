@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Korisnici:
+        <h:form>
+            <h:dataTable value="#{userManagedBean.users}" var="user">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{user.id}" rendered="#{not user.edit}"
+                                  style="#{user.username=='admin'?'color:red':'color:black'}"></h:outputText>
+                    <h:inputText value="#{user.id}" rendered="#{user.edit}"></h:inputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Username</f:facet>
+                    <h:outputText value="#{user.username}" rendered="#{not user.edit}"></h:outputText>
+                    <h:inputText value="#{user.username}" rendered="#{user.edit}"></h:inputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Password</f:facet>
+                    <h:outputText value="#{user.password}" rendered="#{not user.edit}"></h:outputText>
+                    <h:inputText value="#{user.password}" rendered="#{user.edit}"></h:inputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <h:selectBooleanCheckbox value="#{user.edit}" onclick="submit()"></h:selectBooleanCheckbox>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton value="Save" action="#{userManagedBean.saveData(user)}"></h:commandButton>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton value="Save" action="#{userManagedBean.delete(user)}"></h:commandButton>
+                </h:column>
+
+
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
