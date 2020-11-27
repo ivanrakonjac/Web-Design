@@ -113,5 +113,25 @@ public class KorisnikDAO {
             DB.getInstance().putConnection(con);
         }
     }
+    
+    public boolean deleteUser(Korisnik user) {
+        Connection con = DB.getInstance().getConnection();
+        if (con == null) {
+            System.err.println("*** Neuspesna konekcija na bazu podataka! ***");
+            return false;
+        }
+       
+        try (PreparedStatement ps = con.prepareStatement("delete from korisnik where username=?")) {
+            ps.setString(1, user.getUsername());
+
+            return ps.executeUpdate() != 0;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(KorisnikDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } finally {
+            DB.getInstance().putConnection(con);
+        }
+    }
 
 }

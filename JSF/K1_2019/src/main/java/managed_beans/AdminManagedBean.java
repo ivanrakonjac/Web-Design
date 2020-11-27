@@ -42,4 +42,10 @@ public class AdminManagedBean {
         korDAO.changeUser(user);
         return "admin";
     }
+    
+    public String delete(Korisnik user){
+        KorisnikDAO korDAO = new KorisnikDAO();
+        korDAO.deleteUser(user);
+        return "admin";
+    }
 }

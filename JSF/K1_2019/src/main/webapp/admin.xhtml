@@ -43,6 +43,11 @@
                     <f:facet name="header">Edit</f:facet>
                     <h:commandButton action="#{adminManagedBean.goToEdit(user)}" value="Edit"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton action="#{adminManagedBean.delete(user)}" value="Delete"/>
+                </h:column>
+               
                 
             </h:dataTable>
            <h:outputText value="Nema usera." rendered="#{empty loginManagedBean.allUsrs}" />
