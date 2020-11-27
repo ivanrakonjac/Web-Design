@@ -33,40 +33,7 @@
        <hr/>
        <br/>
        
-       <h:form>
-           <h:dataTable border="1" value="#{loginManagedBean.allUsrs}" var="user" rendered="#{not empty loginManagedBean.allUsrs}">
-                <h:column>
-                    <f:facet name="header">Usrename</f:facet>
-                    <h:outputText value="#{user.username}" />
-                </h:column>
-               <h:column>
-                    <f:facet name="header">Password</f:facet>
-                    <h:outputText value="#{user.password}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Ime</f:facet>
-                    <h:outputText value="#{user.firstname}"  />
-                </h:column>
-               <h:column>
-                    <f:facet name="header">Prezime</f:facet>
-                    <h:outputText value="#{user.lastname}"  />
-                </h:column>
-               <h:column>
-                    <f:facet name="header">Rodjendan</f:facet>
-                    <h:outputText value="#{user.birthday}"  />
-                </h:column>
-               <h:column>
-                    <f:facet name="header">Is admin</f:facet>
-                    <h:outputText value="#{user.isAdmin}"  />
-                </h:column>
-               <h:column>
-                    <f:facet name="header">Play current</f:facet>
-                    <h:outputText value="#{user.playCurrentGame}"  />
-                </h:column>
-                
-            </h:dataTable>
-           <h:outputText value="Nema usera." rendered="#{empty loginManagedBean.allUsrs}" />
-        </h:form>
+       
     </h:body>
 </html>
 

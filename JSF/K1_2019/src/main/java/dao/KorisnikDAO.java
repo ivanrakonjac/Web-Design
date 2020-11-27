@@ -91,6 +91,27 @@ public class KorisnikDAO {
         return users;
     }
 
+    public boolean changeUser(Korisnik user) {
+        Connection con = DB.getInstance().getConnection();
+        if (con == null) {
+            System.err.println("*** Neuspesna konekcija na bazu podataka! ***");
+            return false;
+        }
+       
+        try (PreparedStatement ps = con.prepareStatement("update korisnik set password=?, firstname=?, lastname=? where username=?")) {
+            ps.setString(1, user.getPassword());
+            ps.setString(2, user.getFirstname());
+            ps.setString(3, user.getLastname());
+            ps.setString(4, user.getUsername());
 
+            return ps.executeUpdate() != 0;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(KorisnikDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } finally {
+            DB.getInstance().putConnection(con);
+        }
+    }
 
 }
