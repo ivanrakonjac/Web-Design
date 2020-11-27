@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Index</title>
+    </h:head>
+    <h:body>
+       <h2>Dobrodosli!</h2>
+        <h:form>
+             
+            <h:panelGrid>
+                Username:
+                <h:inputText value="#{loginManagedBean.username}" required="true" requiredMessage="Popunite username"></h:inputText>
+                
+                Password:
+                <h:inputText value="#{loginManagedBean.password}" required="true" requiredMessage="Popunite password"></h:inputText>
+                
+                Tip:
+                <h:selectOneRadio value="#{loginManagedBean.type}" required="true" requiredMessage="Odaberite tip">
+                    <f:selectItem itemValue="nastavnik" itemLabel="Nastavnik"></f:selectItem>
+                    <f:selectItem itemValue="admin" itemLabel="Admin"></f:selectItem>
+                </h:selectOneRadio>
+                
+                <h:commandButton action="#{loginManagedBean.login()}" value="LOGIN"></h:commandButton>
+            </h:panelGrid>
+             
+            
+        </h:form>
+       
+       <br/>
+       <hr/>
+       <br/>
+       
+       <h:form>
+           <h:dataTable border="1" value="#{loginManagedBean.allUsrs}" var="user" rendered="#{not empty loginManagedBean.allUsrs}">
+                <h:column>
+                    <f:facet name="header">Usrename</f:facet>
+                    <h:outputText value="#{user.username}" />
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Password</f:facet>
+                    <h:outputText value="#{user.password}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ime</f:facet>
+                    <h:outputText value="#{user.firstname}"  />
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Prezime</f:facet>
+                    <h:outputText value="#{user.lastname}"  />
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Rodjendan</f:facet>
+                    <h:outputText value="#{user.birthday}"  />
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Is admin</f:facet>
+                    <h:outputText value="#{user.isAdmin}"  />
+                </h:column>
+               <h:column>
+                    <f:facet name="header">Play current</f:facet>
+                    <h:outputText value="#{user.playCurrentGame}"  />
+                </h:column>
+                
+            </h:dataTable>
+           <h:outputText value="Nema usera." rendered="#{empty loginManagedBean.allUsrs}" />
+        </h:form>
+    </h:body>
+</html>
+
