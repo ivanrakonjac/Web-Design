@@ -12,10 +12,11 @@ namespace Authors.Models.Database {
 
     public class AuthorBookConfiguration : IEntityTypeConfiguration<AuthorBook>
     {
-        //ovde podesavamo da je primarni kljuc compozitni iz 2 tabele
+        
         public void Configure(EntityTypeBuilder<AuthorBook> builder)
         {
 
+            //ovde podesavamo da je primarni kljuc compozitni iz 2 tabele
             builder.HasKey (
                 entity => new { entity.authorId, entity.bookId }
             );

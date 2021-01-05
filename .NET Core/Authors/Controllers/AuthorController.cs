@@ -55,8 +55,7 @@ namespace Authors.Controllers
         // GET: Author/Create
         public IActionResult Create()
         {
-            //da mi pri iscrtavanju Create viewa ne bi pukao program na null pristupu modelu
-            Author author = new Author();
+            Author author = new Author(); //da mi pri iscrtavanju Create viewa ne bi pukao program na null pristupu modelu
             return View(author);
         }
 

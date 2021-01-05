@@ -46,10 +46,24 @@ namespace Authors.Controllers
             return View(book);
         }
 
+        public IActionResult ValidateTitle(int? id, string name){
+            IQueryable<Book> query = this._context.books.Where(book => book.name == name);
+            if( id != null ){
+                query = query.Where (book => book.id != id);
+            }
+            bool exsists = query.Any ( );
+            if(!exsists){
+                return Json (true);
+            }else{
+                return Json ("Title is already taken");
+            }
+        }
+
         // GET: Book/Create
         public IActionResult Create()
         {
             ViewData["genreId"] = new SelectList(_context.genres, "id", "name");
+            ViewData["authors"] = new MultiSelectList (_context.authors, "id", "fullName");
             return View();
         }
 
@@ -58,15 +72,26 @@ namespace Authors.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,name,genreId")] Book book)
+        public async Task<IActionResult> Create([Bind("id,name,genreId,authors")] Book book)
         {
             if (ModelState.IsValid)
             {
+                if(book.authorBookList == null){
+                    book.authorBookList = new List<AuthorBook>( );
+                }
+                foreach( int authorId in book.authors){
+                    book.authorBookList.Add (
+                        new AuthorBook ( ){
+                            authorId = authorId
+                        }
+                    );
+                }
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["genreId"] = new SelectList(_context.genres, "id", "name", book.genreId);
+            ViewData["authors"] = new MultiSelectList (_context.authors, "id", "fullName", book.authors);
             return View(book);
         }
 
@@ -78,12 +103,19 @@ namespace Authors.Controllers
                 return NotFound();
             }
 
-            var book = await _context.books.FindAsync(id);
+            var book = await _context.books.Include( book => book.authorBookList ).Where (book => book.id == id).FirstOrDefaultAsync();
             if (book == null)
             {
                 return NotFound();
             }
             ViewData["genreId"] = new SelectList(_context.genres, "id", "name", book.genreId);
+
+            IList<int> selectedAuthors = new List<int> ( );
+            foreach(AuthorBook  authorBook in book.authorBookList){
+                selectedAuthors.Add ( authorBook.authorId );
+            }
+
+            ViewData["authors"] = new MultiSelectList (_context.authors, "id", "fullName", selectedAuthors);
             return View(book);
         }
 
@@ -92,7 +124,7 @@ namespace Authors.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,name,genreId")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("id,name,genreId,authors")] Book book)
         {
             if (id != book.id)
             {
@@ -104,6 +136,17 @@ namespace Authors.Controllers
                 try
                 {
                     _context.Update(book);
+
+                    this._context.Entry( book ).Collection ( book => book.authorBookList ).Load( );
+                    book.authorBookList.Clear( );
+                    foreach ( int author in book.authors ){
+                        book.authorBookList.Add (
+                            new AuthorBook ( ){
+                                authorId = author
+                            }
+                        );
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

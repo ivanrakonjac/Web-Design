@@ -39,6 +39,8 @@ function test_input($data) {
 }
 ?>
 
+<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>
+
 <!DOCTYPE html>
 <html>
 <head>

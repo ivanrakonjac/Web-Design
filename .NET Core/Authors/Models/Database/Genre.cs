@@ -10,6 +10,7 @@ namespace Authors.Models.Database {
        [Required]
        public string name { get; set; }
 
+        //Lista knjiga koje pripadaju nekom zanru (one to many veza - knjiga je one)
        public ICollection<Book> books { get; set; }
     }
 

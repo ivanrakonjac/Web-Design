@@ -34,8 +34,8 @@ namespace Authors
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AuthorsContext context)
         {
-            // context.Database.EnsureCreated ( );
-            context.Database.Migrate ( );
+            // context.Database.EnsureCreated ( ); 
+            context.Database.Migrate ( ); //prilikom konfiguracije aplikacije izvrsice se sve potrebne migracije baze
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

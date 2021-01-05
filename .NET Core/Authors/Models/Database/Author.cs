@@ -18,6 +18,8 @@ namespace Authors.Models.Database {
         [Display(Name = "Country")]
         public string country { get; set; }
         [Display(Name="Books")]
+
+        //setovanje many to many veze
         public ICollection<AuthorBook> authorBookList {get;set;}
 
         public string fullName => this.firstName + " " + this.lastName;
@@ -50,11 +52,15 @@ namespace Authors.Models.Database {
 
     }
 
+    //Klasa koja nam sluzi za konfiguraciju Authors tabele u bazi
     public class AuthorConfiguration : IEntityTypeConfiguration<Author> {
         public void Configure(EntityTypeBuilder<Author> builder) {
+            
+            //setovanje autoincrementa nad id poljem
             builder.Property ( author => author.id )
                 .ValueGeneratedOnAdd ( );
 
+            //setovanje pocetnog sadrzaja u bazi, prilikom kreiranja tabele
             builder.HasData (
                 new Author ( ) {
                     id = 1,
