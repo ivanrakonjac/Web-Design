@@ -78,3 +78,10 @@ C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\obj\Debug\netcoreapp3.1\Me
 C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\obj\Debug\netcoreapp3.1\MessagingApp.csproj.CopyComplete
 C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\obj\Debug\netcoreapp3.1\MessagingApp.dll
 C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\obj\Debug\netcoreapp3.1\MessagingApp.pdb
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\Ika\Documents\Programiranje\IEP\MessagingApp\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
