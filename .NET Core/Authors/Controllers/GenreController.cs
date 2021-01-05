@@ -39,6 +39,9 @@ namespace Authors.Controllers
                 return NotFound();
             }
 
+            IQueryable<Book> query = this._context.books.Where(book => book.genreId == id);
+            ViewBag.books = query.ToList();
+
             return View(genre);
         }
 
@@ -71,12 +74,6 @@ namespace Authors.Controllers
             {
                 return NotFound();
             }
-
-            IQueryable<Book> query = this._context.books.Where(book => book.genreId == id);
-            //bool exsists = query.Any ( );
-            //IEnumerable<Book> books = query.ToList();
-            //ViewData["books"] = new MultiSelectList (query.ToList(), "id", "fullName");
-            ViewBag.books = query.ToList();
 
             var genre = await _context.genres.FindAsync(id);
             if (genre == null)
