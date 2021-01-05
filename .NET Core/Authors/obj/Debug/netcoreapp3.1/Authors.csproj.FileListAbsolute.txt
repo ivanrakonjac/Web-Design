@@ -433,3 +433,8 @@ C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\V
 C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Book\Details.cshtml.g.cs
 C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Book\Edit.cshtml.g.cs
 C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Book\Index.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Create.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Delete.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Details.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Edit.cshtml.g.cs
+C:\Users\Ika\Documents\Programiranje\IEP\Authors\obj\Debug\netcoreapp3.1\Razor\Views\Genre\Index.cshtml.g.cs

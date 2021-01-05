@@ -8,6 +8,7 @@ namespace Authors.Models.Database {
         [Key]
        public int id { get; set; }
        [Required]
+       [Display(Name = "Name")]
        public string name { get; set; }
 
         //Lista knjiga koje pripadaju nekom zanru (one to many veza - knjiga je one)

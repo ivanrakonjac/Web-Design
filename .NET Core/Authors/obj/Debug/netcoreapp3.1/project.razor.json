@@ -14392,6 +14392,16 @@
   "RootNamespace": "Authors",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Genre\\Details.cshtml",
+      "TargetPath": "Views\\Genre\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Genre\\Delete.cshtml",
+      "TargetPath": "Views\\Genre\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Author\\Delete.cshtml",
       "TargetPath": "Views\\Author\\Delete.cshtml",
       "FileKind": "mvc"
@@ -14414,6 +14424,11 @@
     {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Genre\\Index.cshtml",
+      "TargetPath": "Views\\Genre\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14462,6 +14477,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Genre\\Create.cshtml",
+      "TargetPath": "Views\\Genre\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Home\\HelloWorld.cshtml",
       "TargetPath": "Views\\Home\\HelloWorld.cshtml",
       "FileKind": "mvc"
@@ -14479,6 +14499,11 @@
     {
       "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Book\\Details.cshtml",
       "TargetPath": "Views\\Book\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Ika\\Documents\\Programiranje\\IEP\\Authors\\Views\\Genre\\Edit.cshtml",
+      "TargetPath": "Views\\Genre\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
