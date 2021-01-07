@@ -9,7 +9,7 @@ namespace MessagingApp.Models.Database {
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
+ 
             builder.ApplyConfiguration ( new IdentityRoleConfiguration () );
         }
     }
