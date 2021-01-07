@@ -1,3 +1,4 @@
+using AutoMapper;
 using MessagingApp.Models.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,8 +25,19 @@ namespace MessagingApp
             services.AddDbContext<MessagingAppContext> ( 
                 options => options.UseSqlServer( this.Configuration.GetConnectionString ( "MessagingAppDB" ))
             );
-            services.AddIdentity<User, IdentityRole> ( ).AddEntityFrameworkStores<MessagingAppContext> ( );
+            services.AddIdentity<User, IdentityRole> (
+                options => {
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequiredLength = 2;
+                }
+             ).AddEntityFrameworkStores<MessagingAppContext> ( );
+            
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            services.AddAutoMapper (typeof(Startup));
+
             services.AddControllersWithViews();
         }
 
