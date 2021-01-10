@@ -1,4 +1,5 @@
 using AutoMapper;
+using MessagingApp.Factories;
 using MessagingApp.Models.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,15 @@ namespace MessagingApp
 
             services.AddAutoMapper (typeof(Startup));
 
+            services.ConfigureApplicationCookie (
+                options => {
+                    options.LoginPath = "/User/Login";
+                    options.AccessDeniedPath = "/Error";
+                }
+            );
+
+            services.AddScoped<IUserClaimsPrincipalFactory<User>, ClaimFactory> ( );
+
             services.AddControllersWithViews();
         }
 
@@ -58,6 +68,8 @@ namespace MessagingApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
