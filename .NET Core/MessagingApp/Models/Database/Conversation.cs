@@ -13,7 +13,7 @@ namespace MessagingApp.Models.Database{
         [Required]
         public DateTime creationDate {get;set;}
 
-        public ICollection<UserConversation> UserConversationList {get;set;}
+        public ICollection<UserConversation> userConversationList {get;set;}
     }
 
     public class ConversationConfiguration : IEntityTypeConfiguration<Conversation>{

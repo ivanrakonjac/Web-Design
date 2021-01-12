@@ -22,8 +22,33 @@ namespace MessagingApp.Controllers{
             this.context = context;
         }
 
-        public IActionResult Index(){
-            return View ( );
+        public async Task<IndexModel> getIndexModel (int? activeConversation){
+             User loggedInUser = await this.userManager.GetUserAsync (base.User);
+
+             IList<Conversation> conversations = await this.context.userConversations
+                                                    // Dohvatim sve redove tabele userConversations gde je item.userId == loggedInUser.Id 
+                                                    .Where (item => item.userId == loggedInUser.Id)
+                                                    // Ucitavam reference ka razgovoru 
+                                                    .Include (item => item.conversation)
+                                                        // Ucitivam reference u suprotonom smeru
+                                                        .ThenInclude (item => item.userConversationList)
+                                                            // Ucitavam referencu ka korisniku
+                                                            .ThenInclude (item => item.user)
+                                                    // Trebaju mi samo razgovori
+                                                    .Select ( item => item.conversation )
+                                                    .ToListAsync ( );
+
+            IndexModel model = new IndexModel ( ){
+                conversations = conversations,
+                activeConversation = activeConversation != null ? activeConversation.Value : ( conversations.Count != 0 ? conversations.First().id : -1)
+            };
+
+            return model; 
+        }
+
+        public async Task<IActionResult> Index(){
+            IndexModel model = await this.getIndexModel (null);
+            return View ( model );
         }
 
         public async Task<IActionResult> CreateConversationAsync ( ) {
@@ -99,13 +124,13 @@ namespace MessagingApp.Controllers{
             Conversation conversation = new Conversation  ( ){
                 name = model.name,
                 creationDate = DateTime.Now,
-                UserConversationList = new List<UserConversation> ( )
+                userConversationList = new List<UserConversation> ( )
             };
 
 
             // dodajem idjeve u conversation.UserConversationList
             foreach (string id in selectedIds) {
-                conversation.UserConversationList.Add (
+                conversation.userConversationList.Add (
                     new UserConversation ( ){
                         userId = id
                     }
