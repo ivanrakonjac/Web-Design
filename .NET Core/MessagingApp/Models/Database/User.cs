@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using AutoMapper;
 using MessagingApp.Models.View;
@@ -10,6 +11,7 @@ namespace MessagingApp.Models.Database{
         public string firstName {get; set; }
         [Required]
         public string lastName {get; set; }
+        public ICollection<UserConversation> UserConversationList {get;set;}
     }
 
     public class UserProfile : Profile {
