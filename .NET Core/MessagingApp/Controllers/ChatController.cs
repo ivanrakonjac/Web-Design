@@ -43,6 +43,18 @@ namespace MessagingApp.Controllers{
                 activeConversation = activeConversation != null ? activeConversation.Value : ( conversations.Count != 0 ? conversations.First().id : -1)
             };
 
+            if( model.activeConversation != -1 ){
+                model.messages = await this.context.messages
+                                                .Where ( message => message.conversationId == model.activeConversation)
+                                                .Include ( item => item.userConversation)
+                                                    .ThenInclude ( item => item.user)
+                                                .OrderBy ( item => item.sendDate)
+                                                .ToListAsync ( );
+            } else {
+                model.messages = new List<Message> ( );
+            }
+            model.userId = loggedInUser.Id;
+
             return model; 
         }
 

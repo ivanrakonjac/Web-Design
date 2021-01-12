@@ -44,6 +44,12 @@
                 conversationId = Model.activeConversation
             };
             await Html.RenderPartialAsync ( "SendMessage", sendMessageModel );
+
+            MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ) {
+                messages = Model.messages,
+                userId = Model.userId
+            };
+            await Html.RenderPartialAsync ( "MessageOverview", messageOverviewModel );
         }
     </div>
 </div>

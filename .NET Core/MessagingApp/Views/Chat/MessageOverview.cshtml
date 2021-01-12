@@ -1,0 +1,21 @@
+@model MessagingApp.Models.View.MessageOverviewModel
+@using MessagingApp.Models.Database
+
+@foreach ( Message message in Model.messages ) {
+    string htmlClass = "btn";
+
+    if ( message.userId == Model.userId ) {
+        htmlClass += " btn-outline-primary float-left";
+    } else {
+        htmlClass += " btn-outline-secondary float-right";
+    }
+
+    <div class="row mb-1">
+        <div class="col-xl-12">
+            <button type="button" class="@htmlClass" data-toogle="tooltip" data-placement="top" 
+                        title="@message.userConversation.user.UserName" disabled>
+                @message.content             
+            </button>
+        </div>
+    </div>
+}
