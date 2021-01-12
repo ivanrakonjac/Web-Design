@@ -147,5 +147,27 @@ namespace MessagingApp.Controllers{
             IndexModel model = await this.getIndexModel( conversationId );
             return View ("Index", model );
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendMessage (SendMessageModel model){
+            
+            if ( ModelState.IsValid ){
+                User loggedInUser = await this.userManager.GetUserAsync ( base.User );  
+
+                Message message = new Message ( ){
+                    userId = loggedInUser.Id,
+                    conversationId = model.conversationId,
+                    sendDate = DateTime.Now,
+                    content = model.content
+                };
+
+                await this.context.messages.AddAsync ( message );
+                await this.context.SaveChangesAsync ( );
+
+            }
+
+            return RedirectToAction ( nameof (ChatController.ChangeActiveConversation), new {model.conversationId} );
+        }
     }
 }

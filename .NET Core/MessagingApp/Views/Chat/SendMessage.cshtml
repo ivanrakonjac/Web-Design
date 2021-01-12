@@ -1,0 +1,16 @@
+@model MessagingApp.Models.View.SendMessageModel
+
+<div class="row mt-2">
+    <form asp-controller="Chat" asp-action="SendMessage" class="col-xl-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="conversationId" />
+        <div class="row">
+            <div class="col-xl-9">
+                <input asp-for="content" class="form-control" />
+            </div>
+            <div class="col-xl-3">
+                <input type="submit" class="btn btn-primary" value="Send" />
+            </div>
+        </div>
+    </form>
+</div>

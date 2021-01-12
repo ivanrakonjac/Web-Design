@@ -1,5 +1,6 @@
 @model MessagingApp.Models.View.IndexModel
 @using MessagingApp.Models.Database
+@using MessagingApp.Models.View
 
 @{
     ViewData["Title"] = "Chat";
@@ -9,7 +10,7 @@
     <a asp-controller="Chat" asp-action="CreateConversation">
         <button class="btn btn-primary">Create Conversation</button>
     </a>
-</div>
+</div> 
 
 <div class="row">
     <div class="col-xl-4">
@@ -38,6 +39,11 @@
         </div>
     </div>
     <div class="col-xl-8">
-        
+        @{
+            SendMessageModel sendMessageModel = new SendMessageModel ( ) {
+                conversationId = Model.activeConversation
+            };
+            await Html.RenderPartialAsync ( "SendMessage", sendMessageModel );
+        }
     </div>
 </div>
