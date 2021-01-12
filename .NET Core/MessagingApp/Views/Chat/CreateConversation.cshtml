@@ -1,0 +1,32 @@
+@model MessagingApp.Models.View.CreateConversationModel
+@{
+    ViewData["Title"] = "Create conversation";
+}
+
+<div class="row">
+    <div class="col-xl-4">
+        <form asp-controller="Chat" asp-action="CreateConversation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span  asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userSelectionsList" class="control-label"></label>
+            </div>
+            @for ( int i = 0; i < Model.userSelectionsList.Length; ++i ) {
+                <div class="form-group form-chek">
+                    <input asp-for="userSelectionsList[i].label" />
+                    <input asp-for="userSelectionsList[i].id" />
+                    <label asp-for="userSelectionsList[i].selected" class="form-check-label">
+                        <input asp-for="userSelectionsList[i].selected" class="form-check-input" /> @Model.userSelectionsList.ElementAt(i).label
+                    </label>
+                </div>
+            }
+        </form>
+    </div>
+</div>
