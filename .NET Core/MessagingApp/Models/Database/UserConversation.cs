@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -7,6 +8,7 @@ namespace MessagingApp.Models.Database{
         public User user {get; set;}
         public int conversationId {get;set;}
         public Conversation conversation {get;set;}
+        public ICollection<Message> messages { get; set; }  
     }
 
     public class UserConversationConfiguration : IEntityTypeConfiguration<UserConversation>
@@ -15,7 +17,7 @@ namespace MessagingApp.Models.Database{
         {
             builder.HasKey (
                 entity => new { entity.userId, entity.conversationId }
-            );
+            );  
         }
     }
 }

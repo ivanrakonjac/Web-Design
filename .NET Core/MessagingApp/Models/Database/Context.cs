@@ -6,6 +6,7 @@ namespace MessagingApp.Models.Database {
     public class MessagingAppContext : IdentityDbContext<User> {
         public DbSet<Conversation> conversations {get;set;}
         public DbSet<UserConversation> userConversations {get;set;}
+        public DbSet<Message> messages {get;set;}
 
         public MessagingAppContext ( DbContextOptions options ) : base (options) { }
 
@@ -18,6 +19,8 @@ namespace MessagingApp.Models.Database {
             builder.ApplyConfiguration ( new ConversationConfiguration () );
 
             builder.ApplyConfiguration ( new UserConversationConfiguration () );
+
+            builder.ApplyConfiguration ( new MessagesConfiguration () );
         }
     }
 
