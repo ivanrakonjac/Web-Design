@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MessagingApp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

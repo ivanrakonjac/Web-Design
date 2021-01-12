@@ -43,7 +43,7 @@ namespace MessagingApp
             services.ConfigureApplicationCookie (
                 options => {
                     options.LoginPath = "/User/Login";
-                    options.AccessDeniedPath = "/Error";
+                    options.AccessDeniedPath = "/Home/Error";
                 }
             );
 
