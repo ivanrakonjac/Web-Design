@@ -1,6 +1,7 @@
 using AutoMapper;
 using MessagingApp.Factories;
 using MessagingApp.Models.Database;
+using MessagingAppTest.Models.Initializers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -52,10 +53,12 @@ namespace MessagingApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        // Ova metoda se poziva prilikom svakog pokretanja
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
         {
             if (env.IsDevelopment())
             {
+                UserInitializer.initialize ( userManager );
                 app.UseDeveloperExceptionPage();
             }
             else
