@@ -142,5 +142,10 @@ namespace MessagingApp.Controllers{
 
             return RedirectToAction ( nameof ( ChatController.Index ) );
         }
+
+        public async Task<IActionResult> ChangeActiveConversation (int conversationId){
+            IndexModel model = await this.getIndexModel( conversationId );
+            return View ("Index", model );
+        }
     }
 }
