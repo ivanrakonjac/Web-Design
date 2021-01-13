@@ -1,5 +1,6 @@
 using AutoMapper;
 using MessagingApp.Factories;
+using MessagingApp.Hubs;
 using MessagingApp.Models.Database;
 using MessagingAppTest.Models.Initializers;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,8 @@ namespace MessagingApp
 
             services.AddScoped<IUserClaimsPrincipalFactory<User>, ClaimFactory> ( );
 
+            services.AddSignalR ( );
+
             services.AddControllersWithViews();
         }
 
@@ -78,6 +81,7 @@ namespace MessagingApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub> ( "/update" );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

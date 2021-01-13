@@ -6,6 +6,14 @@
     ViewData["Title"] = "Chat";
 }
 
+@section Scripts{
+    
+    @{
+        // Da bi nam na celoj stranici bili dostupni svi objekti i sve fje signalR biblioteke
+         await Html.RenderPartialAsync ( "SignalRScriptsPartial" );
+    }
+}
+
 <div id="index">
     <div class="row justify-content-center">
         <a asp-controller="Chat" asp-action="CreateConversation">
