@@ -6,50 +6,56 @@
     ViewData["Title"] = "Chat";
 }
 
-<div class="row justify-content-center">
-    <a asp-controller="Chat" asp-action="CreateConversation">
-        <button class="btn btn-primary">Create Conversation</button>
-    </a>
-</div> 
+<div id="index">
+    <div class="row justify-content-center">
+        <a asp-controller="Chat" asp-action="CreateConversation">
+            <button class="btn btn-primary">Create Conversation</button>
+        </a>
+    </div> 
 
-<div class="row">
-    <div class="col-xl-4">
-        <div class="list-group">
-            @foreach ( Conversation conversation in Model.conversations ) {
-                string active = Model.activeConversation == conversation.id ? "active" : "";
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="list-group">
+                @foreach ( Conversation conversation in Model.conversations ) {
+                    string active = Model.activeConversation == conversation.id ? "active" : "";
 
-                string participants = conversation.userConversationList
-                                                    // Preslikavam userConversationList u listu userNameova
-                                                    .Select ( item => item.user.UserName )
-                                                    // Na string result dodajem ", " pa item <=> userName
-                                                    .Aggregate (
-                                                        ( result, item ) => result + ", " + item
-                                                    );
+                    string participants = conversation.userConversationList
+                                                        // Preslikavam userConversationList u listu userNameova
+                                                        .Select ( item => item.user.UserName )
+                                                        // Na string result dodajem ", " pa item <=> userName
+                                                        .Aggregate (
+                                                            ( result, item ) => result + ", " + item
+                                                        );
 
-                <a class="list-group-item list-group-item-action flex-column align-items-start @active"
-                    asp-controller="Chat" asp-action="ChangeActiveConversation" asp-route-conversationId="@conversation.id">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">@conversation.name</h5>
-                    </div>
-                    <p class="mb-1">
-                        @participants
-                    </p>
-                </a>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start @active"
+                        onclick="changeActiveConversation ( @conversation.id )">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@conversation.name</h5>
+                        </div>
+                        <p class="mb-1">
+                            @participants
+                        </p>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-xl-8">
+            @{
+                SendMessageModel sendMessageModel = new SendMessageModel ( ) {
+                    conversationId = Model.activeConversation
+                };
+                await Html.RenderPartialAsync ( "SendMessage", sendMessageModel );
+
+                <div id="messages">
+                @{
+                    MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ) {
+                        messages = Model.messages,
+                        userId = Model.userId
+                    };
+                    await Html.RenderPartialAsync ( "MessageOverview", messageOverviewModel );
+                }
+                </div>
             }
         </div>
-    </div>
-    <div class="col-xl-8">
-        @{
-            SendMessageModel sendMessageModel = new SendMessageModel ( ) {
-                conversationId = Model.activeConversation
-            };
-            await Html.RenderPartialAsync ( "SendMessage", sendMessageModel );
-
-            MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ) {
-                messages = Model.messages,
-                userId = Model.userId
-            };
-            await Html.RenderPartialAsync ( "MessageOverview", messageOverviewModel );
-        }
     </div>
 </div>

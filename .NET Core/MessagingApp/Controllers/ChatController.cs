@@ -157,16 +157,16 @@ namespace MessagingApp.Controllers{
 
         public async Task<IActionResult> ChangeActiveConversation (int conversationId){
             IndexModel model = await this.getIndexModel( conversationId );
-            return View ("Index", model );
+            return PartialView ("Index", model );
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendMessage (SendMessageModel model){
+
+             User loggedInUser = await this.userManager.GetUserAsync ( base.User );
             
             if ( ModelState.IsValid ){
-                User loggedInUser = await this.userManager.GetUserAsync ( base.User );  
-
                 Message message = new Message ( ){
                     userId = loggedInUser.Id,
                     conversationId = model.conversationId,
@@ -179,7 +179,20 @@ namespace MessagingApp.Controllers{
 
             }
 
-            return RedirectToAction ( nameof (ChatController.ChangeActiveConversation), new {model.conversationId} );
+            //return RedirectToAction ( nameof (ChatController.ChangeActiveConversation), new {model.conversationId} );
+
+            MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ){
+
+                messages = await this.context.messages
+                                                .Where ( message => message.conversationId == model.conversationId)
+                                                .Include ( item => item.userConversation)
+                                                    .ThenInclude ( item => item.user)
+                                                .OrderBy ( item => item.sendDate)
+                                                .ToListAsync ( ),
+                userId = loggedInUser.Id
+            }; 
+
+            return PartialView ( "MessageOverview", messageOverviewModel );
         }
     }
 }

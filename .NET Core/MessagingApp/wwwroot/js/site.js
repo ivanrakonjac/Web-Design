@@ -36,3 +36,41 @@ function updateTimer ( ){
 
 // JS funkcija koja zove update timer svakih 1000ms
 setInterval ( updateTimer, 1000 );
+
+function sendMessage ( ) {
+    var conversationId = $("#conversationId").val ( );
+    var content = $("#content").val ( );
+    var verificationToken = $("input[name='__RequestVerificationToken']").val ( );
+
+    $.ajax ( {
+        type: "POST",
+        url: "/Chat/SendMessage",
+        data: {
+            "conversationId" : conversationId,
+            "content" : content,
+            "__RequestVerificationToken" : verificationToken
+        },
+        dataType: "text",
+        success: function ( response ){
+            $("#content").val ( "" );
+            $("#messages").html (response)    
+        },
+        error: function ( response ){
+            alert ( response );
+        }
+    })
+}
+
+function changeActiveConversation ( conversationId ){
+    $.ajax ({
+        type: "GET",
+        url: "Chat/ChangeActiveConversation?conversationId=" + conversationId,
+        dataType: "text",
+        success: function ( response ){
+            $("#index").html (response)
+        },
+        error: function ( response ) {
+            alert ( response );
+        }
+    })
+}

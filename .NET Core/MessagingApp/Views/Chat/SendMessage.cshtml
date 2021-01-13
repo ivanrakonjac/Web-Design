@@ -3,13 +3,15 @@
 <div class="row mt-2 mb-5">
     <form asp-controller="Chat" asp-action="SendMessage" class="col-xl-12">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input asp-for="conversationId" />
+        <input asp-for="conversationId" id="conversationId"/>
         <div class="row">
             <div class="col-xl-9">
-                <input asp-for="content" class="form-control" />
+                <input asp-for="content" class="form-control" id="content"/>
             </div>
             <div class="col-xl-3">
-                <input type="submit" class="btn btn-primary" value="Send" />
+                <button type="button" class="btn btn-primary" onclick="sendMessage ( )" >
+                    Send
+                </button>
             </div>
         </div>
     </form>
