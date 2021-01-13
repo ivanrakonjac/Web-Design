@@ -40,3 +40,9 @@ https://www.tektutorialshub.com/asp-net-core/asp-net-core-passing-data-from-cont
 https://hub.docker.com/_/microsoft-mssql-server
 
 https://www.connectionstrings.com/sql-server/
+
+https://docs.microsoft.com/en-us/aspnet/core/migration/identity?view=aspnetcore-5.0
+
+https://www.learnentityframeworkcore.com/configuration/one-to-many-relationship-configuration - Relationships
+
+https://mockaroo.com/ - Generator podataka

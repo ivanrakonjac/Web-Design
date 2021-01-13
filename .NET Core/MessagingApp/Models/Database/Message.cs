@@ -29,8 +29,12 @@ namespace MessagingApp.Models.Database{
             builder.Property ( message => message.id )
                 .ValueGeneratedOnAdd ( );
 
-            builder.HasOne<UserConversation> ( item => item.userConversation)
+            builder
+                // Setujem da Message ima referencu na 1 UserConverstion
+                .HasOne<UserConversation> ( item => item.userConversation)
+                // A sada setujem drugu stranu veze, da 1 UserConversation ima mnogo messages
                 .WithMany ( item => item.messages )
+                // Setujem da je Strani kljuc u message tabeli (userId,conversationId) 
                 .HasForeignKey ( item => new { item.userId, item.conversationId });
         }
     }
