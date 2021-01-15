@@ -163,10 +163,12 @@ namespace MessagingApp.Controllers{
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendMessage (SendMessageModel model){
-
-             User loggedInUser = await this.userManager.GetUserAsync ( base.User );
+            
+            // Dohvatam ulogovanog usera
+            User loggedInUser = await this.userManager.GetUserAsync ( base.User );
             
             if ( ModelState.IsValid ){
+                // Pravim novu poruku
                 Message message = new Message ( ){
                     userId = loggedInUser.Id,
                     conversationId = model.conversationId,
@@ -174,6 +176,7 @@ namespace MessagingApp.Controllers{
                     content = model.content
                 };
 
+                // Stavljam poruku u bazu
                 await this.context.messages.AddAsync ( message );
                 await this.context.SaveChangesAsync ( );
 
@@ -181,7 +184,7 @@ namespace MessagingApp.Controllers{
 
             //return RedirectToAction ( nameof (ChatController.ChangeActiveConversation), new {model.conversationId} );
 
-            MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ){
+            /*MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ){
 
                 messages = await this.context.messages
                                                 .Where ( message => message.conversationId == model.conversationId)
@@ -190,6 +193,24 @@ namespace MessagingApp.Controllers{
                                                 .OrderBy ( item => item.sendDate)
                                                 .ToListAsync ( ),
                 userId = loggedInUser.Id
+            };*/ 
+
+            //return PartialView ( "MessageOverview", messageOverviewModel );
+
+            // Vracam true da je poruka stavljena u bazu
+            return Json ( true );
+        }
+
+        public async Task<IActionResult> GetMessages ( int conversationId ){
+            User loggedInUser = await this.userManager.GetUserAsync ( base.User );
+            MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ){
+                    messages = await this.context.messages
+                                                    .Where ( item => item.conversationId == conversationId)
+                                                    .Include ( item => item.userConversation)
+                                                        .ThenInclude ( item => item.user)
+                                                    .OrderBy ( item => item.sendDate)
+                                                    .ToListAsync ( ),
+                    userId = loggedInUser.Id
             }; 
 
             return PartialView ( "MessageOverview", messageOverviewModel );

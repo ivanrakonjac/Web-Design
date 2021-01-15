@@ -6,12 +6,9 @@
     ViewData["Title"] = "Chat";
 }
 
-@section Scripts{
-    
-    @{
-        // Da bi nam na celoj stranici bili dostupni svi objekti i sve fje signalR biblioteke
-         await Html.RenderPartialAsync ( "SignalRScriptsPartial" );
-    }
+@{
+    // Da bi nam na celoj stranici bili dostupni svi objekti i sve fje signalR biblioteke
+    await Html.RenderPartialAsync ( "SignalRScriptsPartial" );
 }
 
 <div id="index">

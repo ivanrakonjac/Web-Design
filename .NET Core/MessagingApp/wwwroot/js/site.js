@@ -3,6 +3,20 @@
 
 // Write your JavaScript code.
 
+// Pravljenje objekta konekcije za slanje poruka serveru i za primanje notifikacija
+var connection = new signalR.HubConnectionBuilder ( ).withUrl ( "/update" ).build ( );
+
+function handleError ( error ) {
+    alert ( error );
+}
+
+connection.start ( ).then (
+    function ( ) {
+        var conversationId = $("#conversationId").val ( );
+        connection.invoke ( "AddToGroup", "" + conversationId )
+            .catch ( handleError )
+    }
+).catch ( handleError );
 
 function updateTimer ( ){
     var string = $("#timer").text ( );
@@ -50,10 +64,10 @@ function sendMessage ( ) {
             "content" : content,
             "__RequestVerificationToken" : verificationToken
         },
-        dataType: "text",
         success: function ( response ){
-            $("#content").val ( "" );
-            $("#messages").html (response)    
+            //$("#content").val ( "" );
+            //$("#messages").html (response)   
+            connection.invoke ( "MessageSent", conversationId ).catch ( handleError ) 
         },
         error: function ( response ){
             alert ( response );
@@ -61,16 +75,45 @@ function sendMessage ( ) {
     })
 }
 
-function changeActiveConversation ( conversationId ){
+function changeActiveConversation ( newConversationId ){
+
+    var oldConversationId = $("#conversationId").val ();
+
     $.ajax ({
         type: "GET",
-        url: "Chat/ChangeActiveConversation?conversationId=" + conversationId,
+        url: "Chat/ChangeActiveConversation?conversationId=" + newConversationId,
         dataType: "text",
         success: function ( response ){
-            $("#index").html (response)
+            connection.invoke ("ChangeGroup", "" + oldConversationId, "" + newConversationId).then (
+                function ( ){
+                    $("#index").html (response)
+                }
+            ).catch ( handleError )
         },
         error: function ( response ) {
             alert ( response );
         }
     })
 }
+
+connection.on (
+    "UpdateMessages",
+    function ( ) {
+
+        var conversationId = $("#conversationId").val ( );
+
+        $.ajax ( {
+            type: "GET",
+            url: "/Chat/GetMessages?conversationId=" + conversationId,
+            dataType: "text",
+            success: function ( response ){
+                $("#content").val ( "" );
+                $("#messages").html (response) 
+            },
+            error: function ( response ){
+                alert ( response );
+            }
+        })
+
+    }
+)
