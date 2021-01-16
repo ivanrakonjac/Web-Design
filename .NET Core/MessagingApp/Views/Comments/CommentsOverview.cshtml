@@ -1,0 +1,7 @@
+@model MessagingApp.Models.View.PostComment
+@using MessagingApp.Models.Database
+
+
+@foreach ( Comment comment in Model.comments ) {
+    <p> @comment.userId @comment.content </p>
+}

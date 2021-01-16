@@ -61,7 +61,9 @@ namespace MessagingApp
         {
             if (env.IsDevelopment())
             {
+                //ovde inicijalizujem bazu userima
                 UserInitializer.initialize ( userManager );
+
                 app.UseDeveloperExceptionPage();
             }
             else

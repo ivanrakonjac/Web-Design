@@ -1,0 +1,36 @@
+@model MessagingApp.Models.View.PostComment
+@using MessagingApp.Models.Database
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+@{
+    await Html.RenderPartialAsync ( "SignalRScriptsPartial" );
+}
+
+<h4>Komentari</h4>
+
+
+<div class="row mt-2 mb-5">
+    <form asp-controller="Comments" asp-action="PostComment" class="col-xl-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-xl-9">
+                <input asp-for="content" class="form-control" id="content"/>
+            </div>
+            <div class="col-xl-3">
+                <!--<input type="submit" value="Post" class="submit btn btn-primary" />-->
+                <button type="button" class="btn btn-primary" onclick="postComment ( )" >
+                    Post
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="komentari">
+@foreach ( Comment comment in Model.comments ) {
+    <p> @comment.userId @comment.content </p>
+}
+</div>

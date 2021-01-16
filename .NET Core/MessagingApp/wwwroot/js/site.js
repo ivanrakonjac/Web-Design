@@ -117,3 +117,46 @@ connection.on (
 
     }
 )
+
+
+
+function postComment ( ) {
+    var content = $("#content").val ( );
+    var verificationToken = $("input[name='__RequestVerificationToken']").val ( );
+
+    $.ajax ( {
+        type: "POST",
+        url: "/Comments/PostComment",
+        data: {
+            "content" : content,
+            "__RequestVerificationToken" : verificationToken
+        },
+        success: function ( response ){
+            //$("#content").val ( "" );
+            //$("#komentari").html (response)   
+            //connection.invoke ( "MessageSent", 1 ).catch ( handleError )
+            getComments ( ); 
+        },
+        error: function ( response ){
+            alert ( response );
+        }
+    })
+}
+
+
+function getComments( ) {
+
+    $.ajax ( {
+        type: "GET",
+        url: "/Comments/GetComments",
+        dataType: "text",
+        success: function ( response ){
+            $("#content").val ( "" );
+            $("#komentari").html (response) 
+        },
+        error: function ( response ){
+            alert ( response );
+        }
+    })
+
+}
