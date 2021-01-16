@@ -182,21 +182,6 @@ namespace MessagingApp.Controllers{
 
             }
 
-            //return RedirectToAction ( nameof (ChatController.ChangeActiveConversation), new {model.conversationId} );
-
-            /*MessageOverviewModel messageOverviewModel = new MessageOverviewModel ( ){
-
-                messages = await this.context.messages
-                                                .Where ( message => message.conversationId == model.conversationId)
-                                                .Include ( item => item.userConversation)
-                                                    .ThenInclude ( item => item.user)
-                                                .OrderBy ( item => item.sendDate)
-                                                .ToListAsync ( ),
-                userId = loggedInUser.Id
-            };*/ 
-
-            //return PartialView ( "MessageOverview", messageOverviewModel );
-
             // Vracam true da je poruka stavljena u bazu
             return Json ( true );
         }

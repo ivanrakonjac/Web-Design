@@ -65,8 +65,6 @@ function sendMessage ( ) {
             "__RequestVerificationToken" : verificationToken
         },
         success: function ( response ){
-            //$("#content").val ( "" );
-            //$("#messages").html (response)   
             connection.invoke ( "MessageSent", conversationId ).catch ( handleError ) 
         },
         error: function ( response ){
@@ -118,6 +116,27 @@ connection.on (
     }
 )
 
+connection.on (
+    "UpdatePosts",
+    function ( ) {
+
+        $.ajax ( {
+            type: "GET",
+            url: "/Comments/GetComments",
+            dataType: "text",
+            success: function ( response ){
+                $("#content").val ( "" );
+                $("#komentari").html (response) 
+            },
+            error: function ( response ){
+                alert ( response );
+            }
+        })
+
+    }
+)
+
+
 
 
 function postComment ( ) {
@@ -132,10 +151,7 @@ function postComment ( ) {
             "__RequestVerificationToken" : verificationToken
         },
         success: function ( response ){
-            //$("#content").val ( "" );
-            //$("#komentari").html (response)   
-            //connection.invoke ( "MessageSent", 1 ).catch ( handleError )
-            getComments ( ); 
+            connection.invoke ( "CommentPosted" ).catch ( handleError ) 
         },
         error: function ( response ){
             alert ( response );

@@ -15,5 +15,9 @@ namespace MessagingApp.Hubs {
             await base.Groups.RemoveFromGroupAsync ( base.Context.ConnectionId, oldGroupName );
             await base.Groups.AddToGroupAsync ( base.Context.ConnectionId, newGroupName );
         }
+
+        public async Task CommentPosted ( ){
+            await base.Clients.All.SendAsync ( "UpdatePosts" );
+        }
     }
 }
