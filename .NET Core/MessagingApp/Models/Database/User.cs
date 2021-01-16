@@ -12,6 +12,8 @@ namespace MessagingApp.Models.Database{
         [Required]
         public string lastName {get; set; }
         public ICollection<UserConversation> UserConversationList {get;set;}
+
+        public ICollection<Comment> comments { get; set; }  
     }
 
     public class UserProfile : Profile {
