@@ -17,3 +17,24 @@ function getImage ( index ) {
         }
     })
 }
+
+function uploadFiles( ) {
+    var formData = new FormData();
+    formData.append('file', $('#files')[0].files[0]);
+  
+    $.ajax(
+      {
+        type: "POST",
+        url: "/Home/AddFiles",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function ( response ) {
+            $("#uploadedImage").html ( response )
+        },
+        error: function ( response ) {
+            alert( response )
+        }
+      }
+    )
+  }

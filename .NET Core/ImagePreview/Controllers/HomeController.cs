@@ -9,6 +9,7 @@ using ImagePreview.Models;
 using ImagePreview.Models.View;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace ImagePreview.Controllers
 {
@@ -82,6 +83,33 @@ namespace ImagePreview.Controllers
             }
 
             return RedirectToAction ( nameof ( HomeController.Index ) );
+        }
+
+        public IActionResult AddFiles ( ) {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddFiles ( IFormFile file ) {
+
+            Image image = null;
+
+            using ( BinaryReader reader = new BinaryReader ( file.OpenReadStream ( ) ) ){
+                    image = new Image ( ) {
+                    name = file.Name,
+                    data = reader.ReadBytes ( Convert.ToInt32 ( reader.BaseStream.Length ) )
+                };
+
+                await this.context.images.AddAsync ( image );
+                await this.context.SaveChangesAsync ( );
+            }
+
+            ImageViewModel imageViewModel = new ImageViewModel ( ) {
+                name = image.name,
+                base64Data = Convert.ToBase64String ( image.data )
+            };
+
+            return PartialView("JustImageView", imageViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

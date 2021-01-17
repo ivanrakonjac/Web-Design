@@ -23,6 +23,9 @@ namespace ImagePreview
             services.AddDbContext<ImagePreviewContext> (
                 options => options.UseSqlServer ( this.Configuration.GetConnectionString ( "ImagePreviewDB" ) )
             );
+
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+
             services.AddControllersWithViews();
         }
 

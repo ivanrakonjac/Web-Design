@@ -1,0 +1,17 @@
+@model ImagePreview.Models.View.AddImageModel
+
+@{
+    ViewData["Title"] = "AddFile";
+}
+
+<form id="form" name="form" asp-controller="Home" asp-action="AddFiles" enctype="multipart/form-data" method="post">
+  <div class="buttons">
+    <div class="upload-button">
+      <input id="files" name="files" type="file" size="1" multiple onchange="uploadFiles('files');" />
+    </div>
+  </div>
+</form>
+
+
+<div id="uploadedImage"></div>
+
