@@ -1,0 +1,27 @@
+@model ImagePreview.Models.View.AddImageModel
+
+@{
+    ViewData["Title"] = "AddImage";
+}
+
+<h1>Add image</h1>
+
+<div class="row">
+    <div class="col-xl-4">
+        <form asp-controller="Home" asp-action="AddImage" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="file" class="control-label"></label>
+                <input asp-for="file" class="form-control" />
+                <span asp-validation-for="file" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
