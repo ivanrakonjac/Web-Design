@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using ImagePreview.Models;
 using ImagePreview.Models.View;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace ImagePreview.Controllers
 {
@@ -23,9 +24,34 @@ namespace ImagePreview.Controllers
             this.context = context;
         }
 
-        public IActionResult Index()
+        public async Task<ImageViewModel> GetImageViewModel ( int index ){
+            List<Image> images = await this.context.images.ToListAsync ( ) ;
+
+            Image image = images.ElementAt ( index );
+
+            //br slika u bazi
+            int count = images.Count;
+
+            ImageViewModel imageViewModel = new ImageViewModel ( ) {
+                name = image.name,
+                base64Data = Convert.ToBase64String ( image.data ),
+                next = ( index + 1 ) < count ? index + 1 : -1,
+                previous = ( index - 1 ) >= 0 ? index - 1 : -1
+            };
+
+            return imageViewModel;
+        }
+
+        public async Task<IActionResult> Index ( )
         {
-            return View();
+            ImageViewModel imageViewModel = await this.GetImageViewModel ( 0 );
+            return View( imageViewModel );
+        }
+
+        public async Task<IActionResult> GetImage ( int index )
+        {
+            ImageViewModel imageViewModel = await this.GetImageViewModel ( index );
+            return PartialView( "ImageView", imageViewModel );
         }
 
         public IActionResult Privacy()

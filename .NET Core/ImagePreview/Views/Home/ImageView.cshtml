@@ -1,0 +1,12 @@
+@model ImagePreview.Models.View.ImageViewModel
+
+<div id="image">
+    @if ( Model.previous >= 0 ) {
+        <button type="button" class="btn btn-success" onclick="getImage ( @Model.previous )">Previous</button>
+    }
+    @if ( Model.next >= 0 ) {
+        <button type="button" class="btn btn-success" onclick="getImage ( @Model.next )">Next</button>
+    }
+    <h1>@Model.name</h1>
+    <img src="data:image/png;base64,@Model.base64Data" />
+</div>
