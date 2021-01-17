@@ -6,3 +6,28 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<script src = "https://www.paypal.com/sdk/js?client-id=AaHfeSc7UxPDbIqbTCi7IsnDkw8BRT2exTFo6s3D9M7mox_FxkbeL6vbiWB5cr7nD_UX7f4VNjcF__5f"></script>
+
+<div id="paypal"></div>
+
+<script>
+    paypal.Buttons ( {
+        createOrder: function ( date, actions ){
+            return actions.order.create ( {
+                purchase_units: [{
+                    amount: {
+                        value: "0.01"
+                    }
+                }]
+            })
+        },
+        onApprove: function ( data, actions ){
+            return actions.order.capture ( ).then(
+                function ( details ) {
+                    alert ( "SUCCESS " + details.payer.name.given_name )
+                }
+            )
+        }
+    } ).render ( "#paypal" );
+</script>
