@@ -1,0 +1,28 @@
+<p>writers works!</p>
+
+Message from componenet: {{message}}
+
+<div *ngIf='allWriters.length!=0; else noWritersMessage'>
+    <table>
+        <tr>
+            <td>FirsName</td>
+            <td>LastName</td>
+            <td>Awards</td>
+            <td>Birthday</td>
+        </tr>
+    
+        <tr *ngFor='let writer of allWriters' [class.color]='writer.awards>5'>
+            <td>{{writer.firstName}}</td>
+            <td>{{writer.lastName}}</td>
+            <td>{{writer.awards}}</td>
+            <td>{{writer.birthday}}</td>
+        </tr>
+    </table>
+
+    <button (click)='sortByAwards()'>Sort awards</button>
+    <button (click)='sortByBirthday()'>Sort Birthday</button>
+</div>
+
+<ng-template #noWritersMessage><span>Nema pisaca</span></ng-template>
+
+
