@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Writer } from '../data/writers';
 import { WritersService } from '../services/writers.service';
 
@@ -9,7 +10,7 @@ import { WritersService } from '../services/writers.service';
 })
 export class WritersComponent implements OnInit {
 
-  constructor(private writersService: WritersService) { }
+  constructor(private writersService: WritersService, private router: Router) { }
 
   ngOnInit(): void {
     this.message = "Hello from onInit";
@@ -25,6 +26,11 @@ export class WritersComponent implements OnInit {
 
   sortByBirthday(){
     this.allWriters = this.writersService.sortWritersByBirthDay();
+  }
+
+  about(writer: Writer){
+    alert(writer.firstName);
+    this.router.navigate(['about']);
   }
 
 }

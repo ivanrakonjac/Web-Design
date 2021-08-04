@@ -16,6 +16,7 @@ Message from componenet: {{message}}
             <td>{{writer.lastName}}</td>
             <td>{{writer.awards}}</td>
             <td>{{writer.birthday}}</td>
+            <td><button *ngIf='writer.awards>5' (click)='about(writer)' >About</button></td>
         </tr>
     </table>
 
