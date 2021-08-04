@@ -15,6 +15,8 @@ export class WritersComponent implements OnInit {
   ngOnInit(): void {
     this.message = "Hello from onInit";
     this.allWriters = this.writersService.getAllWriters();
+    this.writerFromForm = {} as Writer;
+    this.agree = false;
   }
 
   message: string;
@@ -32,5 +34,17 @@ export class WritersComponent implements OnInit {
     alert(writer.firstName);
     this.router.navigate(['about']);
   }
+
+  add(){
+    if(this.agree){
+      this.allWriters.push(this.writerFromForm);
+    }
+    else{
+      alert('Agree!')
+    }
+  }
+
+  writerFromForm: Writer;
+  agree: boolean;
 
 }

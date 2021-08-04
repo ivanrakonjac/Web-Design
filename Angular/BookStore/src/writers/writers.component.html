@@ -22,6 +22,23 @@ Message from componenet: {{message}}
 
     <button (click)='sortByAwards()'>Sort awards</button>
     <button (click)='sortByBirthday()'>Sort Birthday</button>
+
+
+    <form>
+        FirstName: <input type="text" name="f" [(ngModel)]='writerFromForm.firstName'>
+        <br/>
+        LastName: <input type="text" name="l" [(ngModel)]='writerFromForm.lastName'>
+        <br/>
+        Awards: <input type="radio" name="a" value="2" [(ngModel)]='writerFromForm.awards'>2
+        <input type="radio" name="a" value="4" [(ngModel)]='writerFromForm.awards'>4
+        <input type="radio" name="a" value="6" [(ngModel)]='writerFromForm.awards'>6
+        <br/>
+        Birthday: <input type="date" name="d" [(ngModel)]='writerFromForm.birthday'>
+        <br/>
+        Agree: <input type="checkbox" name="c"  [(ngModel)]='agree'>
+        <button (click)='add()'>Add</button>
+    </form>
+
 </div>
 
 <ng-template #noWritersMessage><span>Nema pisaca</span></ng-template>
