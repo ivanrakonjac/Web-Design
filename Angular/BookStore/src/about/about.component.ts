@@ -10,6 +10,9 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.pictureName = 'knjizara.jpg'
   }
+
+  pictureName: string;
 
 }
