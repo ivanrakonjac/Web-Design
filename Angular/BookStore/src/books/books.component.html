@@ -1,1 +1,17 @@
-<p>books works!</p>
+<div>
+    <form>
+        <input type='text' name='sf' [(ngModel)]='searchField'>
+        <button (click)='searchBook()'>Search</button>
+    </form>
+    <div *ngFor='let book of allBooks'>
+        <app-book [mybook]='book'></app-book>
+    </div>
+
+    <hr/>
+
+    <div *ngIf='mybook'>
+        <app-book [mybook]='mybook'></app-book>
+    </div>
+
+
+</div>
