@@ -1,1 +1,23 @@
 <p>kupac works!</p>
+
+
+<table>
+    <tr>
+        <td>Slika</td>
+        <td>Naslov</td>
+        <td>Autor</td>
+        <td>Broj strana</td>
+        <td>Godina izdanja</td>
+    </tr>
+
+    <tr *ngFor='let knjiga of sveKnjige'>
+        <td>
+            <img src='{{"assets/"+knjiga.slika}}' width="100px">
+        </td>
+        <td>{{knjiga.naslov}}</td>
+        <td>{{knjiga.autor}}</td>
+        <td>{{knjiga.brStr}}</td>
+        <td>{{knjiga.godina}}</td>
+        <td>{{knjiga.naStanju}}</td>
+    </tr>
+</table>

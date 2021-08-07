@@ -11,4 +11,8 @@ export class ServiceService {
 
 
   constructor(private http: HttpClient) { }
+
+  dohvatiSveKnjige(){
+    return this.http.get(`${this.uri}/dohvatiSveKnjige`);
+  }
 }
