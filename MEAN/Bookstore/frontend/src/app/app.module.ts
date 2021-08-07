@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RadnikComponent } from './radnik/radnik.component';
+import { KupacComponent } from './kupac/kupac.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RadnikComponent,
+    KupacComponent
   ],
   imports: [
     BrowserModule,
