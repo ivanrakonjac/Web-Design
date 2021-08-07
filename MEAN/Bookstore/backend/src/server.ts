@@ -3,6 +3,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose'
 import knjigaModel from './model/knjiga.model';
+import naruzbinaModel from './model/naruzbina.model';
 
 const app = express();
 
@@ -25,6 +26,30 @@ router.route('/dohvatiSveKnjige').get((req, res)=>{
         else res.json(knjige);
     });
 }); 
+
+router.route('/naruci').post((req, res)=>{
+    let idK = req.body.idK;
+    let kolicina = req.body.kolicina;
+
+    knjigaModel.findOne({'idK':idK, 'naStanju': {$gte: kolicina}}, (err, knjiga)=>{
+        if(err) console.log(err);
+        else{
+            if(knjiga){
+                let nar = {
+                    knjiga: idK,
+                    kolicina: kolicina,
+                    status: 'naruceno'
+                }
+                naruzbinaModel.collection.updateOne({"id":1}, {$push: {"narudzbine": nar}});
+                knjiga.collection.updateOne({"idK": idK}, {$inc: {'naStanju':-kolicina}});
+                res.json({'poruka': 'OK'});
+            }
+            else{
+                res.json({'poruka': 'Nema na stanju'});
+            }
+        }
+    })
+})
 
 
 app.use('/',router);

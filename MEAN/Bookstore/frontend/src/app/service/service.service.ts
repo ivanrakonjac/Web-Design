@@ -15,4 +15,14 @@ export class ServiceService {
   dohvatiSveKnjige(){
     return this.http.get(`${this.uri}/dohvatiSveKnjige`);
   }
+
+  naruci(idK, kolicina){
+
+    const data = {
+      idK: idK,
+      kolicina: kolicina
+    }
+
+    return this.http.post(`${this.uri}/naruci`, data);
+  }
 }

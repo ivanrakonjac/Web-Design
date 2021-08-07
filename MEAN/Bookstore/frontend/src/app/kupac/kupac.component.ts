@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Knjiga } from '../model/knjiga';
 import { ServiceService } from '../service/service.service';
 
@@ -10,7 +11,7 @@ import { ServiceService } from '../service/service.service';
 
 export class KupacComponent implements OnInit {
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.service.dohvatiSveKnjige().subscribe((knjige: Knjiga[])=>{
@@ -19,5 +20,10 @@ export class KupacComponent implements OnInit {
   }
 
   sveKnjige: Knjiga[];
+
+  kupi(knjiga: Knjiga){
+    localStorage.setItem('knjiga', JSON.stringify(knjiga));
+    this.router.navigate(['infoKnjiga']);
+  }
 
 }

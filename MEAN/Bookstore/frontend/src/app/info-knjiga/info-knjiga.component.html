@@ -1,26 +1,32 @@
-<p>kupac works!</p>
-
+<p>info-knjiga works!</p>
 
 <table>
     <tr>
         <td>Slika</td>
-        <td>Naslov</td>
         <td>Autor</td>
+        <td>Naslov</td>
         <td>Broj strana</td>
         <td>Godina izdanja</td>
     </tr>
 
-    <tr *ngFor='let knjiga of sveKnjige'>
+    <tr>
         <td>
             <img src='{{"assets/"+knjiga.slika}}' width="100px">
         </td>
-        <td>{{knjiga.naslov}}</td>
         <td>{{knjiga.autor}}</td>
+        <td>{{knjiga.naslov}}</td>
         <td>{{knjiga.brStr}}</td>
         <td>{{knjiga.godina}}</td>
         <td>{{knjiga.naStanju}}</td>
-        <td>
-            <input type="button" value="Kupi" (click)='kupi(knjiga)'>
-        </td>
     </tr>
 </table>
+
+
+<form>
+    <form>
+        Kolicina: <input type='text' name='kolicina' [(ngModel)]='kolicina'>
+        <input type='button' value='Naruci' (click)='naruci()'>
+    </form>
+</form>
+
+{{poruka}}
