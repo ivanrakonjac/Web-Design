@@ -3,6 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import user from './model/user';
+import news from './model/news';
 
 const app = express();
 
@@ -39,6 +40,13 @@ router.route('/register').post((req, res)=>{
     }).catch(err=>{
         res.status(400).json({'user':'no'});
     })
+});
+
+router.route('/news').get((req, res)=>{
+    news.find({}, (err, news)=>{
+        if(err) console.log(err);
+        else res.json(news);
+    });
 });
 
 app.use('/', router);
