@@ -1,0 +1,13 @@
+{
+"id":1,
+"narudzbine": [{
+    "knjiga" : 2,
+    "kolicina" : 3,
+    "status" : "naruceno"
+},
+{
+    "knjiga" : 3,
+    "kolicina" : 1,
+    "status" : "prihvaceno"
+}]
+}
