@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose'
+import knjigaModel from './model/knjiga.model';
 
 const app = express();
 
@@ -18,6 +19,13 @@ conn.once('open',()=>{
 
 const router = express.Router();
 
+router.route('/dohvatiSveKnjige').get((req, res)=>{
+    knjigaModel.find({},(err, knjige)=>{
+        if(err) console.log(err);
+        else res.json(knjige);
+    });
+}); 
 
-app.get('/', (req, res) => res.send('Hello World!'));
-app.listen(4000, () => console.log(`Express server running on port 4000`));
+
+app.use('/',router);
+app.listen(4001, () => console.log(`Express server running on port 4001`));
