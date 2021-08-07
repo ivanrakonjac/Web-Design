@@ -25,4 +25,15 @@ export class ServiceService {
 
     return this.http.post(`${this.uri}/naruci`, data);
   }
+
+  getSveNarudzbine(){
+    return this.http.get(`${this.uri}/dohvatiSveNarudzbine`);
+  }
+
+  dohvatiKnjigu(idK){
+    const data={
+      idK:idK
+    }
+    return this.http.post(`${this.uri}/dohvatiKnjigu`, data);
+  }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Narudzbina } from '../model/narudzbina';
+import { Narudzbine } from '../model/narudzbine';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-radnik',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RadnikComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
+    this.service.getSveNarudzbine().subscribe((sveNarudzbine: Narudzbine)=>{
+      this.narudzbine = sveNarudzbine[0].narudzbine;
+      // this.narudzbine.narudzbine.forEach((narudzbina: Narudzbina)=>{
+      //   this.service.dohvatiKnjigu(narudzbina.knjiga).subscribe((knjiga)=>{
+      //     narudzbina.naziv=knjiga['naslov'];
+      //   })
+      // })
+    })
   }
+
+  narudzbine: Array<Object>;
 
 }

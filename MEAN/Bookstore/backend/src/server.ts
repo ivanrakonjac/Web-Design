@@ -51,6 +51,21 @@ router.route('/naruci').post((req, res)=>{
     })
 })
 
+router.route('/dohvatiSveNarudzbine').get((req, res)=>{
+    naruzbinaModel.find({}, (err, narudzbine)=>{
+        if(err) console.log(err);
+        else res.json(narudzbine);
+    })
+})
+
+router.route('/dohvatiKnjigu').post((req, res)=>{
+    let idK = req.body.idK;
+
+    knjigaModel.findOne({"idK":idK}, (err, knjiga)=>{
+        if(err) console.log(err);
+        else res.json(knjiga);
+    })
+})
 
 app.use('/',router);
 app.listen(4001, () => console.log(`Express server running on port 4001`));

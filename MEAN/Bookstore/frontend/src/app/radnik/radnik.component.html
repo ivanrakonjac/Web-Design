@@ -1,1 +1,15 @@
 <p>radnik works!</p>
+
+<table>
+    <tr>
+        <td>Knjiga</td>
+        <td>Kolicina</td>
+        <td>Status</td>
+    </tr>
+
+    <tr *ngFor='let nar of narudzbine'>
+        <td>{{nar.knjiga}}</td>
+        <td>{{nar.kolicina}}</td>
+        <td>{{nar.status}}</td>
+    </tr>
+</table>
