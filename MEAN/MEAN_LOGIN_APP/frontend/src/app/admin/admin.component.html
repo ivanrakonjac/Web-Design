@@ -1,0 +1,22 @@
+Hello {{username}}
+
+<br/>
+
+<b>Vjesti</b>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Caption</td>
+        <td>Comments</td>
+    </tr>
+    <tr *ngFor='let n of news'>
+        <td>{{n.id}}</td>
+        <td>{{n.caption}}</td>
+        <td>
+            <div *ngFor = 'let c of n.comments'>
+                <span>{{c.text}}</span>
+            </div>
+        </td>
+    </tr>
+</table>
