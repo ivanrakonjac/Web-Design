@@ -1,0 +1,16 @@
+<p>kandidat works!</p> 
+
+{{ime}} <br/>
+
+{{prezime}} <br/>
+
+{{datumRodjenja}} <br/>
+
+<button (click)='logout()'>LOGOUT</button>
+
+<div *ngFor='let polaganje of polaganja'>
+    <p>{{polaganje.vrsta}}</p>
+    <p>{{polaganje.brojPoena}}</p>
+    <p>{{polaganje.datum}}</p>
+    <p>{{polaganje.inspektor}}</p>
+</div>

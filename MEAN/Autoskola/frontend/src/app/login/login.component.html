@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <td>Username</td>
+        <td>
+            <input type="text" name="username" [(ngModel)]="username">
+        </td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>
+            <input type="text" name="password" [(ngModel)]="password">
+        </td>
+    </tr>
+    <tr>
+        <td><button (click)='login()'>LOGIN</button></td>
+    </tr>
+
+    <span style="color:red">{{poruka}}</span>
+
+</table>
