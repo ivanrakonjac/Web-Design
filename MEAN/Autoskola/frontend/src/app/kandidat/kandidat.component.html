@@ -8,9 +8,37 @@
 
 <button (click)='logout()'>LOGOUT</button>
 
-<div *ngFor='let polaganje of polaganja'>
-    <p>{{polaganje.vrsta}}</p>
-    <p>{{polaganje.brojPoena}}</p>
-    <p>{{polaganje.datum}}</p>
-    <p>{{polaganje.inspektor}}</p>
-</div>
+<table>
+    <tr>
+        <td>Vrsta polaganja</td>
+        <td>Poeni</td>
+        <td>Datum</td>
+        <td>Inspektor</td>
+        <td>Mesto</td>
+    </tr>
+    <tr *ngFor='let polaganje of polaganja'>
+        <td>{{polaganje.vrsta}}</td>
+        <td>{{polaganje.brojPoena}}</td>
+        <td>{{polaganje.datum}}</td>
+        <td>{{polaganje.inspektor}}</td>
+        <td>{{polaganje.mesto}}</td>
+    </tr>
+
+</table>
+
+<hr/>
+
+<form>
+    Tip
+    <select name='tipPrijave' [(ngModel)] = 'tipPrijave'>
+        <option  *ngIf='!polozilaTeoriju' value='t'>Teorija</option>
+        <option  *ngIf='!polozilaVoznju' value='v'>Voznja</option>
+    </select>
+    <br/>
+    Mesto
+    <select name='mesto' [(ngModel)] = 'mesto'> 
+        <option *ngFor='let m of mesta' [value]="m.naziv" [selected]='m.id==mesto.id'>{{m.naziv}}</option>
+    </select>
+    <br/>
+    <button (click)='prijava()'>Prijavi se</button>
+</form>

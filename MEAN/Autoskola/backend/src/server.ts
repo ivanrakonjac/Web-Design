@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import user from './model/user';
 import prijava from './model/prijava';
 import polaganje from './model/polaganje';
+import mesto from './model/mesto';
 
 const app = express();
 
@@ -47,6 +48,40 @@ router.route('/polaganjeZaIdPrijave').post((req, res) => {
         if(err) res.status(400).json(err);
         else res.status(200).json(polaganje);
     })
+});
+
+router.route('/getSvaMesta').get((req, res) => {
+  
+    mesto.find({}, (err, mesta)=>{
+        if(err) res.status(400).json(err);
+        else res.status(200).json(mesta);
+    })
+});
+
+router.route('/dodajPrijavu').post((req, res) => {
+    let p = new prijava(req.body);
+
+    p.save().then(p=>{
+        res.status(200).json({'status':'200'});
+    }).catch(err=>{
+        res.status(400).json({'status':'400'});
+    })
+});
+
+router.route('/getPolaganjeZaGradSaStatusom0').post((req, res) => {
+    let mesto = req.body.mesto;
+
+    prijava.find({'mesto':mesto, 'status': 0}, (err, prijava)=>{
+        if(err) res.status(400).json(err);
+        else res.status(200).json(prijava);
+    })
+});
+
+router.route('/updatePrijava').post((req, res) => {
+    let idPrijava = req.body.idPrijava;
+
+    prijava.collection.updateOne({'idPrijava':idPrijava}, {$set: {status: 0}});
+    res.json({'status': 200});
 });
 
 app.use('/', router);

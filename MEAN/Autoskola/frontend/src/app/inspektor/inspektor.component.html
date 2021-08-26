@@ -1,3 +1,46 @@
 <p>inspektor works!</p>
 
+{{ime}} <br/>
+
+{{prezime}} <br/>
+
+{{datumRodjenja}} <br/>
+
+{{mesto}} <br/>
+
 <button (click)='logout()'>LOGOUT</button>
+
+<hr/>
+<table>
+    <tr>
+        <td>Vrsta</td>
+        <td>Ime</td>
+        <td>Unesi rezultat</td>
+    </tr>
+    <tr *ngFor='let prijava of prijave'>
+        <td>{{prijava.vrsta}}</td>
+        <td>{{prijava.username}}</td>
+        <td><button (click)='unesiRez(prijava)'>UNESI</button></td>
+    </tr>
+</table>
+
+<form id='forma' style="visibility: hidden;">
+    <div *ngIf='vrstaPrijave=="v"'>
+        <input type="radio" name='status' [(ngModel)]='status' value="1"> POLOZIO
+        <input type="radio" name='status' [(ngModel)]='status' value="0"> PAO
+    </div>
+
+    <div *ngIf='vrstaPrijave=="t"'>
+        Br poena:
+        <input type="text" name='brPoena' [(ngModel)]='brPoena'>
+    </div>
+   
+    Datum:
+    <input type="date" name='datum' [(ngModel)]='datum'>
+
+    
+
+    <button (click)='potvrdi()'>POTVRDI</button>
+</form>
+
+

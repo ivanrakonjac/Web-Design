@@ -7,5 +7,5 @@ export class Polaganje {
     polozio: boolean;
     inspektor: string;
     vrsta: string;
-    mesto: string;
+    mesto: number;
 }

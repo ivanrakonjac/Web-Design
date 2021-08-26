@@ -45,4 +45,21 @@ export class UserService {
 
     return this.http.post(`${this.uri}/polaganjeZaIdPrijave`, data);
   }
+
+  getSvaMesta(){
+    return this.http.get(`${this.uri}/getSvaMesta`);
+  }
+
+  dodajPrijavu(prijava){
+    return this.http.post(`${this.uri}/dodajPrijavu`, prijava);
+  }
+
+  getPolaganjeZaGradSaStatusom0(mesto){
+
+    const data ={
+      "mesto": mesto
+    }
+
+    return this.http.post(`${this.uri}/getPolaganjeZaGradSaStatusom0`, data);
+  }
 }
