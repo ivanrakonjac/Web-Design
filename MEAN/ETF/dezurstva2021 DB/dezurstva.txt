@@ -1,0 +1,126 @@
+{
+    "id": 1,
+    "datumVreme": "2021-06-30 15:00:00",
+    "predmet": "Zastita podataka",
+    "sala": "P26",
+    "nastavnik": "sanja"
+}
+{
+    "id": 2,
+    "datumVreme": "2021-06-30 15:00:00",
+    "predmet": "Zastita podataka",
+    "sala": "P26",
+    "nastavnik": "sanja"
+}
+{
+    "id": 3,
+    "datumVreme": "2021-06-30 15:00:00",
+    "predmet": "Zastita podataka",
+    "sala": "P25",
+    "nastavnik": "dj"
+}
+{
+    "id": 4,
+    "datumVreme": "2021-06-30 15:00:00",
+    "predmet": "Zastita podataka",
+    "sala": "70",
+    "nastavnik": "uki"
+}
+{
+    "id": 5,
+    "datumVreme": "2021-06-30 15:00:00",
+    "predmet": "Zastita podataka",
+    "sala": "70",
+    "nastavnik": "jocke"
+}
+{
+    "id": 6,
+    "datumVreme": "2021-07-07 11:30:00",
+    "predmet": "Programiranje 2",
+    "sala": "56",
+    "nastavnik": "sanja"
+}
+{
+    "id": 7,
+    "datumVreme": "2021-07-07 11:30:00",
+    "predmet": "Programiranje 2",
+    "sala": "65",
+    "nastavnik": "drazen"
+}
+{
+    "id": 8,
+    "datumVreme":  "2021-07-07 11:30:00",
+    "predmet": "Programiranje 2",
+    "sala": "59",
+    "nastavnik": "jelica"
+}
+{
+    "id": 10,
+    "datumVreme": "2021-07-06 15:00:00",
+    "predmet": "Konkurentno i distribuirano programiranje",
+    "sala": "56",
+    "nastavnik": "micko"
+}
+{
+    "id": 11,
+    "datumVreme": "2021-07-02 15:00:00",
+    "predmet": "Osnovi racunarske tehnike",
+    "sala": "56",
+    "nastavnik": "micko"
+}
+{
+    "id": 12,
+    "datumVreme": "2021-07-02 15:00:00",
+    "predmet": "Osnovi racunarske tehnike",
+    "sala": "57",
+    "nastavnik": "uki"
+}
+{
+    "id": 13,
+    "datumVreme": "2021-07-02 15:00:00",
+    "predmet": "Osnovi racunarske tehnike",
+    "sala": "59",
+    "nastavnik": "jocke"
+}
+{
+    "id": 14,
+    "datumVreme": "2021-07-02 15:00:00",
+    "predmet": "Osnovi racunarske tehnike",
+    "sala": "Lola-AMF",
+    "nastavnik": "dj"
+}
+{
+    "id": 15,
+    "datumVreme": "2021-07-04 08:00:00",
+    "predmet": "Operativni sistemi 1",
+    "sala": "56",
+    "nastavnik": "dj"
+}
+{
+    "id": 16,
+    "datumVreme": "2021-07-04 08:00:00",
+    "predmet": "Operativni sistemi 1",
+    "sala": "57",
+    "nastavnik": "sanja"
+}
+{
+    "id": 17,
+    "datumVreme": "2021-07-04 08:00:00",
+    "predmet": "Operativni sistemi 1",
+    "sala": "59",
+    "nastavnik": "drazen"
+}
+{
+    "id": 18,
+    "datumVreme": "2021-07-04 08:00:00",
+    "predmet": "Operativni sistemi 1",
+    "sala": "62",
+    "nastavnik": "jocke"
+}
+{
+    "id": 19,
+    "datumVreme": "2021-07-04 08:00:00",
+    "predmet": "Operativni sistemi 1",
+    "sala": "65",
+    "nastavnik": "danko"
+}

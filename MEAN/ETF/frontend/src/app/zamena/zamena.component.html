@@ -1,0 +1,26 @@
+<table>
+    <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+    </tr>
+    <tr *ngFor='let dez of dezurstva'>
+        <td>{{dez.datumVreme}}</td>
+        <td>{{dez.predmet}}</td>
+        <td>{{dez.sala}}</td>
+    </tr>
+</table>
+
+<hr>
+
+<table>
+    <!-- <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+    </tr> -->
+    <tr *ngFor='let zam of zamene'>
+        <td>{{zam.dezurstvoMoje}}</td>
+        <td>{{zam.dezurstvoZeljeno}}</td>
+    </tr>
+</table>

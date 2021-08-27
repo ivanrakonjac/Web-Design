@@ -1,0 +1,12 @@
+<form>
+    Username
+    <input type='text' name='username' [(ngModel)]='username'>
+    <br/>
+    Pasword
+    <input type='text' name='password' [(ngModel)]='password'>
+    <br/>
+    <button (click)='login()'>LOGIN</button>
+    <br/>
+    <span style="color: red;">{{badData}}</span>
+</form>
+

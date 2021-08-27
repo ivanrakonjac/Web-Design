@@ -1,0 +1,12 @@
+{
+    "dezurstvoMoje": 16,
+    "dezurstvoZeljeno": 8
+}
+{
+    "dezurstvoMoje": 4,
+    "dezurstvoZeljeno": 8
+}
+{
+    "dezurstvoMoje": 1,
+    "dezurstvoZeljeno": 12
+}

@@ -1,0 +1,38 @@
+<button (click)='back()'>BACK</button>
+
+<br>
+
+Nastavnik: {{nastavnik.ime}} {{nastavnik.prezime}}
+
+<br>
+<hr>
+
+<table>
+    <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+    </tr>
+    <tr>
+        <td>{{dezurstvo.datumVreme}}</td>
+        <td>{{dezurstvo.predmet}}</td>
+        <td>{{dezurstvo.sala}}</td>
+    </tr>
+</table>
+
+<hr>
+
+<table>
+    <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+        <td>Zahtev za zamenu</td>
+    </tr>
+    <tr *ngFor='let dez of dezurstva'>
+        <td>{{dez.datumVreme}}</td>
+        <td>{{dez.predmet}}</td>
+        <td>{{dez.sala}}</td>
+        <td><button (click)='posaljiZahtev(dez)'>POSALJI</button></td>
+    </tr>
+</table>

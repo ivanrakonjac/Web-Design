@@ -1,0 +1,40 @@
+<button (click)='logout()'>LOGOUT</button> | <button (click)='zamene()'>ZAMENE</button>
+
+<table>
+    <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+    </tr>
+    <tr *ngFor='let dez of dezurstva'>
+        <td>{{dez.datumVreme}}</td>
+        <td>{{dez.predmet}}</td>
+        <td>{{dez.sala}}</td>
+    </tr>
+</table>
+
+<hr>
+
+<form>
+    <select name='nastavnikPretraga' [(ngModel)]='nastavnikPretraga'>
+        <option *ngFor='let nas of nastavnici' [value]='nas.korisnickoIme'>{{nas.ime}} {{nas.prezime}}</option>
+    </select>
+    <button type="submit" (click)='getDezurstva()'>SELECT NASTAVNIK</button>
+</form>
+
+<table>
+    <tr>
+        <td>Datum i vreme</td>
+        <td>Predmet</td>
+        <td>Sala</td>
+        <td>Zamena</td>
+    </tr>
+    <tr *ngFor='let dez of dezurstvaPretraga' [class.color]='nastavnikHasDezurstvo(dez.id)'>
+        <td>{{dez.datumVreme}}</td>
+        <td>{{dez.predmet}}</td>
+        <td>{{dez.sala}}</td>
+        <td>
+            <button *ngIf='!nastavnikHasDezurstvo(dez.id)' (click)='zamena(dez)'>ZAMENA</button>
+        </td>
+    </tr>
+</table>

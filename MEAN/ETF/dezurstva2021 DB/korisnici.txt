@@ -1,0 +1,72 @@
+{
+    "korisnickoIme": "danko",
+    "lozinka": "danko123",
+    "ime": "Danko",
+    "prezime": "Miladinovic",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "dj",
+    "lozinka": "dj123",
+    "ime": "Jovan",
+    "prezime": "Djukic",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "drazen",
+    "lozinka": "drazen123",
+    "ime": "Drazen",
+    "prezime": "Draskovic",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "jelica",
+    "lozinka": "jelica123",
+    "ime": "Jelica",
+    "prezime": "Cincovic",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "jocke",
+    "lozinka": "jocke123",
+    "ime": "Vladimir",
+    "prezime": "Jocovic",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "micko",
+    "lozinka": "micko123",
+    "ime": "Marko",
+    "prezime": "Micovic",
+    "tip": "nastavnik"
+}
+
+
+{
+    "korisnickoIme": "sanja",
+    "lozinka": "sanja123",
+    "ime": "Sanja",
+    "prezime": "Delcev",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "tasha",
+    "lozinka": "tasha123",
+    "ime": "Tamara",
+    "prezime": "Sekularac",
+    "tip": "nastavnik"
+}
+
+{
+    "korisnickoIme": "uki",
+    "lozinka": "uki123",
+    "ime": "Uros",
+    "prezime": "Radenkovic",
+    "tip": "nastavnik"
+}
