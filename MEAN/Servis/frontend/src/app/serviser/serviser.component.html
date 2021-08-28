@@ -1,0 +1,41 @@
+<p>Welcome {{user.kor_ime}}</p>
+
+<button (click)='logout()'>LOGOUT</button>
+
+<hr>
+
+<form>
+    Ime: <input type='text' name='imeNaloga' [(ngModel)]='imeNaloga'>
+    <br/>
+    Delovi: 
+    <div  *ngFor='let deo of delovi'>
+        <input type='radio' name='izabraniDeo' value='{{deo.naziv}}' [(ngModel)]='izabraniDeo'> {{deo.naziv}}
+    </div>
+    <input type='radio' name='izabraniDeo' value='/' [(ngModel)]='izabraniDeo'> Nije potreban
+    <br/>
+    <input type='radio' name='izabraniDeo' value='nema' [(ngModel)]='izabraniDeo'>Ne postoji
+    <br/>
+    Dodaj: <input type='text' name='noviDeo' [(ngModel)]='noviDeo'>
+    <br/>
+    <button (click)='zavrsi()'>ZAVRSI</button>
+</form>
+
+<hr>
+
+<table>
+    <tr>
+        <td>Ime</td>
+        <td>Rezervni deo</td>
+        <td>Status</td>
+    </tr>
+    <tr *ngFor='let nalog of nalozi' [class.color]='nalog.status == "novi"'>
+        <td>{{nalog.naziv}}</td>
+        <td>{{nalog.deo}}</td>
+        <td>{{nalog.status}}</td>
+        <td>
+            <select name='stanje' (change)='onChange($event.target.value, nalog)'>
+                <option *ngFor = 'let s of stanja' value='{{s}}'>{{s}}</option>
+            </select>
+        </td>
+    </tr>
+</table>

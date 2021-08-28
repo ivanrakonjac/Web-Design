@@ -1,0 +1,24 @@
+<h2>Prijava na sistem</h2>
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td>
+            <input type='text' name='kor_ime' [(ngModel)]='kor_ime'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td>
+            <input type='text' name='lozinka' [(ngModel)]='lozinka'>
+        </td>
+    </tr>
+    <tr>
+        Radnik: <input type='checkbox' name='radnik' [(ngModel)]='radnik'>
+    </tr>
+    <tr>
+        <td colspan='2'>
+            <button (click)='login()'>Prijava</button>
+        </td>
+    </tr>
+</table>
+<span style='color: red'>{{greska}}</span>
