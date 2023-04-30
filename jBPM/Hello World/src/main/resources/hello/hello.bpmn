@@ -17,12 +17,13 @@
     <extensionElements>
      <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
      <tns:import name="org.kie.api.runtime.process.CaseData" />
+     <tns:import name="hello.HelloService" />
     </extensionElements>
     <!-- nodes -->
     <startEvent id="4bc38b6c-5d80-48e5-af49-224e69740934" name="Start"  isInterrupting="false">
     </startEvent>
-    <scriptTask id="ef010032-c455-4969-a249-c1297dbbd82f" name="Hello" scriptFormat="http://www.java.com/java" >
-      <script>System.out.println("Hello!");</script>
+    <scriptTask id="ef010032-c455-4969-a249-c1297dbbd82f" name="Hello" >
+      <script>HelloService.getInstace().sayHello();</script>
     </scriptTask>
     <endEvent id="fc5176f4-4e4a-4476-ac0c-09e7b45b4605" name="End" >
         <terminateEventDefinition />
