@@ -1,5 +1,9 @@
 <kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
   <kbase name="kbase" packages="com.sample"/>
+  
+  <kbase name="hello_base" packages="hello">
+  	<ksession name="hello_session"/>
+  </kbase>
 
 </kmodule>

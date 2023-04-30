@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="hello_process" name="hello" >
+
+    <extensionElements>
+     <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
+     <tns:import name="org.kie.api.runtime.process.CaseData" />
+    </extensionElements>
+    <!-- nodes -->
+    <startEvent id="4bc38b6c-5d80-48e5-af49-224e69740934" name="Start"  isInterrupting="false">
+    </startEvent>
+    <scriptTask id="ef010032-c455-4969-a249-c1297dbbd82f" name="Hello" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Hello!");</script>
+    </scriptTask>
+    <endEvent id="fc5176f4-4e4a-4476-ac0c-09e7b45b4605" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="4bc38b6c-5d80-48e5-af49-224e69740934-ef010032-c455-4969-a249-c1297dbbd82f" sourceRef="4bc38b6c-5d80-48e5-af49-224e69740934" targetRef="ef010032-c455-4969-a249-c1297dbbd82f" />
+    <sequenceFlow id="ef010032-c455-4969-a249-c1297dbbd82f-fc5176f4-4e4a-4476-ac0c-09e7b45b4605" sourceRef="ef010032-c455-4969-a249-c1297dbbd82f" targetRef="fc5176f4-4e4a-4476-ac0c-09e7b45b4605" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="hello_process" >
+      <bpmndi:BPMNShape bpmnElement="4bc38b6c-5d80-48e5-af49-224e69740934" >
+        <dc:Bounds x="100" y="100" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ef010032-c455-4969-a249-c1297dbbd82f" >
+        <dc:Bounds x="224" y="99" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="fc5176f4-4e4a-4476-ac0c-09e7b45b4605" >
+        <dc:Bounds x="397" y="94" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="4bc38b6c-5d80-48e5-af49-224e69740934-ef010032-c455-4969-a249-c1297dbbd82f" >
+        <di:waypoint x="124" y="124" />
+        <di:waypoint x="264" y="123" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="ef010032-c455-4969-a249-c1297dbbd82f-fc5176f4-4e4a-4476-ac0c-09e7b45b4605" >
+        <di:waypoint x="264" y="123" />
+        <di:waypoint x="421" y="118" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
