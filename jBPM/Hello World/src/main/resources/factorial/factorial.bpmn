@@ -12,46 +12,112 @@
              xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
              xmlns:tns="http://www.jboss.org/drools">
 
+  <itemDefinition id="_i" structureRef="Integer" />
+  <itemDefinition id="_result" structureRef="Integer" />
+  <itemDefinition id="_text" structureRef="String" />
+  <itemDefinition id="_n" structureRef="Integer" />
+
   <process processType="Private" isExecutable="true" id="factorial_process" name="factorial" >
 
     <extensionElements>
+     <tns:import name="java.lang.*" />
      <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
      <tns:import name="org.kie.api.runtime.process.CaseData" />
     </extensionElements>
+    <!-- process variables -->
+    <property id="i" itemSubjectRef="null"/>
+    <property id="result" itemSubjectRef="null"/>
+    <property id="text" itemSubjectRef="null"/>
+    <property id="n" itemSubjectRef="null"/>
+
     <!-- nodes -->
     <startEvent id="06976924-9f61-4ffc-8889-83945337ada5" name="Start"  isInterrupting="false">
     </startEvent>
-    <scriptTask id="6078ed1c-e6f2-401d-9b98-df96935bf1c6" name="Script" scriptFormat="http://www.java.com/java" >
-      <script>System.out.println("Hello from factorial!");</script>
+    <scriptTask id="6078ed1c-e6f2-401d-9b98-df96935bf1c6" name="Inicijalizacija" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Hello from factorial!");
+System.out.println("i = " + i);
+System.out.println("n = " + n);</script>
     </scriptTask>
     <endEvent id="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" name="End" >
         <terminateEventDefinition />
     </endEvent>
+    <scriptTask id="7a173666-d280-476f-84c5-f5b0f7e0467c" name="n!" >
+      <script>kcontext.setVariable("i" , i+1);
+System.out.println(i);</script>
+    </scriptTask>
+    <scriptTask id="da24676a-cbba-4a01-b9d7-2698317b4a16" name="Ispis" >
+      <script>System.out.println("Ispis: " + i);</script>
+    </scriptTask>
+    <exclusiveGateway id="6864872d-72e3-4a3c-a8c7-e6bf808351c0" name="Gateway" gatewayDirection="Converging" >
+    </exclusiveGateway>
+    <exclusiveGateway id="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" name="Gateway" gatewayDirection="Diverging" >
+    </exclusiveGateway>
 
     <!-- connections -->
     <sequenceFlow id="06976924-9f61-4ffc-8889-83945337ada5-6078ed1c-e6f2-401d-9b98-df96935bf1c6" sourceRef="06976924-9f61-4ffc-8889-83945337ada5" targetRef="6078ed1c-e6f2-401d-9b98-df96935bf1c6" />
-    <sequenceFlow id="6078ed1c-e6f2-401d-9b98-df96935bf1c6-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" sourceRef="6078ed1c-e6f2-401d-9b98-df96935bf1c6" targetRef="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" />
+    <sequenceFlow id="da24676a-cbba-4a01-b9d7-2698317b4a16-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" sourceRef="da24676a-cbba-4a01-b9d7-2698317b4a16" targetRef="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" />
+    <sequenceFlow id="6864872d-72e3-4a3c-a8c7-e6bf808351c0-7a173666-d280-476f-84c5-f5b0f7e0467c" sourceRef="6864872d-72e3-4a3c-a8c7-e6bf808351c0" targetRef="7a173666-d280-476f-84c5-f5b0f7e0467c" />
+    <sequenceFlow id="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5-da24676a-cbba-4a01-b9d7-2698317b4a16" sourceRef="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" targetRef="da24676a-cbba-4a01-b9d7-2698317b4a16" name="i&gt;=n" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return (Integer) i &gt;= (Integer) n;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="6078ed1c-e6f2-401d-9b98-df96935bf1c6-6864872d-72e3-4a3c-a8c7-e6bf808351c0" sourceRef="6078ed1c-e6f2-401d-9b98-df96935bf1c6" targetRef="6864872d-72e3-4a3c-a8c7-e6bf808351c0" />
+    <sequenceFlow id="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5-6864872d-72e3-4a3c-a8c7-e6bf808351c0" sourceRef="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" targetRef="6864872d-72e3-4a3c-a8c7-e6bf808351c0" name="else" tns:priority="2" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="7a173666-d280-476f-84c5-f5b0f7e0467c-5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" sourceRef="7a173666-d280-476f-84c5-f5b0f7e0467c" targetRef="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" />
 
   </process>
 
   <bpmndi:BPMNDiagram>
     <bpmndi:BPMNPlane bpmnElement="factorial_process" >
       <bpmndi:BPMNShape bpmnElement="06976924-9f61-4ffc-8889-83945337ada5" >
-        <dc:Bounds x="100" y="100" width="48" height="48" />
+        <dc:Bounds x="38" y="188" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="6078ed1c-e6f2-401d-9b98-df96935bf1c6" >
-        <dc:Bounds x="209" y="99" width="80" height="48" />
+        <dc:Bounds x="143" y="188" width="80" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
-        <dc:Bounds x="402" y="98" width="48" height="48" />
+        <dc:Bounds x="804" y="186" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="7a173666-d280-476f-84c5-f5b0f7e0467c" >
+        <dc:Bounds x="392" y="81" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="da24676a-cbba-4a01-b9d7-2698317b4a16" >
+        <dc:Bounds x="678" y="188" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="6864872d-72e3-4a3c-a8c7-e6bf808351c0" >
+        <dc:Bounds x="276" y="187" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" >
+        <dc:Bounds x="575" y="185" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="06976924-9f61-4ffc-8889-83945337ada5-6078ed1c-e6f2-401d-9b98-df96935bf1c6" >
-        <di:waypoint x="124" y="124" />
-        <di:waypoint x="249" y="123" />
+        <di:waypoint x="62" y="212" />
+        <di:waypoint x="183" y="212" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="6078ed1c-e6f2-401d-9b98-df96935bf1c6-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
-        <di:waypoint x="249" y="123" />
-        <di:waypoint x="426" y="122" />
+      <bpmndi:BPMNEdge bpmnElement="da24676a-cbba-4a01-b9d7-2698317b4a16-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
+        <di:waypoint x="718" y="212" />
+        <di:waypoint x="828" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="6864872d-72e3-4a3c-a8c7-e6bf808351c0-7a173666-d280-476f-84c5-f5b0f7e0467c" >
+        <di:waypoint x="300" y="211" />
+        <di:waypoint x="432" y="105" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5-da24676a-cbba-4a01-b9d7-2698317b4a16" >
+        <di:waypoint x="599" y="209" />
+        <di:waypoint x="718" y="212" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="6078ed1c-e6f2-401d-9b98-df96935bf1c6-6864872d-72e3-4a3c-a8c7-e6bf808351c0" >
+        <di:waypoint x="183" y="212" />
+        <di:waypoint x="300" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5-6864872d-72e3-4a3c-a8c7-e6bf808351c0" >
+        <di:waypoint x="599" y="209" />
+        <di:waypoint x="300" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="7a173666-d280-476f-84c5-f5b0f7e0467c-5eb46e97-3eb9-406a-b5e5-ba3c0ffa61e5" >
+        <di:waypoint x="432" y="105" />
+        <di:waypoint x="599" y="209" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

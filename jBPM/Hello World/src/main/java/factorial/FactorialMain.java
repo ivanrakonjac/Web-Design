@@ -55,6 +55,8 @@ public class FactorialMain {
         // start a new process instance
        
         Map<String, Object> map = new HashMap<>();
+        map.put("n", 5);
+        map.put("i", 1);
         
         ksession.startProcess("factorial_process", map);
     }
