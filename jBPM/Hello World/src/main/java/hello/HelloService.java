@@ -8,8 +8,8 @@ public class HelloService {
 		return instace;
 	}
 	
-	public void sayHello() {
-		System.out.println("Hello from HelloService");
+	public void sayHello(String name) {
+		System.out.println("Hello " + name + " from HelloService!");
 	}
 	
 }

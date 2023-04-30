@@ -53,7 +53,13 @@ public class HelloMain {
         // load up the knowledge base
         KieSession ksession = createKieSession("hello_session");
         // start a new process instance
-        ksession.startProcess("hello_process");
+        
+        Osoba person = new Osoba("Ivan");
+        
+        Map<String, Object> map = new HashMap<>();
+        map.put("person", person);
+        
+        ksession.startProcess("hello_process", map);
     }
 
     private static KieSession createKieSession(String sessionName) {
