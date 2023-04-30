@@ -5,5 +5,9 @@
   <kbase name="hello_base" packages="hello">
   	<ksession name="hello_session"/>
   </kbase>
+  
+    <kbase name="factorial_base" packages="factorial">
+  	<ksession name="factorial_session"/>
+  </kbase>
 
 </kmodule>

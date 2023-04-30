@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <process processType="Private" isExecutable="true" id="factorial_process" name="factorial" >
+
+    <extensionElements>
+     <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
+     <tns:import name="org.kie.api.runtime.process.CaseData" />
+    </extensionElements>
+    <!-- nodes -->
+    <startEvent id="06976924-9f61-4ffc-8889-83945337ada5" name="Start"  isInterrupting="false">
+    </startEvent>
+    <scriptTask id="6078ed1c-e6f2-401d-9b98-df96935bf1c6" name="Script" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Hello from factorial!");</script>
+    </scriptTask>
+    <endEvent id="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="06976924-9f61-4ffc-8889-83945337ada5-6078ed1c-e6f2-401d-9b98-df96935bf1c6" sourceRef="06976924-9f61-4ffc-8889-83945337ada5" targetRef="6078ed1c-e6f2-401d-9b98-df96935bf1c6" />
+    <sequenceFlow id="6078ed1c-e6f2-401d-9b98-df96935bf1c6-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" sourceRef="6078ed1c-e6f2-401d-9b98-df96935bf1c6" targetRef="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="factorial_process" >
+      <bpmndi:BPMNShape bpmnElement="06976924-9f61-4ffc-8889-83945337ada5" >
+        <dc:Bounds x="100" y="100" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="6078ed1c-e6f2-401d-9b98-df96935bf1c6" >
+        <dc:Bounds x="209" y="99" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
+        <dc:Bounds x="402" y="98" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="06976924-9f61-4ffc-8889-83945337ada5-6078ed1c-e6f2-401d-9b98-df96935bf1c6" >
+        <di:waypoint x="124" y="124" />
+        <di:waypoint x="249" y="123" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="6078ed1c-e6f2-401d-9b98-df96935bf1c6-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
+        <di:waypoint x="249" y="123" />
+        <di:waypoint x="426" y="122" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
