@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_result" structureRef="Integer" />
+  <itemDefinition id="_i" structureRef="Integer" />
+  <itemDefinition id="_text" structureRef="String" />
+  <itemDefinition id="_n" structureRef="Integer" />
+  <itemDefinition id="null" />
+
+  <process processType="Private" isExecutable="true" id="multiple_instance_process" name="multiple_instance" >
+
+    <extensionElements>
+     <tns:import name="java.lang.*" />
+     <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
+     <tns:import name="org.kie.api.runtime.process.CaseData" />
+    </extensionElements>
+    <!-- process variables -->
+    <property id="i" itemSubjectRef="null"/>
+    <property id="result" itemSubjectRef="null"/>
+    <property id="text" itemSubjectRef="null"/>
+    <property id="n" itemSubjectRef="null"/>
+
+    <!-- nodes -->
+    <startEvent id="06976924-9f61-4ffc-8889-83945337ada5" name="Start"  isInterrupting="false">
+    </startEvent>
+    <endEvent id="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" name="Script" >
+      <script>System.out.println("Test");</script>
+    </scriptTask>
+
+    <!-- connections -->
+    <sequenceFlow id="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" sourceRef="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" targetRef="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" />
+    <sequenceFlow id="06976924-9f61-4ffc-8889-83945337ada5-9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" sourceRef="06976924-9f61-4ffc-8889-83945337ada5" targetRef="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="multiple_instance_process" >
+      <bpmndi:BPMNShape bpmnElement="06976924-9f61-4ffc-8889-83945337ada5" >
+        <dc:Bounds x="38" y="188" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
+        <dc:Bounds x="804" y="186" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" >
+        <dc:Bounds x="394" y="201" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
+        <di:waypoint x="434" y="225" />
+        <di:waypoint x="828" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="06976924-9f61-4ffc-8889-83945337ada5-9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" >
+        <di:waypoint x="62" y="212" />
+        <di:waypoint x="434" y="225" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

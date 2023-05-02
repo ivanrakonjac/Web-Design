@@ -6,8 +6,12 @@
   	<ksession name="hello_session"/>
   </kbase>
   
-    <kbase name="factorial_base" packages="factorial">
-  	<ksession name="factorial_session"/>
-  </kbase>
+   <kbase name="factorial_base" packages="factorial">
+ 		<ksession name="factorial_session"/>
+	</kbase>
+	
+   <kbase name="multiple_instance_base" packages="multiple_instance">
+ 		<ksession name="multiple_instance_session"/>
+	</kbase>
 
 </kmodule>
