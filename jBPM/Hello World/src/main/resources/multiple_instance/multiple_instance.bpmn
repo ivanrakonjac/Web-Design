@@ -13,10 +13,13 @@
              xmlns:tns="http://www.jboss.org/drools">
 
   <itemDefinition id="_result" structureRef="Integer" />
+  <itemDefinition id="null" />
   <itemDefinition id="_i" structureRef="Integer" />
   <itemDefinition id="_text" structureRef="String" />
   <itemDefinition id="_n" structureRef="Integer" />
-  <itemDefinition id="null" />
+  <itemDefinition id="_list" structureRef="java.util.List" />
+
+  <itemDefinition id="cd9b138b-2cc8-429f-8853-9ea0465521b1_multiInstanceItemType" />
 
   <process processType="Private" isExecutable="true" id="multiple_instance_process" name="multiple_instance" >
 
@@ -26,45 +29,123 @@
      <tns:import name="org.kie.api.runtime.process.CaseData" />
     </extensionElements>
     <!-- process variables -->
-    <property id="i" itemSubjectRef="null"/>
-    <property id="result" itemSubjectRef="null"/>
-    <property id="text" itemSubjectRef="null"/>
-    <property id="n" itemSubjectRef="null"/>
+    <property id="list" itemSubjectRef="null"/>
 
     <!-- nodes -->
-    <startEvent id="06976924-9f61-4ffc-8889-83945337ada5" name="Start"  isInterrupting="false">
+    <startEvent id="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" name="Start"  isInterrupting="false">
     </startEvent>
-    <endEvent id="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" name="End" >
+    <endEvent id="d0c60321-fe33-4fd1-b297-cf02554ef87e" name="End" >
         <terminateEventDefinition />
     </endEvent>
-    <scriptTask id="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" name="Script" >
-      <script>System.out.println("Test");</script>
+    <scriptTask id="e1a45be1-d386-400f-ad08-a75f52d5653f" name="Script" >
+      <script>System.out.println("Zavrseno");</script>
     </scriptTask>
+    <subProcess id="cd9b138b-2cc8-429f-8853-9ea0465521b1" name="Multiple Instances"  >
+      <ioSpecification>
+        <dataInput id="cd9b138b-2cc8-429f-8853-9ea0465521b1_input" name="MultiInstanceInput" />
+        <inputSet/>
+        <outputSet/>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>list</sourceRef>
+        <targetRef>cd9b138b-2cc8-429f-8853-9ea0465521b1_input</targetRef>
+      </dataInputAssociation>
+      <multiInstanceLoopCharacteristics>
+        <loopDataInputRef>cd9b138b-2cc8-429f-8853-9ea0465521b1_input</loopDataInputRef>
+        <inputDataItem id="item" itemSubjectRef="cd9b138b-2cc8-429f-8853-9ea0465521b1_multiInstanceItemType"/>
+      </multiInstanceLoopCharacteristics>
+    <!-- nodes -->
+    <startEvent id="_jbpm-unique-13" name="Start"  isInterrupting="false">
+    </startEvent>
+    <endEvent id="_jbpm-unique-14" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <userTask id="_jbpm-unique-15" name="User Task" >
+      <ioSpecification>
+        <dataInput id="_jbpm-unique-15_CommentInput" name="Comment" />
+        <dataInput id="_jbpm-unique-15_TaskNameInput" name="TaskName" />
+        <inputSet>
+          <dataInputRefs>_jbpm-unique-15_CommentInput</dataInputRefs>
+          <dataInputRefs>_jbpm-unique-15_TaskNameInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_jbpm-unique-15_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Comment for user #{item}</from>
+          <to xsi:type="tFormalExpression">_jbpm-unique-15_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_jbpm-unique-15_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">User Task</from>
+          <to xsi:type="tFormalExpression">_jbpm-unique-15_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{item}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
 
     <!-- connections -->
-    <sequenceFlow id="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" sourceRef="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" targetRef="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" />
-    <sequenceFlow id="06976924-9f61-4ffc-8889-83945337ada5-9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" sourceRef="06976924-9f61-4ffc-8889-83945337ada5" targetRef="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" />
+    <sequenceFlow id="_jbpm-unique-15-_jbpm-unique-14" sourceRef="_jbpm-unique-15" targetRef="_jbpm-unique-14" />
+    <sequenceFlow id="_jbpm-unique-13-_jbpm-unique-15" sourceRef="_jbpm-unique-13" targetRef="_jbpm-unique-15" />
+    </subProcess>
+
+    <!-- connections -->
+    <sequenceFlow id="e1a45be1-d386-400f-ad08-a75f52d5653f-d0c60321-fe33-4fd1-b297-cf02554ef87e" sourceRef="e1a45be1-d386-400f-ad08-a75f52d5653f" targetRef="d0c60321-fe33-4fd1-b297-cf02554ef87e" />
+    <sequenceFlow id="cd9b138b-2cc8-429f-8853-9ea0465521b1-e1a45be1-d386-400f-ad08-a75f52d5653f" sourceRef="cd9b138b-2cc8-429f-8853-9ea0465521b1" targetRef="e1a45be1-d386-400f-ad08-a75f52d5653f" />
+    <sequenceFlow id="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c-cd9b138b-2cc8-429f-8853-9ea0465521b1" sourceRef="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" targetRef="cd9b138b-2cc8-429f-8853-9ea0465521b1" />
 
   </process>
 
   <bpmndi:BPMNDiagram>
     <bpmndi:BPMNPlane bpmnElement="multiple_instance_process" >
-      <bpmndi:BPMNShape bpmnElement="06976924-9f61-4ffc-8889-83945337ada5" >
-        <dc:Bounds x="38" y="188" width="48" height="48" />
+      <bpmndi:BPMNShape bpmnElement="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" >
+        <dc:Bounds x="25" y="160" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
-        <dc:Bounds x="804" y="186" width="48" height="48" />
+      <bpmndi:BPMNShape bpmnElement="d0c60321-fe33-4fd1-b297-cf02554ef87e" >
+        <dc:Bounds x="935" y="162" width="48" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" >
-        <dc:Bounds x="394" y="201" width="80" height="48" />
+      <bpmndi:BPMNShape bpmnElement="e1a45be1-d386-400f-ad08-a75f52d5653f" >
+        <dc:Bounds x="685" y="160" width="80" height="48" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="9dfd3230-19a5-49a9-b2c5-abf60d15e2ee-cf352e2c-8c3f-4bd9-a3d1-b5e5233e51cf" >
-        <di:waypoint x="434" y="225" />
-        <di:waypoint x="828" y="210" />
+      <bpmndi:BPMNShape bpmnElement="cd9b138b-2cc8-429f-8853-9ea0465521b1" >
+        <dc:Bounds x="154" y="79" width="497" height="224" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-13" >
+        <dc:Bounds x="185" y="183" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-14" >
+        <dc:Bounds x="580" y="189" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_jbpm-unique-15" >
+        <dc:Bounds x="355" y="184" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-15-_jbpm-unique-14" >
+        <di:waypoint x="251" y="129" />
+        <di:waypoint x="450" y="134" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="06976924-9f61-4ffc-8889-83945337ada5-9dfd3230-19a5-49a9-b2c5-abf60d15e2ee" >
-        <di:waypoint x="62" y="212" />
-        <di:waypoint x="434" y="225" />
+      <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-13-_jbpm-unique-15" >
+        <di:waypoint x="55" y="128" />
+        <di:waypoint x="251" y="129" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="e1a45be1-d386-400f-ad08-a75f52d5653f-d0c60321-fe33-4fd1-b297-cf02554ef87e" >
+        <di:waypoint x="725" y="184" />
+        <di:waypoint x="959" y="186" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="cd9b138b-2cc8-429f-8853-9ea0465521b1-e1a45be1-d386-400f-ad08-a75f52d5653f" >
+        <di:waypoint x="402" y="191" />
+        <di:waypoint x="725" y="184" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c-cd9b138b-2cc8-429f-8853-9ea0465521b1" >
+        <di:waypoint x="49" y="184" />
+        <di:waypoint x="402" y="191" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

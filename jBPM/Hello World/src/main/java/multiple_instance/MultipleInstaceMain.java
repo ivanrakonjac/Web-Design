@@ -16,7 +16,9 @@
 
 package multiple_instance;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -52,8 +54,17 @@ public class MultipleInstaceMain {
     public static final void main(String[] args) {
         // load up the knowledge base
         KieSession ksession = createKieSession("multiple_instance_session");
+        
+        ksession.getWorkItemManager().registerWorkItemHandler("Human Task", new MyTaskHandler());
        
         Map<String, Object> paramsMap = new HashMap<>();
+        
+        List<String> users = new ArrayList<String>();
+        users.add("ivan");
+        users.add("nikola");
+        users.add("milos");
+        
+        paramsMap.put("list", users);
         
         // start a new process instance with a process name and params
         ksession.startProcess("multiple_instance_process", paramsMap);
