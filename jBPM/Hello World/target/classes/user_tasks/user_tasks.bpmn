@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_list" structureRef="java.util.List" />
+  <itemDefinition id="_result" structureRef="Integer" />
+  <itemDefinition id="null" />
+  <itemDefinition id="_i" structureRef="Integer" />
+  <itemDefinition id="_text" structureRef="String" />
+  <itemDefinition id="_n" structureRef="Integer" />
+  <itemDefinition id="cd9b138b-2cc8-429f-8853-9ea0465521b1_multiInstanceItemType" />
+  <itemDefinition id="_actor" structureRef="String" />
+  <itemDefinition id="_input_param" structureRef="String" />
+  <itemDefinition id="_output_param" structureRef="String" />
+  <itemDefinition id="_param" structureRef="Object" />
+
+  <process processType="Private" isExecutable="true" id="user_tasks_proces" name="user_tasks" >
+
+    <extensionElements>
+     <tns:import name="java.lang.*" />
+     <tns:import name="org.kie.api.runtime.process.CaseAssignment" />
+     <tns:import name="org.kie.api.runtime.process.CaseData" />
+    </extensionElements>
+    <!-- process variables -->
+    <property id="actor" itemSubjectRef="null"/>
+    <property id="input_param" itemSubjectRef="null"/>
+    <property id="output_param" itemSubjectRef="null"/>
+    <property id="param" itemSubjectRef="null"/>
+
+    <!-- nodes -->
+    <startEvent id="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" name="Start"  isInterrupting="false">
+    </startEvent>
+    <endEvent id="d0c60321-fe33-4fd1-b297-cf02554ef87e" name="End" >
+        <terminateEventDefinition />
+    </endEvent>
+    <scriptTask id="e1a45be1-d386-400f-ad08-a75f52d5653f" name="Script" >
+      <script>System.out.println("Script task");</script>
+    </scriptTask>
+    <userTask id="1" name="User Task 1" >
+      <extensionElements>
+        <tns:onExit-script>
+          <tns:script>kcontext.setVariable("output_parameter", "output_param_val")</tns:script>
+        </tns:onExit-script>
+        <tns:onExit-script>
+          <tns:script></tns:script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="1_output_parameterInput" name="output_parameter" />
+        <dataInput id="1_input_parameterInput" name="input_parameter" />
+        <dataInput id="1_CommentInput" name="Comment" />
+        <dataInput id="1_TaskNameInput" name="TaskName" />
+        <dataInput id="1_GroupIdInput" name="GroupId" />
+        <dataOutput id="1_output_paramOutput" name="output_param" />
+        <inputSet>
+          <dataInputRefs>1_output_parameterInput</dataInputRefs>
+          <dataInputRefs>1_input_parameterInput</dataInputRefs>
+          <dataInputRefs>1_CommentInput</dataInputRefs>
+          <dataInputRefs>1_TaskNameInput</dataInputRefs>
+          <dataInputRefs>1_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>1_output_paramOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>output_param</sourceRef>
+        <targetRef>1_output_parameterInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>input_param</sourceRef>
+        <targetRef>1_input_parameterInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>1_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">First comment</from>
+          <to xsi:type="tFormalExpression">1_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>1_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">1.User task</from>
+          <to xsi:type="tFormalExpression">1_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>1_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">1_group</from>
+          <to xsi:type="tFormalExpression">1_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>1_output_paramOutput</sourceRef>
+        <targetRef>output_parameter</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{actor}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <userTask id="2" name="User Task 2" >
+      <extensionElements>
+        <tns:onEntry-script>
+          <tns:script>kcontext.setVariable("param", output_param);</tns:script>
+        </tns:onEntry-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="2_CommentInput" name="Comment" />
+        <dataInput id="2_TaskNameInput" name="TaskName" />
+        <dataInput id="2_GroupIdInput" name="GroupId" />
+        <inputSet>
+          <dataInputRefs>2_CommentInput</dataInputRefs>
+          <dataInputRefs>2_TaskNameInput</dataInputRefs>
+          <dataInputRefs>2_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>2_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Second comment</from>
+          <to xsi:type="tFormalExpression">2_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>2_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">2. User task</from>
+          <to xsi:type="tFormalExpression">2_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>2_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">2_group</from>
+          <to xsi:type="tFormalExpression">2_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{actor}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <parallelGateway id="f6e1771d-2b49-4c39-ab52-18911d1c02d0" name="Gateway" gatewayDirection="Diverging" >
+    </parallelGateway>
+    <parallelGateway id="3bf8f9ea-b946-4900-8f89-8f24b4eb9786" name="Gateway" gatewayDirection="Converging" >
+    </parallelGateway>
+
+    <!-- connections -->
+    <sequenceFlow id="3bf8f9ea-b946-4900-8f89-8f24b4eb9786-d0c60321-fe33-4fd1-b297-cf02554ef87e" sourceRef="3bf8f9ea-b946-4900-8f89-8f24b4eb9786" targetRef="d0c60321-fe33-4fd1-b297-cf02554ef87e" />
+    <sequenceFlow id="f6e1771d-2b49-4c39-ab52-18911d1c02d0-e1a45be1-d386-400f-ad08-a75f52d5653f" sourceRef="f6e1771d-2b49-4c39-ab52-18911d1c02d0" targetRef="e1a45be1-d386-400f-ad08-a75f52d5653f" />
+    <sequenceFlow id="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c-1" sourceRef="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" targetRef="1" />
+    <sequenceFlow id="f6e1771d-2b49-4c39-ab52-18911d1c02d0-2" sourceRef="f6e1771d-2b49-4c39-ab52-18911d1c02d0" targetRef="2" />
+    <sequenceFlow id="1-f6e1771d-2b49-4c39-ab52-18911d1c02d0" sourceRef="1" targetRef="f6e1771d-2b49-4c39-ab52-18911d1c02d0" />
+    <sequenceFlow id="2-3bf8f9ea-b946-4900-8f89-8f24b4eb9786" sourceRef="2" targetRef="3bf8f9ea-b946-4900-8f89-8f24b4eb9786" />
+    <sequenceFlow id="e1a45be1-d386-400f-ad08-a75f52d5653f-3bf8f9ea-b946-4900-8f89-8f24b4eb9786" sourceRef="e1a45be1-d386-400f-ad08-a75f52d5653f" targetRef="3bf8f9ea-b946-4900-8f89-8f24b4eb9786" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="user_tasks_proces" >
+      <bpmndi:BPMNShape bpmnElement="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c" >
+        <dc:Bounds x="21" y="170" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="d0c60321-fe33-4fd1-b297-cf02554ef87e" >
+        <dc:Bounds x="989" y="178" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="e1a45be1-d386-400f-ad08-a75f52d5653f" >
+        <dc:Bounds x="482" y="288" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="1" >
+        <dc:Bounds x="148" y="169" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="2" >
+        <dc:Bounds x="462" y="83" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="f6e1771d-2b49-4c39-ab52-18911d1c02d0" >
+        <dc:Bounds x="324" y="178" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="3bf8f9ea-b946-4900-8f89-8f24b4eb9786" >
+        <dc:Bounds x="811" y="184" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="3bf8f9ea-b946-4900-8f89-8f24b4eb9786-d0c60321-fe33-4fd1-b297-cf02554ef87e" >
+        <di:waypoint x="835" y="208" />
+        <di:waypoint x="1013" y="202" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="f6e1771d-2b49-4c39-ab52-18911d1c02d0-e1a45be1-d386-400f-ad08-a75f52d5653f" >
+        <di:waypoint x="348" y="202" />
+        <di:waypoint x="522" y="312" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c-1" >
+        <di:waypoint x="45" y="194" />
+        <di:waypoint x="198" y="193" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="f6e1771d-2b49-4c39-ab52-18911d1c02d0-2" >
+        <di:waypoint x="348" y="202" />
+        <di:waypoint x="512" y="107" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="1-f6e1771d-2b49-4c39-ab52-18911d1c02d0" >
+        <di:waypoint x="198" y="193" />
+        <di:waypoint x="348" y="202" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="2-3bf8f9ea-b946-4900-8f89-8f24b4eb9786" >
+        <di:waypoint x="512" y="107" />
+        <di:waypoint x="835" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="e1a45be1-d386-400f-ad08-a75f52d5653f-3bf8f9ea-b946-4900-8f89-8f24b4eb9786" >
+        <di:waypoint x="522" y="312" />
+        <di:waypoint x="835" y="208" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

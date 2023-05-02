@@ -116,36 +116,36 @@
         <dc:Bounds x="685" y="160" width="80" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="cd9b138b-2cc8-429f-8853-9ea0465521b1" >
-        <dc:Bounds x="154" y="79" width="497" height="224" />
+        <dc:Bounds x="149" y="72" width="497" height="224" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-13" >
-        <dc:Bounds x="185" y="183" width="48" height="48" />
+        <dc:Bounds x="171" y="98" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-14" >
-        <dc:Bounds x="580" y="189" width="48" height="48" />
+        <dc:Bounds x="566" y="114" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_jbpm-unique-15" >
-        <dc:Bounds x="355" y="184" width="100" height="48" />
+        <dc:Bounds x="343" y="107" width="100" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-15-_jbpm-unique-14" >
-        <di:waypoint x="251" y="129" />
-        <di:waypoint x="450" y="134" />
+        <di:waypoint x="244" y="59" />
+        <di:waypoint x="441" y="66" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="_jbpm-unique-13-_jbpm-unique-15" >
-        <di:waypoint x="55" y="128" />
-        <di:waypoint x="251" y="129" />
+        <di:waypoint x="46" y="50" />
+        <di:waypoint x="244" y="59" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="e1a45be1-d386-400f-ad08-a75f52d5653f-d0c60321-fe33-4fd1-b297-cf02554ef87e" >
         <di:waypoint x="725" y="184" />
         <di:waypoint x="959" y="186" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="cd9b138b-2cc8-429f-8853-9ea0465521b1-e1a45be1-d386-400f-ad08-a75f52d5653f" >
-        <di:waypoint x="402" y="191" />
+        <di:waypoint x="397" y="184" />
         <di:waypoint x="725" y="184" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="5c80efbc-72a0-4fc6-b8ee-6aec6a53e74c-cd9b138b-2cc8-429f-8853-9ea0465521b1" >
         <di:waypoint x="49" y="184" />
-        <di:waypoint x="402" y="191" />
+        <di:waypoint x="397" y="184" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

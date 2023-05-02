@@ -13,5 +13,9 @@
    <kbase name="multiple_instance_base" packages="multiple_instance">
  		<ksession name="multiple_instance_session"/>
 	</kbase>
+	
+   <kbase name="user_tasks_base" packages="user_tasks">
+ 		<ksession name="user_tasks_session"/>
+	</kbase>
 
 </kmodule>
